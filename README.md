@@ -71,3 +71,24 @@ Open .xcodeworkspace to open the project.
 
 
 ## Back End:
+
+The web services used by Clee was implemented in Java. Jersey was the RESTful Web Services Framework we used. Steps for setting up the project was shown below.
+
+### Servlet Container
+
+Here are current versions of Tomcat we are using right now. You can use any versions you want, but we are not sure if others versions work exact same as these two. 
+
+#### Tomcat 7.0.78 / 8.5.16
+
+Please download the correspond versions Tomcat from their official site: https://tomcat.apache.org
+
+### IDE
+
+IntelliJ was the IDE we originally used. We highly recommend to use IntelliJ since it is very robust on detecting the project type, frameworks, and databases you used.
+
+#### IntelliJ
+
+
+
+#### Eclipse
+
