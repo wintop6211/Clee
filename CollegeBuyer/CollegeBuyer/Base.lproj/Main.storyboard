@@ -1990,9 +1990,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVX-wF-8bS">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Macbook Pro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P9-nt-lnH" customClass="MarqueeLabel" customModule="CollegeBuyer" customModuleProvider="target">
-                                                        <rect key="frame" x="62.333333333333343" y="10.666666666666666" width="290" height="28.666666666666671"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Macbook Pro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P9-nt-lnH">
+                                                        <rect key="frame" x="82.999999999999986" y="11.999999999999998" width="248.66666666666663" height="26.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -2019,7 +2019,7 @@
                                                     <constraint firstItem="6P9-nt-lnH" firstAttribute="centerX" secondItem="TVX-wF-8bS" secondAttribute="centerX" id="6fE-8W-qLr"/>
                                                     <constraint firstAttribute="height" constant="50" id="9b1-rw-KKV"/>
                                                     <constraint firstItem="l9I-fl-dRz" firstAttribute="width" secondItem="l9I-fl-dRz" secondAttribute="height" id="PDC-5y-MxZ"/>
-                                                    <constraint firstItem="6P9-nt-lnH" firstAttribute="width" secondItem="TVX-wF-8bS" secondAttribute="width" multiplier="0.7" id="Yuy-68-bwj"/>
+                                                    <constraint firstItem="6P9-nt-lnH" firstAttribute="width" secondItem="TVX-wF-8bS" secondAttribute="width" multiplier="0.6" id="Yuy-68-bwj"/>
                                                     <constraint firstItem="l9I-fl-dRz" firstAttribute="centerY" secondItem="TVX-wF-8bS" secondAttribute="centerY" id="rHB-2x-SiJ"/>
                                                     <constraint firstItem="6P9-nt-lnH" firstAttribute="centerY" secondItem="TVX-wF-8bS" secondAttribute="centerY" id="rZu-Mg-8iS"/>
                                                     <constraint firstItem="l9I-fl-dRz" firstAttribute="leading" secondItem="TVX-wF-8bS" secondAttribute="leading" constant="16" id="yzT-ZV-Kld"/>

@@ -41,33 +41,39 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item_Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3X-CH-KwH">
-                                    <rect key="frame" x="45.000000000000014" y="0.0" width="249.33333333333337" height="35"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                    <rect key="frame" x="45" y="0.0" width="355" height="35"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                     <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Condition" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI8-bs-aXR" userLabel="Condition">
                                     <rect key="frame" x="304.33333333333331" y="0.0" width="95.666666666666686" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                     <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="tI8-bs-aXR"/>
+                                </mask>
+                            </variation>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auc-BU-2Oe">
-                            <rect key="frame" x="0.0" y="45" width="400" height="318.66666666666669"/>
+                            <rect key="frame" x="0.0" y="45" width="400" height="321"/>
                             <subviews>
                                 <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYa-I4-d4k" userLabel="Item Images" customClass="RoundCornerImageView" customModule="CollegeBuyer" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="318.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="321"/>
                                     <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="roundDegree">
-                                            <real key="value" value="7"/>
+                                            <real key="value" value="4"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xj4-qb-XIp">
-                                    <rect key="frame" x="164" y="276.66666666666669" width="71" height="37"/>
+                                    <rect key="frame" x="164" y="279" width="71" height="37"/>
                                 </pageControl>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7S-vS-xbd">
                                     <rect key="frame" x="362" y="5" width="30" height="30"/>
@@ -91,17 +97,17 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JHS-H1-9Vc" userLabel="Price Footer">
-                            <rect key="frame" x="0.0" y="373.66666666666669" width="400" height="26.333333333333314"/>
+                            <rect key="frame" x="0.0" y="376" width="400" height="24"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q23-lf-LmN" customClass="MarqueeLabel" customModule="CollegeBuyer" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="292" height="26.333333333333332"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300.66666666666669" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                     <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="121 Views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uii-rN-fwW">
-                                    <rect key="frame" x="302" y="0.0" width="98" height="26.333333333333332"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                    <rect key="frame" x="310.66666666666669" y="0.0" width="89.333333333333314" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                     <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
