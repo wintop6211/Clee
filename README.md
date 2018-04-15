@@ -8,8 +8,7 @@ The name of Clee come from the combination of two vocab - College and Flea, as F
 
 # Screenshots:
 
-![](https://lh3.googleusercontent.com/fVQ1mG0S32msgUhjGXWOZniIPpurpe0RzrO46fg8Xpa14piJw1mKRqisD2A0gsadJGnusnX3wQRW "Login")![](https://lh3.googleusercontent.com/ac5I3JBR6KWPFEnz0QioNO3eC5iNKo1G1yhZs0hMz6azY08YyI1tYaP0st2uyHX9YsLdZ20qGnkN "Item List")
-![](https://lh3.googleusercontent.com/sroJB-K4Hdo9W-1Fg6Qj0Lkg2DPnCYIdOLRfPcXlbresxNkex7rHQdNuJ6d793GZi-56CVSg9Hok "Item Detail")![](https://lh3.googleusercontent.com/zHCiwMRh4x2n1-UEefaEYs6_sEDxWrvQvfR-EBbeD3CYVLQeX8WpKMso99q7Wjr72cHhwkilzeqL "User Center")
+![](https://lh3.googleusercontent.com/fVQ1mG0S32msgUhjGXWOZniIPpurpe0RzrO46fg8Xpa14piJw1mKRqisD2A0gsadJGnusnX3wQRW "Login")![](https://lh3.googleusercontent.com/ac5I3JBR6KWPFEnz0QioNO3eC5iNKo1G1yhZs0hMz6azY08YyI1tYaP0st2uyHX9YsLdZ20qGnkN "Item List")![](https://lh3.googleusercontent.com/sroJB-K4Hdo9W-1Fg6Qj0Lkg2DPnCYIdOLRfPcXlbresxNkex7rHQdNuJ6d793GZi-56CVSg9Hok "Item Detail")![](https://lh3.googleusercontent.com/zHCiwMRh4x2n1-UEefaEYs6_sEDxWrvQvfR-EBbeD3CYVLQeX8WpKMso99q7Wjr72cHhwkilzeqL "User Center")
 
 # License:
 
