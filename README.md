@@ -87,7 +87,38 @@ IntelliJ was the IDE we originally used. We highly recommend to use IntelliJ sin
 
 #### IntelliJ
 
+##### Import Project
 
+1. Open **IntelliJ**.
+2. Click **Import Project**.
+3. Navigate to **CollegeBuyerServer** folder.
+4. Click **Open**.
+5. Select **create Project from existing sources**, and click **Next**.
+6. Keep the **default project name**, and click **Next**.
+7. Keep the default **src** folder.
+8. Select **lib** is there are multiple libraries detected.
+9. Keep clicking **Next** with default values.
+10. Click **Finish**.
+11. **IntelliJ** will guide you to set up **database sources** and **pom.xml** dependencies. Messages will appear on the bottom right corner of the window.
+12. The message center of **IntelliJ** will report this in the message center. ![enter image description here](https://lh3.googleusercontent.com/Y2UpRXqmVPwDzasKo8kyc0uXpR-j4o8EwcGBF_INR8PKTmG09uYUQ0NE09mUn2vyjc_buAoMy-L4)
+Please click **Add as Maven Project**
+
+##### Tomcat Set up
+1. It is the time to setup **Tomcat** run configurations.
+![enter image description here](https://lh3.googleusercontent.com/T8hxA-g3COCZkY7dMQjYmb5EwKnOOtFBlmhTqsm6tUePg2G1wN0ZHmNeeKqQkW9pzTNKUUR8_BlB)
+2. Please click **local**.
+![enter image description here](https://lh3.googleusercontent.com/7u4T00G4lgv7yBIRu9FVp-vjF2sAVqNBfcxjwFQf094cTVQHoIAwSsO1VKGuoLkF2VCPE-wTZRtR)
+3. Please **name** your run settings. I named it to be **Tomcat 8.5.16**.
+![enter image description here](https://lh3.googleusercontent.com/JMxwvZ6eR3iVa6Kdhfm08L1UoXZDR4Q0C43FNQgJsJrZbw0aCeQbrhEyA9o2Ix2ncH1xYbW83ppH)
+4. You will see message appear at the bottom of the window. Click **Fix**.
+![enter image description here](https://lh3.googleusercontent.com/AOY_RQv5VPpjtFPwWCBJg2CXMHEUs_u-E_xM7_bJxBbQuchAJkeHc6aIaCEneYYTZySekizq43pk)
+5. Click either is fine.
+![enter image description here](https://lh3.googleusercontent.com/5QERjyf0NUC-WkKSc7-qk9FNbZX79xpIFBvyZFOwrIvmQpWScYL5RGzTmCcwMePf22FeXA7LiseV)
+6. Click **Ok**.
+
+##### Run the server
+![enter image description here](https://lh3.googleusercontent.com/hIhSyGhdSnE5bp6UvTQnBouKfPJvi8r-1ZZyBJrAh0GubMH64GvX3_qCk-w2iWS2Td0mkoWLbGvU)
+Select **Tomcat 8.5.16** or **other names**, and click **green arrow** on the right side of the box. The server should be started easily.
 
 #### Eclipse
 
