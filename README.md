@@ -104,21 +104,14 @@ IntelliJ was the IDE we originally used. We highly recommend to use IntelliJ sin
 Please click **Add as Maven Project**
 
 ##### Tomcat Set up
-1. It is the time to setup **Tomcat** run configurations.
-![enter image description here](https://lh3.googleusercontent.com/T8hxA-g3COCZkY7dMQjYmb5EwKnOOtFBlmhTqsm6tUePg2G1wN0ZHmNeeKqQkW9pzTNKUUR8_BlB)
-2. Please click **local**.
-![enter image description here](https://lh3.googleusercontent.com/7u4T00G4lgv7yBIRu9FVp-vjF2sAVqNBfcxjwFQf094cTVQHoIAwSsO1VKGuoLkF2VCPE-wTZRtR)
-3. Please **name** your run settings. I named it to be **Tomcat 8.5.16**.
-![enter image description here](https://lh3.googleusercontent.com/JMxwvZ6eR3iVa6Kdhfm08L1UoXZDR4Q0C43FNQgJsJrZbw0aCeQbrhEyA9o2Ix2ncH1xYbW83ppH)
-4. You will see message appear at the bottom of the window. Click **Fix**.
-![enter image description here](https://lh3.googleusercontent.com/AOY_RQv5VPpjtFPwWCBJg2CXMHEUs_u-E_xM7_bJxBbQuchAJkeHc6aIaCEneYYTZySekizq43pk)
-5. Click either is fine.
-![enter image description here](https://lh3.googleusercontent.com/5QERjyf0NUC-WkKSc7-qk9FNbZX79xpIFBvyZFOwrIvmQpWScYL5RGzTmCcwMePf22FeXA7LiseV)
+1. It is the time to setup **Tomcat** run configurations. <br> ![enter image description here](https://lh3.googleusercontent.com/920NnqnySyiX_Fch5Ns3hcOHVV_urKqrC5qsSUrwFaHoXJm-EJ6o_thEBGiDyquPdMS3ABgp4VYQ)
+2. Please click **local**. <br>![enter image description here](https://lh3.googleusercontent.com/7u4T00G4lgv7yBIRu9FVp-vjF2sAVqNBfcxjwFQf094cTVQHoIAwSsO1VKGuoLkF2VCPE-wTZRtR)
+3. Please **name** your run settings. I named it to be **Tomcat 8.5.16**.<br>![enter image description here](https://lh3.googleusercontent.com/JMxwvZ6eR3iVa6Kdhfm08L1UoXZDR4Q0C43FNQgJsJrZbw0aCeQbrhEyA9o2Ix2ncH1xYbW83ppH)
+4. You will see message appear at the bottom of the window. Click **Fix**.<br>![enter image description here](https://lh3.googleusercontent.com/AOY_RQv5VPpjtFPwWCBJg2CXMHEUs_u-E_xM7_bJxBbQuchAJkeHc6aIaCEneYYTZySekizq43pk)
+5. Click either is fine. <br>![enter image description here](https://lh3.googleusercontent.com/5QERjyf0NUC-WkKSc7-qk9FNbZX79xpIFBvyZFOwrIvmQpWScYL5RGzTmCcwMePf22FeXA7LiseV)
 6. Click **Ok**.
 
 ##### Run the server
-![enter image description here](https://lh3.googleusercontent.com/hIhSyGhdSnE5bp6UvTQnBouKfPJvi8r-1ZZyBJrAh0GubMH64GvX3_qCk-w2iWS2Td0mkoWLbGvU)
-Select **Tomcat 8.5.16** or **other names**, and click **green arrow** on the right side of the box. The server should be started easily.
+![enter image description here](https://lh3.googleusercontent.com/hIhSyGhdSnE5bp6UvTQnBouKfPJvi8r-1ZZyBJrAh0GubMH64GvX3_qCk-w2iWS2Td0mkoWLbGvU)<br>Select **Tomcat 8.5.16** or **other names**, and click **green arrow** on the right side of the box. The server should be started easily.
 
 #### Eclipse
-
