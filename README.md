@@ -112,5 +112,3 @@ IntelliJ was the IDE we originally used. We highly recommend to use IntelliJ sin
 
 ##### Run the server
 ![enter image description here](https://lh3.googleusercontent.com/hIhSyGhdSnE5bp6UvTQnBouKfPJvi8r-1ZZyBJrAh0GubMH64GvX3_qCk-w2iWS2Td0mkoWLbGvU)<br>Select **Tomcat 8.5.16** or **other names**, and click **green arrow** on the right side of the box. The server should be started easily.
-
-#### Eclipse
