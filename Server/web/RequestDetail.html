@@ -1,0 +1,183 @@
+<html>
+
+    <head>
+        <title>Request Detail</title>
+
+        <style>
+
+            body{
+                background: #FF3450;
+            }
+
+            #MainDiv{
+
+                box-shadow: 2px 2px 5px #888888;
+                background: #F7F8F8;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                width: 60%;
+                height: 100%;
+                margin-top: 7%;
+                margin-left: 20%;
+                margin-right: 20%;
+                margin-bottom: 0%;
+                position: absolute;
+                text-align: center;
+
+            }
+
+            #SellerProfilePicDiv{
+
+                border-top-left-radius: 5px;
+                background: #E84E3F;
+                position: absolute;
+                width: 50%;
+                height: 30%;
+                left: 0;
+                top: 0;
+
+            }
+
+            #BuyerProfilePicDiv{
+
+                border-top-right-radius: 5px;
+                background: #29B6F6;
+                position: absolute;
+                width: 50%;
+                height: 30%;
+                right: 0%;
+                top: 0%;
+
+            }
+
+            #CalenderDivContainer {
+
+                margin-left: 45%;
+                margin-top: 37%;
+                width: 10%;
+                padding-top: 10%; /* 1:1 Aspect Ratio */
+                position: absolute; /* If you want text inside of it */
+
+            }
+
+            #CalenderDiv{
+
+                border-radius: 10px;
+                background: white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+
+            }
+
+            #CalenderTopPartDiv{
+
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                background: #E84E3F;
+                position: absolute;
+                width: 100%;
+                height: 33%;
+                left: 0%;
+                top: 0%;
+
+            }
+
+            table{
+                width: 100%;
+            }
+
+            .ProfilePic{
+
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+
+            }
+
+            .ItemImage{
+                width: 400px;
+                height: 200px;
+            }
+
+            h2, h3, h1 {
+
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-weight: 900;
+                color: white;
+                text-align: center;
+
+            }
+
+            .ProfilePicTable{
+
+                width: 100%;
+                height: 100%;
+                margin-left: 0%;
+                margin-top: 0%;
+                position: absolute;
+                
+            }
+        
+        </style>
+    </head>
+
+    <body>
+
+        <table>
+            <tr>
+                    <h1 style = "position: absolute; width: 100%; margin-left: 0%; margin-top: 2%;">Request For: *Product_Name*</h1>
+            </tr>
+        </table>
+
+        <div id = "MainDiv">
+
+            <div id = "SellerProfilePicDiv">
+
+                <table class = "ProfilePicTable">
+
+                    <tr>
+                        <h2>Seller</h2>
+                    </tr>
+                    <tr>
+                        <img class = "ProfilePic" src = "./Seller_Profile_Pic.jpg">
+                    </tr>
+
+                </table>
+
+            </div>
+            <div id = "BuyerProfilePicDiv">
+
+                <table class = "ProfilePicTable">
+
+                    <tr>
+                        <h2>Buyer</h2>
+                    </tr>
+                    <tr>
+                        <img class = "ProfilePic" src = "./Buyer_Profile_Pic.jpeg">
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <h2 style = "color:black; position: absolute; width: 100%; margin-top: 28%">Time</h2>
+            <h3 style = "color:black; position: absolute; width: 100%; font-weight: normal; margin-top: 32%">*Time*</h3>
+
+            <div id = "CalenderDivContainer">
+                <div id = "CalenderDiv">
+                    <div id = "CalenderTopPartDiv"><h3 style="position: absolute; width: 100%; height: 100%; margin-left: 0%; margin-top: 0%">*Month*</h3></div>
+                    <h2 style="color:black; position: absolute; width: 100%; height: 67%; margin-left: 0%; margin-top: 33%">*Day*</h2>
+                </div>
+            </div>
+            
+            <h2 style = "color:black; position: absolute; width: 100%; margin-top: 50%">Location</h2>
+            <h3 style = "color:black; position: absolute; width: 100%; font-weight: normal; margin-top: 54%">*Location*</h3>
+
+        </div>
+
+    </body>
+
+</html>

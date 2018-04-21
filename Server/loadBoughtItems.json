@@ -1,0 +1,19 @@
+{
+    "Success": [
+        {
+            "id": "<id>",
+            "name": "<itemName>",
+            "price": "<condition>",
+            "condition": "<condition>",
+            "status": "<status>",
+            "description": "<description>",
+            "seller": {
+                "id": "<id>",
+                "name": "<name>",
+                "gender": "<gender>",
+                "rate": "<rate>",
+                "school": "<schoolName>"
+            }
+        }
+    ]
+}

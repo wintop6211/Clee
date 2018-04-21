@@ -1,0 +1,40 @@
+{
+    "Success": [
+        {
+            "id": "<id>",
+            "name": "<itemName>",
+            "price": "<condition>",
+            "condition": "<condition>",
+            "status": "<status>",
+            "description": "<description>",
+            "seller": {
+                "id": "<id>",
+                "name": "<name>",
+                "gender": "<gender>",
+                "rate": "<rate>",
+                "school": "<schoolName>"
+            },
+            "requests": [
+                {
+                    "id": "<id>",
+                    "price": "<price>",
+                    "note": "<note>",
+                    "buyer": {
+                        "id": "<id>",
+                        "name": "<name>",
+                        "gender": "<gender>",
+                        "rate": "<rate>",
+                        "school": "<schoolName>"
+                    },
+                    "tradingAddress": {
+                        "addressLine1": "<addressLine1>",
+                        "addressLine2": "<addressLine2>",
+                        "city": "<city>",
+                        "state": "<state>",
+                        "zipcode": "<zipcode>"
+                    }
+                }
+            ]
+        }
+    ]
+}

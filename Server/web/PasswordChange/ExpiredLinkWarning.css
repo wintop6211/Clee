@@ -1,0 +1,51 @@
+body {
+    background-color: #ff3450
+}
+
+div {
+    width: 50%;
+    padding: 10px;
+    margin-top: 6%;
+    margin-left: 5%
+}
+
+img {
+    height: 56px;
+    width: 56px;
+}
+
+#title {
+    color: white;
+    font-family: Arial,serif;
+    font-size: 60px;
+    margin: 30px 0 0 0;
+    text-align: center
+}
+
+#subtitle {
+    color: white;
+    font-family: Arial,serif;
+    font-size: 25px;
+    margin: 30px 0 0 0;
+    text-align: center
+}
+
+@media screen and (max-width: 450px) {
+    div {
+        width: 90%;
+    }
+
+    img {
+        height: 30px;
+        width: 30px;
+    }
+
+    #title {
+        font-size: 30px;
+    }
+
+    #subtitle {
+        font-size: 15px;
+    }
+}
+

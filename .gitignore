@@ -92,3 +92,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Back-end ignore files
+.idea/
+target/
+*.iml
+out/
