@@ -96,9 +96,6 @@ public class Change {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return jsonObject;
     }

@@ -22,7 +22,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
+import java.util.concurrent.ExecutionException;
 
 import static main.java.services.product.purchase.APNConnection.getAPNConnectorFromSession;
 
@@ -41,7 +45,8 @@ public class Cancel {
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response cancelPurchaseRequestForSeller(@CookieParam("loginIdentifier") String loginIdentifier,
-                                                   @FormParam("requestId") int requestId) {
+                                                   @FormParam("requestId") int requestId)
+            throws InterruptedException, ExecutionException, NoSuchAlgorithmException, InvalidKeyException, IOException {
         JSONObject jsonObject = cancelPurchaseRequest(UserType.SELLER, loginIdentifier, requestId);
         return Response.ok(jsonObject.toString()).build();
     }
@@ -50,12 +55,14 @@ public class Cancel {
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response cancelPurchaseRequestForBuyer(@CookieParam("loginIdentifier") String loginIdentifier,
-                                                  @FormParam("requestId") int requestId) {
+                                                  @FormParam("requestId") int requestId)
+            throws InterruptedException, ExecutionException, NoSuchAlgorithmException, InvalidKeyException, IOException {
         JSONObject jsonObject = cancelPurchaseRequest(UserType.BUYER, loginIdentifier, requestId);
         return Response.ok(jsonObject.toString()).build();
     }
 
-    private JSONObject cancelPurchaseRequest(UserType userType, String loginIdentifier, int requestId) {
+    private JSONObject cancelPurchaseRequest(UserType userType, String loginIdentifier, int requestId)
+            throws NoSuchAlgorithmException, InvalidKeyException, IOException, ExecutionException, InterruptedException {
         JSONObject jsonObject = new JSONObject();
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -107,10 +114,6 @@ public class Cancel {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = new JSONObject();
-            jsonObject.put("Error", e.toString());
         }
         return jsonObject;
     }

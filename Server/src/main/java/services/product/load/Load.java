@@ -24,6 +24,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
@@ -61,8 +62,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -90,9 +89,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -124,10 +120,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            request.getSession(false).invalidate();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -156,9 +148,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -187,9 +176,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -219,9 +205,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -230,7 +213,7 @@ public class Load {
     @GET
     @Produces("image/jpeg")
     public Response loadSellingItemCoverPhoto(@CookieParam("loginIdentifier") String loginIdentifier,
-                                              @CookieParam("sellingItemOffset") int sellingItemOffset) {
+                                              @CookieParam("sellingItemOffset") int sellingItemOffset) throws IOException {
         byte[] image = new byte[0];
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -252,8 +235,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return Response.ok(new ByteArrayInputStream(image)).build();
     }
@@ -262,7 +243,7 @@ public class Load {
     @GET
     @Produces("image/jpeg")
     public Response loadBoughtItemCoverPhoto(@CookieParam("loginIdentifier") String loginIdentifier,
-                                             @CookieParam("boughtItemOffset") int boughtItemOffset) {
+                                             @CookieParam("boughtItemOffset") int boughtItemOffset) throws IOException {
         byte[] image = new byte[0];
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -284,8 +265,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return Response.ok(new ByteArrayInputStream(image)).build();
     }
@@ -294,7 +273,7 @@ public class Load {
     @GET
     @Produces("image/jpeg")
     public Response loadRequestedItemCoverPhoto(@CookieParam("loginIdentifier") String loginIdentifier,
-                                                @CookieParam("requestedItemOffset") int requestedItemOffset) {
+                                                @CookieParam("requestedItemOffset") int requestedItemOffset) throws IOException {
         byte[] image = new byte[0];
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -316,8 +295,6 @@ public class Load {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return Response.ok(new ByteArrayInputStream(image)).build();
     }

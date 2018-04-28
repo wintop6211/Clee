@@ -4,7 +4,6 @@ import main.java.configuration.SessionProvider;
 import main.java.entities.User;
 import main.java.entities.managements.DeviceManagement;
 import main.java.entities.managements.UserManagement;
-import main.java.json.JSONResponseGenerator;
 import main.java.notification.APNConnector;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -20,6 +19,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 @Path("/UserServices")
 public class Device {
@@ -45,9 +47,6 @@ public class Device {
             jsonObject.put("Success", "The device has been uploaded.");
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -76,9 +75,6 @@ public class Device {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -86,34 +82,24 @@ public class Device {
     @Path("/connectAPN")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response connectAPN() {
+    public Response connectAPN() throws InvalidKeyException, NoSuchAlgorithmException, IOException {
         JSONObject jsonObject = new JSONObject();
-        try {
-            setUpAPNConnection();
-            jsonObject.put("Success", "The connection is set up.");
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
-        }
+        setUpAPNConnection();
+        jsonObject.put("Success", "The connection is set up.");
         return Response.ok(jsonObject.toString()).build();
     }
 
     @Path("/disconnectAPN")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response disconnectAPN() {
+    public Response disconnectAPN() throws InterruptedException {
         JSONObject jsonObject = new JSONObject();
-        try {
-            disconnectAPNConnection();
-            jsonObject.put("Success", "The connection is disconnected.");
-        } catch (Exception e) {
-            jsonObject.put("Error", "The notification could not be disconnected.");
-            e.printStackTrace();
-        }
+        disconnectAPNConnection();
+        jsonObject.put("Success", "The connection is disconnected.");
         return Response.ok(jsonObject.toString()).build();
     }
 
-    private void setUpAPNConnection() throws Exception {
+    private void setUpAPNConnection() throws InvalidKeyException, NoSuchAlgorithmException, IOException {
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(3600 * 24); // one day
         APNConnector connector = new APNConnector();

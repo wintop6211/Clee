@@ -6,7 +6,6 @@ import main.java.entities.User;
 import main.java.entities.managements.ProductManagement;
 import main.java.entities.managements.UserManagement;
 import main.java.json.JSONResponseGenerator;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.json.JSONObject;
@@ -57,12 +56,6 @@ public class Delete {
             }
 
             transaction.commit();
-        } catch (HibernateException e) {
-            jsonObject = JSONResponseGenerator.formHibernateExceptionJSON(e);
-            e.printStackTrace();
-        } catch (Exception e) {
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
-            e.printStackTrace();
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -102,11 +95,6 @@ public class Delete {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            jsonObject = new JSONObject();
-            jsonObject.put("Error", "The item cannot be deleted.");
-            jsonObject.put("ErrorDetail", e.toString());
-            e.printStackTrace();
         }
         return Response.ok(jsonObject.toString()).build();
     }

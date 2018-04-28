@@ -8,7 +8,6 @@ import main.java.entities.managements.ProductManagement;
 import main.java.entities.managements.UserManagement;
 import main.java.json.JSONResponseGenerator;
 import org.glassfish.jersey.media.multipart.MultiPartMediaTypes;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.json.JSONObject;
@@ -24,6 +23,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 @Path("/ProductServices")
 public class Get {
@@ -63,12 +63,6 @@ public class Get {
             }
 
             transaction.commit();
-        } catch (HibernateException e) {
-            jsonObject = JSONResponseGenerator.formHibernateExceptionJSON(e);
-            e.printStackTrace();
-        } catch (Exception e) {
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
-            e.printStackTrace();
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -78,7 +72,7 @@ public class Get {
     @Produces("image/jpeg")
     public Response getItemImage(@PathParam("isHighResolution") boolean isHighResolution,
                                  @PathParam("itemId") int itemId,
-                                 @PathParam("itemImageIndex") int itemImageIndex) {
+                                 @PathParam("itemImageIndex") int itemImageIndex) throws IOException {
         byte[] imageData = new byte[0];
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -94,8 +88,6 @@ public class Get {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
@@ -115,12 +107,6 @@ public class Get {
             productManagement.set(product);
 
             transaction.commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formHibernateExceptionJSON(e);
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }

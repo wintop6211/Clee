@@ -4,13 +4,13 @@ import main.java.configuration.SessionProvider;
 import main.java.email.EmailController;
 import main.java.entities.User;
 import main.java.entities.managements.UserManagement;
-import main.java.json.JSONResponseGenerator;
 import main.java.services.helpers.PathManager;
 import main.java.status.manager.LoginStatusManager;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.json.JSONObject;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +25,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class ForgotPassword {
     @Path("/forgotPassword")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response forgotPassword(@FormParam("emailAddress") String emailAddress) {
+    public Response forgotPassword(@FormParam("emailAddress") String emailAddress) throws MessagingException {
         JSONObject jsonObject = new JSONObject();
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -59,8 +60,6 @@ public class ForgotPassword {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -68,8 +67,8 @@ public class ForgotPassword {
     @Path("/changePassword/{loginIdentifier}")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public InputStream changePassword(@PathParam("loginIdentifier") String loginIdentifier) {
-        InputStream inputStream = null;
+    public InputStream changePassword(@PathParam("loginIdentifier") String loginIdentifier) throws IOException {
+        InputStream inputStream;
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
 
@@ -86,8 +85,6 @@ public class ForgotPassword {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return inputStream;
     }
@@ -125,25 +122,21 @@ public class ForgotPassword {
     @Path("/changePassword/finish")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public InputStream successChangePassword(@CookieParam("changedPassword") String changedPassword) {
-        InputStream inputStream = null;
-        try {
-            switch (changedPassword) {
-                case "successful":
-                    inputStream = getWebPage(context, "/PasswordChange/ChangePasswordSuccess.html");
-                    break;
-                case "usr-non-exist":
-                    inputStream = getWebPage(context, "/UserDoesNotExist.html");
-                    break;
-                case "error":
-                    // error happened.
-                    inputStream = getWebPage(context, "/ExceptionThrown.html");
-                    break;
-                default:
-                    inputStream = getWebPage(context, "/PasswordChange/ExpiredLinkWarning.html");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    public InputStream successChangePassword(@CookieParam("changedPassword") String changedPassword) throws IOException {
+        InputStream inputStream;
+        switch (changedPassword) {
+            case "successful":
+                inputStream = getWebPage(context, "/PasswordChange/ChangePasswordSuccess.html");
+                break;
+            case "usr-non-exist":
+                inputStream = getWebPage(context, "/UserDoesNotExist.html");
+                break;
+            case "error":
+                // error happened.
+                inputStream = getWebPage(context, "/ExceptionThrown.html");
+                break;
+            default:
+                inputStream = getWebPage(context, "/PasswordChange/ExpiredLinkWarning.html");
         }
         return inputStream;
     }

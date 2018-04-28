@@ -82,12 +82,6 @@ public class Post {
             }
 
             transaction.commit();
-        } catch (HibernateException e) {
-            jsonObject = JSONResponseGenerator.formHibernateExceptionJSON(e);
-            e.printStackTrace();
-        } catch (Exception e) {
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
-            e.printStackTrace();
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -98,7 +92,7 @@ public class Post {
     public Response postItemImage(@CookieParam("loginIdentifier") String loginIdentifier,
                                   @CookieParam("postedItemId") int itemId,
                                   @FormDataParam("imageIndex") int imageIndex,
-                                  @FormDataParam("itemImage") InputStream imageStream) {
+                                  @FormDataParam("itemImage") InputStream imageStream) throws IOException {
         JSONObject jsonObject = new JSONObject();
         if (itemId > 0) {
             try (final Session session = SessionProvider.getSession()) {
@@ -125,15 +119,6 @@ public class Post {
                 }
 
                 transaction.commit();
-            } catch (HibernateException e) {
-                jsonObject = JSONResponseGenerator.formHibernateExceptionJSON(e);
-                e.printStackTrace();
-            } catch (IOException e) {
-                jsonObject = JSONResponseGenerator.formImageIOExceptionWhenWriteJSON(e);
-                e.printStackTrace();
-            } catch (Exception e) {
-                jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
-                e.printStackTrace();
             }
         } else {
             jsonObject.put("Fail", "Please upload item basic info first.");

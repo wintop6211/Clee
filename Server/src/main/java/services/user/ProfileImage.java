@@ -20,6 +20,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 @Path("/UserServices")
@@ -27,7 +28,7 @@ public class ProfileImage {
     @Path("/getProfilePic")
     @GET
     @Produces("image/jpeg")
-    public Response getProfilePic(@CookieParam("loginIdentifier") String loginIdentifier) {
+    public Response getProfilePic(@CookieParam("loginIdentifier") String loginIdentifier) throws IOException {
         byte[] imageData = loadUserProfileImage(loginIdentifier, 0);
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
@@ -36,7 +37,7 @@ public class ProfileImage {
     @GET
     @Produces("image/png")
     public Response getProfilePic(@CookieParam("loginIdentifier") String loginIdentifier,
-                                  @PathParam("userId") int userId) {
+                                  @PathParam("userId") int userId) throws IOException {
         byte[] imageData = loadUserProfileImage(loginIdentifier, userId);
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
@@ -45,7 +46,7 @@ public class ProfileImage {
     @GET
     @Produces("image/jpeg")
     public Response getProfilePicByEmail(@PathParam("loginIdentifier") String loginIdentifier,
-                                         @PathParam("userId") int userId) {
+                                         @PathParam("userId") int userId) throws IOException {
         byte[] imageData = loadUserProfileImage(loginIdentifier, userId);
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
@@ -54,7 +55,7 @@ public class ProfileImage {
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response uploadProfileImage(@CookieParam("loginIdentifier") String loginIdentifier,
-                                       @FormDataParam("profilePicture") InputStream profilePicData) {
+                                       @FormDataParam("profilePicture") InputStream profilePicData) throws IOException {
         JSONObject jsonObject = new JSONObject();
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -72,14 +73,11 @@ public class ProfileImage {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
 
-    private byte[] loadUserProfileImage(String loginIdentifier, int userId) {
+    private byte[] loadUserProfileImage(String loginIdentifier, int userId) throws IOException {
         byte[] imageData = new byte[0];
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -98,8 +96,6 @@ public class ProfileImage {
                 imageData = ImageManagement.readImage(path, false);
             }
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return imageData;
     }

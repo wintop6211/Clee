@@ -4,7 +4,6 @@ import main.java.configuration.SessionProvider;
 import main.java.entities.User;
 import main.java.entities.managements.UserManagement;
 import main.java.json.JSONResponseGenerator;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.json.JSONObject;
@@ -58,9 +57,6 @@ public class Info {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -84,9 +80,6 @@ public class Info {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -113,10 +106,6 @@ public class Info {
             }
 
             transaction.commit();
-        } catch (HibernateException e) {
-            jsonObject = JSONResponseGenerator.formHibernateExceptionJSON(e);
-        } catch (Exception e) {
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return jsonObject;
     }

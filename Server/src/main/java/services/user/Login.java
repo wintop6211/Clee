@@ -48,9 +48,6 @@ public class Login {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -83,12 +80,6 @@ public class Login {
             }
 
             transaction.commit();
-        } catch (HibernateException e) {
-            jsonObject = JSONResponseGenerator.formHibernateExceptionJSON(e);
-            e.printStackTrace();
-        } catch (Exception e) {
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
-            e.printStackTrace();
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -114,8 +105,6 @@ public class Login {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return Response.ok(jsonObject.toString()).build();
     }

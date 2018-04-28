@@ -1,6 +1,5 @@
 package main.java.services.product;
 
-import main.java.json.JSONResponseGenerator;
 import main.java.configuration.SessionProvider;
 import main.java.entities.Category;
 import org.hibernate.Session;
@@ -21,7 +20,7 @@ public class CategoryServices {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllCategories() {
-        Transaction transaction = null;
+        Transaction transaction;
         JSONObject jsonObject = new JSONObject();
         try (final Session session = SessionProvider.getSession()) {
             transaction = session.beginTransaction();
@@ -36,10 +35,6 @@ public class CategoryServices {
             }
             jsonObject.put("categories", jsonArray);
             transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
-            e.printStackTrace();
         }
         return Response.ok(jsonObject.toString()).build();
     }

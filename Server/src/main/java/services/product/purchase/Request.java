@@ -26,8 +26,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import static main.java.services.product.purchase.APNConnection.getAPNConnectorFromSession;
 
@@ -43,7 +47,8 @@ public class Request {
     public Response purchaseItem(@CookieParam("loginIdentifier") String loginIdentifier,
                                  @FormParam("offerPrice") double offerPrice,
                                  @FormParam("note") String note,
-                                 @FormParam("itemId") int itemId) {
+                                 @FormParam("itemId") int itemId)
+            throws InvalidKeyException, NoSuchAlgorithmException, IOException, ExecutionException, InterruptedException {
         JSONObject jsonObject = new JSONObject();
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -102,10 +107,6 @@ public class Request {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = new JSONObject();
-            jsonObject.put("Error", e.toString());
         }
         return Response.ok(jsonObject.toString()).build();
     }
@@ -121,24 +122,7 @@ public class Request {
             int size = pendingRequests.size();
             jsonObject.put("Success", size);
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
-
-    //    private String convertSpecificDateForEmailNotification(Date startDate) {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("M-d-yyyy EEEE, h:mm a");
-//        return simpleDateFormat.format(startDate);
-//    }
-//
-//    private String convertMonthForEmailNotification(Date startDate) {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM");
-//        return simpleDateFormat.format(startDate);
-//    }
-//
-//    private String convertDayForEmailNotification(Date startDate) {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d");
-//        return simpleDateFormat.format(startDate);
 }

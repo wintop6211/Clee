@@ -13,13 +13,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 @Path("/UserServices")
 public class Logo {
     @Path("/getSchoolLogo")
     @GET
     @Produces("image/jpeg")
-    public Response getSchoolLogo(@CookieParam("loginIdentifier") String loginIdentifier) {
+    public Response getSchoolLogo(@CookieParam("loginIdentifier") String loginIdentifier) throws IOException {
         byte[] image = new byte[0];
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -36,8 +37,6 @@ public class Logo {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return Response.ok(new ByteArrayInputStream(image)).build();
     }

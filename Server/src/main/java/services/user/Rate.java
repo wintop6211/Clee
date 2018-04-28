@@ -37,7 +37,6 @@ public class Rate {
             user.setLoginIdentifier(loginIdentifier);
 
             if (userManagement.isExist(user)) {
-                user = userManagement.get(loginIdentifier);
                 SellerReview sellerReview = new SellerReview();
                 sellerReview.setUserIdUser(sellerId);
                 sellerReview.setStars(rate);
@@ -48,9 +47,6 @@ public class Rate {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject).build();
     }

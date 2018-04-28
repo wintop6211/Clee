@@ -22,6 +22,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
 import java.io.InputStream;
 
 @Path("/UserServices")
@@ -39,7 +40,7 @@ public class Registration {
                                     @FormDataParam("gender") int gender,
                                     @FormDataParam("phone") String phone,
                                     @FormDataParam("profilePicture") InputStream profilePicData,
-                                    @FormDataParam("schoolName") String schoolName) {
+                                    @FormDataParam("schoolName") String schoolName) throws IOException {
         password = DigestUtils.sha256Hex(password);
         JSONObject jsonObject = new JSONObject();
         try (final Session session = SessionProvider.getSession()) {
@@ -77,9 +78,6 @@ public class Registration {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }

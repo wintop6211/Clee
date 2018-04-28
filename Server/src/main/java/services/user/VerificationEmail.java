@@ -34,7 +34,7 @@ public class VerificationEmail {
     @Path("/verifyEmailAddress/{loginIdentifier}")
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public InputStream verifyEmailAddress(@PathParam("loginIdentifier") String loginIdentifier) {
+    public InputStream verifyEmailAddress(@PathParam("loginIdentifier") String loginIdentifier) throws IOException {
         FileInputStream fileInputStream = null;
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -51,12 +51,6 @@ public class VerificationEmail {
                 fileInputStream = getWebPage(context, "/EmailConfirmationWebPages/ExpiredLinkWarning.html");
             }
             transaction.commit();
-        } catch (Exception e) {
-            try {
-                fileInputStream = getWebPage(context, "/ExceptionThrown.html");
-            } catch (IOException tempE) {
-                tempE.printStackTrace();
-            }
         }
         return fileInputStream;
     }
@@ -64,7 +58,7 @@ public class VerificationEmail {
     @Path("/sendVerificationEmail")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response sendVerificationEmail(@CookieParam("loginIdentifier") String loginIdentifier) {
+    public Response sendVerificationEmail(@CookieParam("loginIdentifier") String loginIdentifier) throws MessagingException {
         JSONObject jsonObject = new JSONObject();
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -78,10 +72,6 @@ public class VerificationEmail {
                 jsonObject = JSONResponseGenerator.formSignedOutJSON();
             }
             transaction.commit();
-        } catch (MessagingException e) {
-            jsonObject = JSONResponseGenerator.formMessagingExceptionJSON(e);
-        } catch (Exception e) {
-            jsonObject = JSONResponseGenerator.formUnknownExceptionJSON(e);
         }
         return Response.ok(jsonObject.toString()).build();
     }
