@@ -31,7 +31,7 @@ import java.util.List;
 
 import static main.java.services.helpers.WebPageGetter.getWebPage;
 
-@Path("/UserServices")
+@Path("/user/password")
 public class ForgotPassword {
 
     @Context
@@ -39,7 +39,7 @@ public class ForgotPassword {
     @Context
     HttpServletResponse response;
 
-    @Path("/forgotPassword")
+    @Path("/forgot")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response forgotPassword(@FormParam("emailAddress") String emailAddress) throws MessagingException {
@@ -64,7 +64,7 @@ public class ForgotPassword {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/changePassword/{loginIdentifier}")
+    @Path("/change/{loginIdentifier}")
     @GET
     @Produces(MediaType.TEXT_HTML)
     public InputStream changePassword(@PathParam("loginIdentifier") String loginIdentifier) throws IOException {
@@ -89,7 +89,7 @@ public class ForgotPassword {
         return inputStream;
     }
 
-    @Path("/changePassword")
+    @Path("/change/result")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response changePasswordPersistently(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -119,7 +119,7 @@ public class ForgotPassword {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/changePassword/finish")
+    @Path("/change/finish")
     @GET
     @Produces(MediaType.TEXT_HTML)
     public InputStream successChangePassword(@CookieParam("changedPassword") String changedPassword) throws IOException {

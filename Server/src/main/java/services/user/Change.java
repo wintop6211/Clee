@@ -16,7 +16,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/UserServices/change")
+@Path("/user/change")
 public class Change {
     @Path("/name")
     @POST

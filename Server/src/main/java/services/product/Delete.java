@@ -19,9 +19,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.File;
 
-@Path("/ProductServices")
+@Path("/product")
 public class Delete {
-    @Path("/deleteItemImage")
+    @Path("/delete/image")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response deleteItemImage(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -60,7 +60,7 @@ public class Delete {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/deleteItem")
+    @Path("/delete")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response removeItem(@CookieParam("loginIdentifier") String loginIdentifier,

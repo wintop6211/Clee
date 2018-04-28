@@ -25,13 +25,13 @@ import java.util.List;
 
 import static main.java.services.helpers.WebPageGetter.getWebPage;
 
-@Path("/UserServices")
+@Path("/user")
 public class VerificationEmail {
 
     @Context
     ServletContext context;
 
-    @Path("/verifyEmailAddress/{loginIdentifier}")
+    @Path("/verify/{loginIdentifier}")
     @GET
     @Produces(MediaType.TEXT_HTML)
     public InputStream verifyEmailAddress(@PathParam("loginIdentifier") String loginIdentifier) throws IOException {
@@ -55,7 +55,7 @@ public class VerificationEmail {
         return fileInputStream;
     }
 
-    @Path("/sendVerificationEmail")
+    @Path("/verify/send")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response sendVerificationEmail(@CookieParam("loginIdentifier") String loginIdentifier) throws MessagingException {

@@ -31,13 +31,13 @@ import java.util.concurrent.ExecutionException;
 
 import static main.java.services.product.purchase.APNConnection.getAPNConnectorFromSession;
 
-@Path("/ProductServices")
+@Path("/product/request")
 public class Confirm {
 
     @Context
     HttpServletRequest request;
 
-    @Path("/confirmPurchaseRequest")
+    @Path("/confirm")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response confirmPurchaseRequest(@CookieParam("loginIdentifier") String loginIdentifier,

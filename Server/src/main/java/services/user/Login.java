@@ -23,13 +23,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/UserServices")
+@Path("/user")
 public class Login {
 
     @Context
     HttpServletResponse response;
 
-    @Path("/isLoggedIn")
+    @Path("/login/check")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response isLoggedIn(@CookieParam("loginIdentifier") String loginIdentifier) {

@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.concurrent.ExecutionException;
 
 public class APNConnector {
 
@@ -27,7 +28,7 @@ public class APNConnector {
                 .build();
     }
 
-    public void sendPurchaseRequestNotification(String deviceToken, String seller) throws Exception {
+    public void sendPurchaseRequestNotification(String deviceToken, String seller) throws ExecutionException, InterruptedException {
         if (deviceToken != null) {
             String title = "Purchase Request";
             String body = "The purchase request from " + seller;
@@ -35,7 +36,7 @@ public class APNConnector {
         }
     }
 
-    public void sendConfirmRequestNotification(String deviceToken, String seller, String product) throws Exception {
+    public void sendConfirmRequestNotification(String deviceToken, String seller, String product) throws ExecutionException, InterruptedException {
         if (deviceToken != null) {
             String title = "Request confirmed";
             String body = product + " has confirmed by " + seller;
@@ -43,7 +44,7 @@ public class APNConnector {
         }
     }
 
-    public void sendCancelRequestNotification(String deviceToken, String user, String product) throws Exception {
+    public void sendCancelRequestNotification(String deviceToken, String user, String product) throws ExecutionException, InterruptedException {
         if (deviceToken != null) {
             String title = "Request Canceled";
             String body = user + " canceled request for " + product;
@@ -56,7 +57,7 @@ public class APNConnector {
         closeFuture.await();
     }
 
-    private void sendNotification(String deviceToken, String title, String body) throws Exception {
+    private void sendNotification(String deviceToken, String title, String body) throws ExecutionException, InterruptedException {
         ApnsPayloadBuilder payloadBuilder = new ApnsPayloadBuilder();
         payloadBuilder.setAlertTitle(title);
         payloadBuilder.setAlertBody(body);

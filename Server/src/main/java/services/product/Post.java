@@ -29,13 +29,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-@Path("/ProductServices")
+@Path("/product")
 public class Post {
 
     @Context
     HttpServletResponse response;
 
-    @Path("/postItem")
+    @Path("/post")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
@@ -86,7 +86,7 @@ public class Post {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/postItemImage")
+    @Path("/post/image")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response postItemImage(@CookieParam("loginIdentifier") String loginIdentifier,

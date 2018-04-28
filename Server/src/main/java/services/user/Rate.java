@@ -18,9 +18,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/UserServices")
+@Path("/user")
 public class Rate {
-    @Path("/rateSeller")
+    @Path("/rate/seller")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response rateSeller(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -51,7 +51,7 @@ public class Rate {
         return Response.ok(jsonObject).build();
     }
 
-    @Path("/rateBuyer")
+    @Path("/rate/buyer")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response rateBuyer() {

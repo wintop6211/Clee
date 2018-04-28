@@ -23,9 +23,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-@Path("/UserServices")
+@Path("/user/image")
 public class ProfileImage {
-    @Path("/getProfilePic")
+    @Path("/get")
     @GET
     @Produces("image/jpeg")
     public Response getProfilePic(@CookieParam("loginIdentifier") String loginIdentifier) throws IOException {
@@ -33,7 +33,7 @@ public class ProfileImage {
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
 
-    @Path("/getProfilePic/{userId}")
+    @Path("/get/{userId}")
     @GET
     @Produces("image/png")
     public Response getProfilePic(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -42,7 +42,7 @@ public class ProfileImage {
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
 
-    @Path("/getProfilePic/{loginIdentifier}/{userId}")
+    @Path("/get/{loginIdentifier}/{userId}")
     @GET
     @Produces("image/jpeg")
     public Response getProfilePicByEmail(@PathParam("loginIdentifier") String loginIdentifier,
@@ -51,7 +51,7 @@ public class ProfileImage {
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
 
-    @Path("/uploadProfileImage")
+    @Path("/upload")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response uploadProfileImage(@CookieParam("loginIdentifier") String loginIdentifier,

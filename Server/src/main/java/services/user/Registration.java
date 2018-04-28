@@ -25,13 +25,13 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.io.InputStream;
 
-@Path("/UserServices")
+@Path("/user")
 public class Registration {
 
     @Context
     HttpServletResponse response;
 
-    @Path("/registerNewUser")
+    @Path("/new")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public Response registerNewUser(@FormDataParam("name") String name,

@@ -35,13 +35,13 @@ import java.util.concurrent.ExecutionException;
 
 import static main.java.services.product.purchase.APNConnection.getAPNConnectorFromSession;
 
-@Path("/ProductServices")
+@Path("/product/request")
 public class Request {
 
     @Context
     HttpServletRequest request;
 
-    @Path("/requestPurchasingItem")
+    @Path("/send")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response purchaseItem(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -111,7 +111,7 @@ public class Request {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/getRequestNumber/{itemId}")
+    @Path("/num/{itemId}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRequestNumber(@PathParam("itemId") int itemId) {

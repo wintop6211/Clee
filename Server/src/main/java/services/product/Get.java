@@ -25,9 +25,9 @@ import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-@Path("/ProductServices")
+@Path("/product")
 public class Get {
-    @Path("/getItem/{itemId}")
+    @Path("/get/{itemId}")
     @GET
     @Produces(MultiPartMediaTypes.MULTIPART_MIXED)
     public Response getItem(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -67,7 +67,7 @@ public class Get {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/getItemImage/{isHighResolution}/{itemId}/{itemImageIndex}")
+    @Path("/get/image/{isHighResolution}/{itemId}/{itemImageIndex}")
     @GET
     @Produces("image/jpeg")
     public Response getItemImage(@PathParam("isHighResolution") boolean isHighResolution,
@@ -92,7 +92,7 @@ public class Get {
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
 
-    @Path("/updateView")
+    @Path("/view/update")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response updateView(@FormParam("itemId") int itemId) {

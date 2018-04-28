@@ -12,13 +12,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/ProductServices")
+@Path("/product/refresh")
 public class Refresh {
 
     @Context
     HttpServletRequest request;
 
-    @Path("/refreshLoading")
+    @Path("/load")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoading() {
@@ -26,7 +26,7 @@ public class Refresh {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/refreshLoading/{category}")
+    @Path("/load/{category}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoading(@PathParam("category") String categoryInString) {
@@ -34,7 +34,7 @@ public class Refresh {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/refreshLoadingSearchingItems")
+    @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoadSearchingItems() {
@@ -42,7 +42,7 @@ public class Refresh {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/refreshLoadingSellingItems")
+    @Path("/load/selling")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoadingSellingItems() {
@@ -50,7 +50,7 @@ public class Refresh {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/refreshLoadingBoughtItems")
+    @Path("/load/bought")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoadingBoughtItems() {
@@ -58,7 +58,7 @@ public class Refresh {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/refreshLoadingRequestedItems")
+    @Path("/load/requested")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoadingRequestedItems() {

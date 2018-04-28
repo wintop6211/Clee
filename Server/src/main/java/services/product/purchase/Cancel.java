@@ -30,7 +30,7 @@ import java.util.concurrent.ExecutionException;
 
 import static main.java.services.product.purchase.APNConnection.getAPNConnectorFromSession;
 
-@Path("/ProductServices")
+@Path("/product/request")
 public class Cancel {
 
     @Context
@@ -41,7 +41,7 @@ public class Cancel {
         SELLER
     }
 
-    @Path("/cancelPurchaseRequestForSeller")
+    @Path("/cancel/seller")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response cancelPurchaseRequestForSeller(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -51,7 +51,7 @@ public class Cancel {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/cancelPurchaseRequestForBuyer")
+    @Path("/cancel/buyer")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response cancelPurchaseRequestForBuyer(@CookieParam("loginIdentifier") String loginIdentifier,

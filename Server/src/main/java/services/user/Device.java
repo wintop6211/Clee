@@ -23,13 +23,13 @@ import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
-@Path("/UserServices")
+@Path("/user/device")
 public class Device {
 
     @Context
     HttpServletRequest request;
 
-    @Path("/uploadDevice")
+    @Path("/upload")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response uploadDevice(@FormParam("deviceID") String deviceID) {
@@ -51,7 +51,7 @@ public class Device {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/bindDevice")
+    @Path("/bind")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response bindDevice(@CookieParam("loginIdentifier") String loginIdentifier,

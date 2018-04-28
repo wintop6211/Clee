@@ -19,9 +19,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/UserServices")
+@Path("/user")
 public class Info {
-    @Path("/requestUserInfo")
+    @Path("/get")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response requestUserInfo(@CookieParam("loginIdentifier") String loginIdentifier) {
@@ -29,7 +29,7 @@ public class Info {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/requestUserInfoById/{targetId}")
+    @Path("/get/{targetId}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response requestUserInfoById(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -38,7 +38,7 @@ public class Info {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/isEmailExisted")
+    @Path("/email/check")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
@@ -61,7 +61,7 @@ public class Info {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/isPhoneExisted")
+    @Path("/phone/check")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)

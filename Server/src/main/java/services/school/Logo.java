@@ -15,9 +15,9 @@ import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-@Path("/UserServices")
+@Path("/user")
 public class Logo {
-    @Path("/getSchoolLogo")
+    @Path("/get/school/image")
     @GET
     @Produces("image/jpeg")
     public Response getSchoolLogo(@CookieParam("loginIdentifier") String loginIdentifier) throws IOException {

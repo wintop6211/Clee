@@ -28,13 +28,13 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
-@Path("/ProductServices")
+@Path("/product")
 public class Load {
 
     @Context
     HttpServletRequest request;
 
-    @Path("/searchItem/{keyWords}")
+    @Path("/search/{keyWords}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response searchItem(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -66,7 +66,7 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/loadItem")
+    @Path("/load")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response loadItems(@CookieParam("loginIdentifier") String loginIdentifier) {
@@ -93,7 +93,7 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/loadItem/{category}")
+    @Path("/load/{category}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response loadItemsByCategory(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -124,7 +124,7 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/loadBoughtItem")
+    @Path("/load/bought")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getBoughtItems(@CookieParam("loginIdentifier") String loginIdentifier) {
@@ -152,7 +152,7 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/loadSellingItem")
+    @Path("/load/selling")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getSellingItems(@CookieParam("loginIdentifier") String loginIdentifier) {
@@ -180,7 +180,7 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/loadRequestedItem")
+    @Path("/load/requested")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRequestedItems(@CookieParam("loginIdentifier") String loginIdentifier) {
@@ -209,7 +209,7 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    @Path("/loadSellingItemCoverPhoto")
+    @Path("/load/selling/photo")
     @GET
     @Produces("image/jpeg")
     public Response loadSellingItemCoverPhoto(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -239,7 +239,7 @@ public class Load {
         return Response.ok(new ByteArrayInputStream(image)).build();
     }
 
-    @Path("/loadBoughtItemCoverPhoto")
+    @Path("/load/bought/photo")
     @GET
     @Produces("image/jpeg")
     public Response loadBoughtItemCoverPhoto(@CookieParam("loginIdentifier") String loginIdentifier,
@@ -269,7 +269,7 @@ public class Load {
         return Response.ok(new ByteArrayInputStream(image)).build();
     }
 
-    @Path("/loadRequestedItemCoverPhoto")
+    @Path("/load/requested/photo")
     @GET
     @Produces("image/jpeg")
     public Response loadRequestedItemCoverPhoto(@CookieParam("loginIdentifier") String loginIdentifier,
