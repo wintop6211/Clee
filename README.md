@@ -110,8 +110,7 @@ IntelliJ was the IDE we originally used. We highly recommend to use IntelliJ sin
 12. The message center of **IntelliJ** will report this in the message center. 
 ![The message is like this](https://lh3.googleusercontent.com/Y2UpRXqmVPwDzasKo8kyc0uXpR-j4o8EwcGBF_INR8PKTmG09uYUQ0NE09mUn2vyjc_buAoMy-L4)
 The message center is like this. Click on this button, the message panel will pop up.
-<br>
-![The message center button is like this](https://lh3.googleusercontent.com/4ie1pKdv50zfPnhqNFtmwZouP9tS6nnMAeE_sH-CPAMMQ4t_kMHZir1ZyA_SBgFQoNLvzu15EC2Y)
+![](https://lh3.googleusercontent.com/4ie1pKdv50zfPnhqNFtmwZouP9tS6nnMAeE_sH-CPAMMQ4t_kMHZir1ZyA_SBgFQoNLvzu15EC2Y)
 Please click **Add as Maven Project**
 
 ##### Tomcat Set up
