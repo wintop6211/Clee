@@ -91,7 +91,7 @@ IntelliJ was the IDE we originally used. We highly recommend to use IntelliJ sin
 
 1. Open **IntelliJ**.
 2. Click **Import Project**.
-3. Navigate to **CollegeBuyerServer** folder.
+3. Navigate to **Server** folder.
 4. Click **Open**.
 5. Select **create Project from existing sources**, and click **Next**.
 6. Keep the **default project name**, and click **Next**.
