@@ -107,10 +107,12 @@ IntelliJ was the IDE we originally used. We highly recommend to use IntelliJ sin
 9. Keep clicking **Next** with default values.
 10. Click **Finish**.
 11. **IntelliJ** will guide you to set up **database sources** and **pom.xml** dependencies. Messages will appear on the bottom right corner of the window.
-12. The message center of **IntelliJ** will report this in the message center. ![The message is like this](https://lh3.googleusercontent.com/Y2UpRXqmVPwDzasKo8kyc0uXpR-j4o8EwcGBF_INR8PKTmG09uYUQ0NE09mUn2vyjc_buAoMy-L4)
+12. The message center of **IntelliJ** will report this in the message center. 
+![The message is like this](https://lh3.googleusercontent.com/Y2UpRXqmVPwDzasKo8kyc0uXpR-j4o8EwcGBF_INR8PKTmG09uYUQ0NE09mUn2vyjc_buAoMy-L4)
 The message center is like this. Click on this button, the message panel will pop up.
+<br>
 ![The message center button is like this](https://lh3.googleusercontent.com/4ie1pKdv50zfPnhqNFtmwZouP9tS6nnMAeE_sH-CPAMMQ4t_kMHZir1ZyA_SBgFQoNLvzu15EC2Y)
-<br>Please click **Add as Maven Project**
+Please click **Add as Maven Project**
 
 ##### Tomcat Set up
 1. It is the time to setup **Tomcat** run configurations. <br> ![enter image description here](https://lh3.googleusercontent.com/920NnqnySyiX_Fch5Ns3hcOHVV_urKqrC5qsSUrwFaHoXJm-EJ6o_thEBGiDyquPdMS3ABgp4VYQ)
