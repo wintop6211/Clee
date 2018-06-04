@@ -136,5 +136,5 @@ https://www.raywenderlich.com/160521/storyboards-tutorial-ios-11-part-1
 
 Model layer contain all the logic that is crucial to app's operation, Clee's model layer include web service API, data object model and helper functions.
 
-Controller is the coordinator between view and model layer, it receive notification from front-end when user performed action on screen, coordinate the model layer to process and instruct the front-end to display the result. Every file in controller folder is controller layer related. For information, this resource might help:
+Controller is the coordinator between view and model layer, it receive notification from front-end when user performed action on screen, coordinate the model layer to process and instruct the front-end to display the result. Every file in controller folder is controller layer related. For more information, this resource might help:
 https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/WorkWithViewControllers.html
