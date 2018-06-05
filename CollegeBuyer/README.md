@@ -73,6 +73,3 @@ Simply run `git clone https://github.com/wintop6211/Clee.git`
 
 Create a new open 
 
-## Back End:
-
-###
