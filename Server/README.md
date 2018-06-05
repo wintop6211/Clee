@@ -1,4 +1,4 @@
-## Back End:
+## Server:
 
 The web services used by Clee was implemented in Java. Jersey was the RESTful Web Services Framework we used. Steps for setting up the project was shown below.
 
