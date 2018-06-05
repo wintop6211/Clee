@@ -89,7 +89,7 @@ public class ForgotPassword {
         return inputStream;
     }
 
-    @Path("/change/result")
+    @Path("/change")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response changePasswordPersistently(@CookieParam("loginIdentifier") String loginIdentifier,
