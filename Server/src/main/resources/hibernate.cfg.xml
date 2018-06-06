@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Connection to the database -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/CollegeBuyer?useSSL=false</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Credentials -->
+        <property name="hibernate.connection.username"></property>
+        <property name="hibernate.connection.password"></property>
+
+        <!-- hibernate c3p0 connection pooling configuration -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">10</property>
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.timeout">100</property>
+        <property name="hibernate.c3p0.idle_test_period">60</property> <!-- seconds -->
+        <property name="hibernate.c3p0.acquireRetryAttempts">1</property>
+        <property name="hibernate.c3p0.acquireRetryDelay">250</property>
+
+        <!-- Entity -->
+        <mapping class="main.java.entities.BuyerReview"/>
+        <mapping class="main.java.entities.Category"/>
+        <mapping class="main.java.entities.Product"/>
+        <mapping class="main.java.entities.ProductHasCategory"/>
+        <mapping class="main.java.entities.Report"/>
+        <mapping class="main.java.entities.School"/>
+        <mapping class="main.java.entities.SellerReview"/>
+        <mapping class="main.java.entities.User"/>
+        <mapping class="main.java.entities.Device"/>
+        <mapping class="main.java.entities.PendingRequest"/>
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
