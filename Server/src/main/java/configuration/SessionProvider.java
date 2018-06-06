@@ -20,9 +20,10 @@ public class SessionProvider {
 
     /**
      * This method is for getting one session which connects with the database
+     *
      * @return database session
      * @throws HibernateException When the hibernate cannot set up the connection with the database, this exception
-     * will be thrown
+     *                            will be thrown
      */
     public static Session getSession() throws HibernateException {
         if (ourSessionFactory == null) {

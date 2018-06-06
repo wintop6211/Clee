@@ -36,7 +36,8 @@ public class EmailController {
 
     /**
      * Sends the verification link email
-     * @param emailAddress The email address of the receiver
+     *
+     * @param emailAddress    The email address of the receiver
      * @param loginIdentifier The identifier which identifies the user.
      * @throws MessagingException The error will be thrown when the email cannot be delivered
      */
@@ -48,7 +49,8 @@ public class EmailController {
 
     /**
      * Sends the forgot password email
-     * @param emailAddress The email address of the receiver
+     *
+     * @param emailAddress    The email address of the receiver
      * @param loginIdentifier The identifier which identifies the user
      * @throws MessagingException The error which will be thrown when the email cannot be delivered
      */
@@ -60,10 +62,11 @@ public class EmailController {
 
     /**
      * Sends the email which contains a link
-     * @param to The email address of the receiver
+     *
+     * @param to      The email address of the receiver
      * @param subject The subject field of the email
-     * @param body The body of the email
-     * @param link The link which needs to be inserted
+     * @param body    The body of the email
+     * @param link    The link which needs to be inserted
      * @throws MessagingException The error will be thrown when the email cannot be delivered
      */
     private static void sendClickLinkEmail(String to, String subject, String body, String link) throws MessagingException {
@@ -74,7 +77,8 @@ public class EmailController {
 
     /**
      * Initializes the email protocol
-     * @return MimeMessage object
+     *
+     * @return MimeMessage object for sending the message
      */
     private static MimeMessage initEmailProtocol() {
         Properties properties = new Properties();
@@ -93,6 +97,7 @@ public class EmailController {
         Authenticator authenticator;
         authenticator = new Authenticator() {
             private PasswordAuthentication pa = new PasswordAuthentication(USER_NAME, PASSWORD);
+
             @Override
             public PasswordAuthentication getPasswordAuthentication() {
                 return pa;
@@ -105,6 +110,15 @@ public class EmailController {
         return new MimeMessage(session);
     }
 
+    /**
+     * Sends the message to the destination
+     *
+     * @param message  The message that needs to be sent
+     * @param to       The receiver email address
+     * @param subject  The subject field of the email
+     * @param htmlBody The body of the email
+     * @throws MessagingException The error will be thrown when the email cannot be delivered
+     */
     private static void send(MimeMessage message, String to, String subject, String htmlBody) throws MessagingException {
         InternetAddress[] address = {new InternetAddress(to)};
         message.setRecipients(Message.RecipientType.TO, address);
