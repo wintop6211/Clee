@@ -75,7 +75,7 @@ public class Post {
                 if (user.getVerified() == 1) {
                     // set product basic information
                     Product product = new Product();
-                    ProductManagement.setProductBasicInfo(product, user, name, description, price, condition, 0);
+                    ProductManagement.setProductBasicInfo(product, user, name, description, price, condition);
                     productManagement.add(product); // generate id
                     // set the category for the product
                     productManagement.setCategory(product, category);
