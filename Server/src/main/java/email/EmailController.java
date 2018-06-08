@@ -42,7 +42,7 @@ public class EmailController {
      * @throws MessagingException The error will be thrown when the email cannot be delivered
      */
     public static void sendVerificationEmail(String emailAddress, String loginIdentifier) throws MessagingException {
-        String link = PathManager.getLink("services/UserServices/verifyEmailAddress/" + loginIdentifier);
+        String link = PathManager.getURL("services/UserServices/verifyEmailAddress/" + loginIdentifier);
         String body = "Please click the link in order to activate your account";
         EmailController.sendClickLinkEmail(emailAddress, "CollegeBuyer VerificationEmail Verification", body, link);
     }
@@ -55,7 +55,7 @@ public class EmailController {
      * @throws MessagingException The error which will be thrown when the email cannot be delivered
      */
     public static void sendForgotPasswordEmail(String emailAddress, String loginIdentifier) throws MessagingException {
-        String link = PathManager.getLink("services/UserServices/changePassword/" + loginIdentifier);
+        String link = PathManager.getURL("services/UserServices/changePassword/" + loginIdentifier);
         String body = "Please click the link in order to change your password";
         EmailController.sendClickLinkEmail(emailAddress, "CollegeBuyer Forgot Password", body, link);
     }

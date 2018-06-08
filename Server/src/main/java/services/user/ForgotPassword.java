@@ -115,7 +115,7 @@ public class ForgotPassword {
         response.addCookie(cookie);
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("link", PathManager.getLink("services/user/changePassword/finish"));
+        jsonObject.put("link", PathManager.getURL("services/user/changePassword/finish"));
         return Response.ok(jsonObject.toString()).build();
     }
 

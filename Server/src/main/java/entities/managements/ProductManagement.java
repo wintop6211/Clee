@@ -121,6 +121,7 @@ public class ProductManagement {
 
     /**
      * Remove all pending requests for one product
+     *
      * @param session The session for interacting with the database
      * @param product The product whose pending requests need to be removed
      */
@@ -133,6 +134,7 @@ public class ProductManagement {
 
     /**
      * Remove all product images
+     *
      * @param product The product whose images need to be removed
      */
     private static void removeProductImages(Product product) {
@@ -147,7 +149,8 @@ public class ProductManagement {
 
     /**
      * Get the category by its name in string
-     * @param session The session for interacting with the database
+     *
+     * @param session          The session for interacting with the database
      * @param categoryInString The category in string
      * @return The category object
      */
@@ -166,12 +169,13 @@ public class ProductManagement {
 
     /**
      * Sets the product's basic information
-     * @param product The product object
-     * @param seller The seller of the product
-     * @param name The name of the product
+     *
+     * @param product     The product object
+     * @param seller      The seller of the product
+     * @param name        The name of the product
      * @param description The description of the product
-     * @param price The price of the product
-     * @param condition The condition (quality level) of the product
+     * @param price       The price of the product
+     * @param condition   The condition (quality level) of the product
      */
     public static void setProductBasicInfo(Product product, User seller, String name, String description, double price,
                                            int condition) {

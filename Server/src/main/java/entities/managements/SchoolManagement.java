@@ -14,6 +14,7 @@ public class SchoolManagement {
 
     /**
      * Creates the school manager
+     *
      * @param session The session for interacting with the database
      */
     public SchoolManagement(Session session) {
@@ -22,6 +23,7 @@ public class SchoolManagement {
 
     /**
      * Gets the school object from the database
+     *
      * @param idSchool The id of the school
      * @return The school object
      */
@@ -31,6 +33,7 @@ public class SchoolManagement {
 
     /**
      * Gets the school object from the database
+     *
      * @param name The name of the school
      * @return The school object
      */
@@ -41,6 +44,7 @@ public class SchoolManagement {
 
     /**
      * Adds one school object into the database
+     *
      * @param school The school object that needs to be added
      */
     public void add(School school) {
@@ -49,6 +53,7 @@ public class SchoolManagement {
 
     /**
      * Updates one school object in the database
+     *
      * @param school The school object that needs to be updated
      */
     public void set(School school) {
@@ -57,6 +62,7 @@ public class SchoolManagement {
 
     /**
      * Determine if the school exists in the database
+     *
      * @param school The school object that needs to be checked
      * @return True if the school exists. False if the school does not exist
      */

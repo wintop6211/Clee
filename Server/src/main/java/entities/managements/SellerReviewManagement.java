@@ -12,6 +12,7 @@ public class SellerReviewManagement {
 
     /**
      * Creates the seller review manager
+     *
      * @param session The session for interacting with the database
      */
     public SellerReviewManagement(Session session) {
@@ -20,6 +21,7 @@ public class SellerReviewManagement {
 
     /**
      * Adds one seller review object to the database
+     *
      * @param sellerReview The seller review object that needs to be added
      */
     public void add(SellerReview sellerReview) {

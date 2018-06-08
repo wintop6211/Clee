@@ -17,6 +17,7 @@ public class PendingRequestManagement {
 
     /**
      * Creates the purchasing request manager
+     *
      * @param session The session for interacting with the database
      */
     public PendingRequestManagement(Session session) {
@@ -25,6 +26,7 @@ public class PendingRequestManagement {
 
     /**
      * Gets one purchasing request by the id
+     *
      * @param id The id of the purchasing request
      * @return The purchasing request object
      */
@@ -34,6 +36,7 @@ public class PendingRequestManagement {
 
     /**
      * Adds one purchasing request to the database
+     *
      * @param pendingRequest The purchasing request object which needs to be added
      */
     public void add(PendingRequest pendingRequest) {
@@ -42,6 +45,7 @@ public class PendingRequestManagement {
 
     /**
      * Removes one purchasing request from the database by the object itself
+     *
      * @param pendingRequest The purchasing request that needs to be removed
      */
     public void remove(PendingRequest pendingRequest) {
@@ -50,6 +54,7 @@ public class PendingRequestManagement {
 
     /**
      * Removes all purchasing requests for one product by the product id
+     *
      * @param idProduct The id of the product
      */
     public void remove(int idProduct) {
@@ -59,6 +64,7 @@ public class PendingRequestManagement {
 
     /**
      * Determine if the request has existed in the database
+     *
      * @param pendingRequest The purchasing request object
      * @return True if the request exists in the database. False if the request does not exist in the database.
      */
@@ -79,17 +85,18 @@ public class PendingRequestManagement {
                 isExist = true;
             }
         }
-       return isExist;
+        return isExist;
     }
 
     /**
      * Sets basic information for one purchasing request
+     *
      * @param pendingRequest The purchasing request that needs to be set
-     * @param buyer The buyer of the purchasing request
-     * @param seller The seller of the purchasing request
-     * @param product The product which needs to be sold
-     * @param note The note of the purchasing request
-     * @param offerPrice The offer price of the request
+     * @param buyer          The buyer of the purchasing request
+     * @param seller         The seller of the purchasing request
+     * @param product        The product which needs to be sold
+     * @param note           The note of the purchasing request
+     * @param offerPrice     The offer price of the request
      */
     public static void setPendingRequestBasicInfo(PendingRequest pendingRequest, User buyer, User seller, Product product,
                                                   String note, double offerPrice) {

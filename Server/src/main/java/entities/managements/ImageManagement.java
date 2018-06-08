@@ -23,7 +23,7 @@ public class ImageManagement {
      * @param isHighResolution True if the high resolution image needs to be returned
      *                         False if the low resolution image needs to be returned
      * @return The image data as the byte array
-     * @throws IOException The exception will be thrown if the image cannot be found
+     * @throws IOException if the image cannot be found
      */
     public static byte[] loadItemImage(Product product, int itemImageIndex, boolean isHighResolution) throws IOException {
         String path = product.getPictures() + itemImageIndex + ".jpeg";
@@ -35,7 +35,7 @@ public class ImageManagement {
      *
      * @param product The product object
      * @return The image data as the byte array
-     * @throws IOException The exception will be thrown if the image cannot be found
+     * @throws IOException if the image cannot be found
      */
     public static byte[] loadItemCoverImage(Product product) throws IOException {
         String path = product.getPictures();
@@ -48,7 +48,7 @@ public class ImageManagement {
      *
      * @param user The user object
      * @return The school logo data as the byte array
-     * @throws IOException The exception will be thrown if the image cannot be found
+     * @throws IOException if the image cannot be found
      */
     public static byte[] getUserSchoolImage(User user) throws IOException {
         String logoPath = user.getSchoolBySchoolIdSchool().getLogo();
@@ -60,7 +60,7 @@ public class ImageManagement {
      *
      * @param destination The destination of the image
      * @param imageData   The image data as the input stream
-     * @throws IOException The exception will be thrown if the path is invalid
+     * @throws IOException if the path is invalid
      */
     public static void writeImage(String destination, InputStream imageData) throws IOException {
         BufferedImage image = ImageIO.read(imageData);
@@ -74,7 +74,7 @@ public class ImageManagement {
      * @param isHighResolution True if the high resolution image needs to be returned
      *                         False if the low resolution image needs to be returned
      * @return The image data as the byte array
-     * @throws IOException The exception will be thrown if the image cannot be found
+     * @throws IOException if the image cannot be found
      */
     public static byte[] readImage(String source, boolean isHighResolution) throws IOException {
         File file = new File(source);
