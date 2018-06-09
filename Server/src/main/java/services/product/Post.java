@@ -39,12 +39,13 @@ public class Post {
 
     /**
      * The service is for posting the item to the database
+     *
      * @param loginIdentifier The identifier which identifies the user
-     * @param name The name of the product
-     * @param description The description of the product
-     * @param price The price of the product
-     * @param condition The condition of the product
-     * @param category The category of the product
+     * @param name            The name of the product
+     * @param description     The description of the product
+     * @param price           The price of the product
+     * @param condition       The condition of the product
+     * @param category        The category of the product
      * @return The response of the service.
      * "Success", "The information has been uploaded." will be returned if the item info is created in the database
      * "Fail", "The user has not been verified." will be returned if the use is not verified
@@ -103,12 +104,12 @@ public class Post {
 
     /**
      * The service is for posting the item image to the server storage
+     *
      * @param loginIdentifier The identifier which identifies the user
-     * @param itemId The id of the item
-     * @param imageIndex The index of the image
-     * @param imageStream The image data
-     * @return
-     * "Success", "The image has been uploaded." if the item image is stored
+     * @param itemId          The id of the item
+     * @param imageIndex      The index of the image
+     * @param imageStream     The image data
+     * @return "Success", "The image has been uploaded." if the item image is stored
      * "Fail", "The product does not exist." if the item does not exist
      * "Fail", "Please upload item basic info first." if the product information is not uploaded yet
      * "Fail", "The user has been signed out." will be returned if the user is signed out (cookie is deleted)

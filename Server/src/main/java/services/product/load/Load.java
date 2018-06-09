@@ -28,12 +28,24 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * The class contains web services for loading item data from the database
+ */
 @Path("/product")
 public class Load {
 
     @Context
     HttpServletRequest request;
 
+    /**
+     * The service for searching items whose name contains the keyword. Only one item will be returned if it is
+     * called once. If you need to more than one items information, please call this service several times. Each time
+     * you call the service, the different item will be returned.
+     *
+     * @param loginIdentifier The login identifier which identifies the user
+     * @param keyWords        The keyword of the item
+     * @return The JSON response which contains all items whose names are able to map with the keyword
+     */
     @Path("/search/{keyWords}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -66,6 +78,14 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * The service for loading items based on the date posted. Only one item will be returned if it is
+     * called once. If you need to more than one items information, please call this service several times. Each time
+     * you call the service, the different item will be returned.
+     *
+     * @param loginIdentifier The login identifier which identifies of the user
+     * @return The JSON response which contains the item information
+     */
     @Path("/load")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -93,6 +113,15 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Loads the item by the category. Only one item will be returned if it is
+     * called once. If you need to more than one items information, please call this service several times. Each time
+     * you call the service, the different item will be returned.
+     *
+     * @param loginIdentifier  The login identifier which identifies the user
+     * @param categoryInString The category in the string format
+     * @return The JSON response which contains the item information
+     */
     @Path("/load/{category}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -124,6 +153,14 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Gets items which have been bought by the user. Only one item will be returned if it is
+     * called once. If you need to more than one items information, please call this service several times. Each time
+     * you call the service, the different item will be returned.
+     *
+     * @param loginIdentifier The login identifier which identifies the user
+     * @return The JSON response which contains the item information
+     */
     @Path("/load/bought")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -152,6 +189,14 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Gets items being sold by the user. Only one item will be returned if it is
+     * called once. If you need to more than one items information, please call this service several times. Each time
+     * you call the service, the different item will be returned.
+     *
+     * @param loginIdentifier The login identifier which identifies the user
+     * @return The JSON response which contains the item information
+     */
     @Path("/load/selling")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -180,6 +225,14 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Gets items which has been requested by the user. Only one item will be returned if it is
+     * called once. If you need to more than one items information, please call this service several times. Each time
+     * you call the service, the different item will be returned.
+     *
+     * @param loginIdentifier The login identifier which identifies the user
+     * @return The JSON response which contains the item information
+     */
     @Path("/load/requested")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -209,6 +262,15 @@ public class Load {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Loads selling items cover photos. One call will only return one photo. Please call several times if you want
+     * to get more cover images. Each time you call the service, the different image will be returned.
+     *
+     * @param loginIdentifier   The identifier which identifies the user
+     * @param sellingItemOffset The number which records offset for loading item images
+     * @return The image data
+     * @throws IOException if the image cannot be found
+     */
     @Path("/load/selling/photo")
     @GET
     @Produces("image/jpeg")
@@ -239,6 +301,15 @@ public class Load {
         return Response.ok(new ByteArrayInputStream(image)).build();
     }
 
+    /**
+     * Loads bought item cover images. Please call several times if you want
+     * to get more cover images. Each time you call the service, the different image will be returned.
+     *
+     * @param loginIdentifier The identifier which identifies the user
+     * @param boughtItemOffset The number which records offset for loading item images
+     * @return The image data
+     * @throws IOException if the image cannot be found
+     */
     @Path("/load/bought/photo")
     @GET
     @Produces("image/jpeg")
@@ -269,6 +340,14 @@ public class Load {
         return Response.ok(new ByteArrayInputStream(image)).build();
     }
 
+    /**
+     * Loads requested item cover images. Please call several times if you want
+     * to get more cover images. Each time you call the service, the different image will be returned.
+     * @param loginIdentifier The identifier which identifies the user
+     * @param requestedItemOffset The number which records offset for loading item images
+     * @return The image data
+     * @throws IOException if the image cannot be found
+     */
     @Path("/load/requested/photo")
     @GET
     @Produces("image/jpeg")
@@ -299,6 +378,15 @@ public class Load {
         return Response.ok(new ByteArrayInputStream(image)).build();
     }
 
+    /**
+     * Returns item objects array. Although only 1 item will be returned, the array is still used here. The reason
+     * was that the number of items returned may change in the future, the maintainability can be higher if the array
+     * is used here.
+     *
+     * @param query            The query for getting items which needs to be executed
+     * @param offsetIdentifier The identifier which identifies the item offset stored in the session
+     * @return The list of items
+     */
     private List getItemQueryResults(Query query, String offsetIdentifier) {
         int itemOffset = ItemOffsetRecorder.getItemOffset(request, offsetIdentifier);
         query.setMaxResults(ItemOffsetRecorder.MAX_ITEM_ALLOWED);
@@ -307,6 +395,12 @@ public class Load {
         return query.list();
     }
 
+    /**
+     * Embeds the item JSON into other JSON response.
+     * @param session The session for interacting with the database
+     * @param items The list which contains items. The JSON will be generated based on these items
+     * @param responseJSON The JSON response where the item JSON should be embedded into
+     */
     private void putItemJSONToResponseJSON(Session session, List items, JSONObject responseJSON) {
         if (items.size() > 0) {
             Product product = (Product) items.get(0);

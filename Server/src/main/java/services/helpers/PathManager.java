@@ -17,6 +17,7 @@ public class PathManager {
 
     /**
      * Get the URL for the web service
+     *
      * @param service The sub path of the web service
      * @return The full URL
      */
@@ -30,6 +31,12 @@ public class PathManager {
         return tempRoot + service;
     }
 
+    /**
+     * Gets the directory for the image
+     *
+     * @param relativePath The relative path of the image
+     * @return The path of the image
+     */
     public static String getImagesDirectory(String relativePath) {
         String tempRoot;
         if (isLocal) {
@@ -40,6 +47,12 @@ public class PathManager {
         return tempRoot + relativePath;
     }
 
+    /**
+     * Gets the change password cookie URL
+     *
+     * @param relativePath The path which indicates which service will accept the cookie
+     * @return The cookie path
+     */
     public static String getChangePasswordCookiePath(String relativePath) {
         String tempRoot;
         if (isLocal) {
@@ -50,6 +63,11 @@ public class PathManager {
         return tempRoot + relativePath;
     }
 
+    /**
+     * Get the APN signed key file root address
+     *
+     * @return The path of the APN signed key file
+     */
     public static String getAPNKeyAddress() {
         String address;
         if (isLocal) {
