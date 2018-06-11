@@ -1,7 +1,6 @@
 package main.java.services.product.load;
 
 import main.java.configuration.SessionProvider;
-import main.java.entities.PendingRequest;
 import main.java.entities.Product;
 import main.java.entities.User;
 import main.java.entities.managements.ImageManagement;
@@ -11,7 +10,6 @@ import main.java.status.manager.ItemOffsetRecorder;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +23,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -45,6 +42,7 @@ public class Load {
      * @param loginIdentifier The login identifier which identifies the user
      * @param keyWords        The keyword of the item
      * @return The JSON response which contains all items whose names are able to map with the keyword
+     *
      */
     @Path("/search/{keyWords}")
     @GET
@@ -305,7 +303,7 @@ public class Load {
      * Loads bought item cover images. Please call several times if you want
      * to get more cover images. Each time you call the service, the different image will be returned.
      *
-     * @param loginIdentifier The identifier which identifies the user
+     * @param loginIdentifier  The identifier which identifies the user
      * @param boughtItemOffset The number which records offset for loading item images
      * @return The image data
      * @throws IOException if the image cannot be found
@@ -343,7 +341,8 @@ public class Load {
     /**
      * Loads requested item cover images. Please call several times if you want
      * to get more cover images. Each time you call the service, the different image will be returned.
-     * @param loginIdentifier The identifier which identifies the user
+     *
+     * @param loginIdentifier     The identifier which identifies the user
      * @param requestedItemOffset The number which records offset for loading item images
      * @return The image data
      * @throws IOException if the image cannot be found
@@ -397,22 +396,36 @@ public class Load {
 
     /**
      * Embeds the item JSON into other JSON response.
-     * @param session The session for interacting with the database
-     * @param items The list which contains items. The JSON will be generated based on these items
-     * @param responseJSON The JSON response where the item JSON should be embedded into
+     *
+     * @param session      The session for interacting with the database
+     * @param items        The list which contains items. The JSON will be generated based on these items
+     * @param responseJSON The JSON response where the item JSON should be embedded into.
+     * {
+     *     "Success": {
+     *         "id": 3,
+     *         "name": "MacBook Pro",
+     *         "price": 2000,
+     *         "condition": 2, (this is a number, how to handle this number is determined on the client side)
+     *         "status": 1, (this means the item has been sold. Otherwise, 0 will be returned)
+     *         "description": "This is my favorite laptop.",
+     *         "seller": {
+     *             "id": 1,
+     *             "name": "Harry Liang",
+     *             "email": "IamAwsome@yahoo.com",
+     *             "gender": 1, (this is a number, how to handler this number is determined on the client side)
+     *             "phone": "414-123-4567",
+     *             "sellerRating": "2.5", (-1 will be returned if not enough reviews)
+     *             "buyerRating": "2.5", (-1 will be returned if not enough reviews)
+     *             "verified": 1 (0 will be returend if the user is not verified. Otherwise, 1 will be returned)
+     *             "school": "Milwaukee School of Engineering"
+     *         }
+     *     }
+     * }
      */
     private void putItemJSONToResponseJSON(Session session, List items, JSONObject responseJSON) {
         if (items.size() > 0) {
             Product product = (Product) items.get(0);
             JSONObject itemJSON = JSONResponseGenerator.formBasicItemInfoJSON(session, product);
-            // put request information
-            Collection<PendingRequest> requests = product.getPendingRequestsByIdProduct();
-            JSONArray offersJSON = new JSONArray();
-            for (PendingRequest request : requests) {
-                JSONObject requestJSON = JSONResponseGenerator.formRequestJSON(session, request);
-                offersJSON.put(requestJSON);
-            }
-            itemJSON.put("offers", offersJSON);
             responseJSON.put("Success", itemJSON);
         } else {
             responseJSON.put("Fail", "No more items.");

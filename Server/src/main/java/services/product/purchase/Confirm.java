@@ -29,14 +29,26 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.concurrent.ExecutionException;
 
-import static main.java.services.product.purchase.APNConnection.getAPNConnectorFromSession;
-
+/**
+ * The class contains webservices for confirming purchase requests.
+ */
 @Path("/product/request")
 public class Confirm {
 
     @Context
     HttpServletRequest request;
 
+    /**
+     *
+     * @param loginIdentifier
+     * @param requestId
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeyException
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     @Path("/confirm")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -70,7 +82,7 @@ public class Confirm {
                     // delete all pending requests
                     int idProduct = product.getIdProduct();
                     pendingRequestManagement.remove(idProduct);
-                    APNConnector connector = getAPNConnectorFromSession(request);
+                    APNConnector connector = APNConnector.getAPNConnectorFromSession(request);
                     Collection<Device> devices = pendingRequest.getUserByIdBuyer().getDevicesByIdUser();
                     String sellerName = pendingRequest.getUserByIdSeller().getName();
                     for (Device device : devices) {

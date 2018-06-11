@@ -115,15 +115,15 @@ public class JSONResponseGenerator {
         Double buyerRating = (Double) buyerRatings.get(0);
         if (sellerRating != null) {
             sellerRating = RatingCalculator.roundToHalf(sellerRating);
-            userJSON.put("sellerRating", Double.toString(sellerRating));
+            userJSON.put("sellerRating", sellerRating);
         } else {
-            userJSON.put("sellerRating", Double.toString(-1));
+            userJSON.put("sellerRating", -1);
         }
         if (buyerRating != null) {
             buyerRating = RatingCalculator.roundToHalf(buyerRating);
-            userJSON.put("buyerRating", Double.toString(buyerRating));
+            userJSON.put("buyerRating", buyerRating);
         } else {
-            userJSON.put("buyerRating", Double.toString(-1));
+            userJSON.put("buyerRating", -1);
         }
 
         userJSON.put("verified", user.getVerified());

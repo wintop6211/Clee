@@ -33,8 +33,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import static main.java.services.product.purchase.APNConnection.getAPNConnectorFromSession;
-
 @Path("/product/request")
 public class Request {
 
@@ -80,7 +78,7 @@ public class Request {
                                     PendingRequestManagement.setPendingRequestBasicInfo(pendingRequest, user, seller, product, note, offerPrice);
                                     pendingRequestManagement.add(pendingRequest);
                                     // send the notification to the seller
-                                    APNConnector connector = getAPNConnectorFromSession(request);
+                                    APNConnector connector = APNConnector.getAPNConnectorFromSession(request);
                                     Collection devices = seller.getDevicesByIdUser();
                                     for (Object object : devices) {
                                         Device device = (Device) object;

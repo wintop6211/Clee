@@ -1,6 +1,7 @@
 package main.java.services.product;
 
 import main.java.configuration.SessionProvider;
+import main.java.entities.PendingRequest;
 import main.java.entities.Product;
 import main.java.entities.User;
 import main.java.entities.managements.ImageManagement;
@@ -10,6 +11,7 @@ import main.java.json.JSONResponseGenerator;
 import org.glassfish.jersey.media.multipart.MultiPartMediaTypes;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.ws.rs.Consumes;
@@ -24,6 +26,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.Collection;
 
 @Path("/product")
 public class Get {
@@ -90,6 +93,47 @@ public class Get {
             transaction.commit();
         }
         return Response.ok(new ByteArrayInputStream(imageData)).build();
+    }
+
+    @Path("/get/requests/{itemId}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRequests(@CookieParam("loginIdentifier") String loginIdentifier,
+                                @PathParam("itemId") int itemId) {
+        JSONObject jsonObject = new JSONObject();
+        try (final Session session = SessionProvider.getSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            UserManagement userManagement = new UserManagement(session);
+            ProductManagement productManagement = new ProductManagement(session);
+
+            User user = new User();
+            user.setLoginIdentifier(loginIdentifier);
+            Product product = new Product();
+            product.setIdProduct(itemId);
+
+            if (userManagement.isExist(user)) {
+                if (productManagement.isExist(product)) {
+                    product = productManagement.get(itemId);
+                    // put request information
+                    Collection<PendingRequest> requests = product.getPendingRequestsByIdProduct();
+                    JSONArray offersJSON = new JSONArray();
+                    for (PendingRequest request : requests) {
+                        JSONObject requestJSON = JSONResponseGenerator.formRequestJSON(session, request);
+                        offersJSON.put(requestJSON);
+                    }
+                    jsonObject.put("Success", offersJSON);
+                } else {
+                    jsonObject.put("Fail", "The product does not exist.");
+                }
+            } else {
+                jsonObject = JSONResponseGenerator.formSignedOutJSON();
+            }
+
+            transaction.commit();
+        }
+
+        return Response.ok(jsonObject).build();
     }
 
     @Path("/view/update")

@@ -9,6 +9,8 @@ import com.turo.pushy.apns.util.SimpleApnsPushNotification;
 import io.netty.util.concurrent.Future;
 import main.java.services.helpers.PathManager;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.security.InvalidKeyException;
@@ -29,7 +31,7 @@ public class APNConnector {
      * @throws NoSuchAlgorithmException if the JVM does not support elliptic curve keys
      * @throws IOException              if the key file cannot be found
      */
-    public APNConnector() throws InvalidKeyException, NoSuchAlgorithmException, IOException {
+    private APNConnector() throws InvalidKeyException, NoSuchAlgorithmException, IOException {
         this.client = new ApnsClientBuilder()
                 .setSigningKey(ApnsSigningKey.loadFromPkcs8File(
                         new File(PathManager.getAPNKeyAddress()),
@@ -89,13 +91,37 @@ public class APNConnector {
     }
 
     /**
-     * Close the connection with APN
+     * Close the connection with APN. Make sure to call this method to release memories.
      *
      * @throws InterruptedException if the current thread was interrupted while waiting
      */
     public void closeConnection() throws InterruptedException {
         Future<Void> closeFuture = client.close();
         closeFuture.await();
+    }
+
+    /**
+     * Gets the APN connection from the session
+     *
+     * @param request The object which contains the request information
+     * @return The APN connector object
+     * @throws InvalidKeyException      The signed key is invalid
+     * @throws NoSuchAlgorithmException if the JVM does not support elliptic curve keys
+     * @throws IOException              if the key file cannot be found
+     */
+    public static APNConnector getAPNConnectorFromSession(HttpServletRequest request) throws
+            InvalidKeyException, NoSuchAlgorithmException, IOException {
+        HttpSession httpSession = request.getSession(false);
+        APNConnector connector;
+        if (httpSession != null) {
+            connector = (APNConnector) httpSession.getAttribute("APNConnection");
+        } else {
+            httpSession = request.getSession();
+            connector = new APNConnector();
+            httpSession.setMaxInactiveInterval(3600 * 24);
+            httpSession.setAttribute("APNConnection", connector);
+        }
+        return connector;
     }
 
     /**
