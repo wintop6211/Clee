@@ -2,6 +2,11 @@
 
 The web services used by Clee was implemented in Java. Jersey was the RESTful Web Services Framework we used. Steps for setting up the project was shown below.
 
+### Requirements
+1. IntelliJ / Eclipse
+2. Java
+3. Tomcat
+
 ### Servlet Container
 
 Here are current versions of Tomcat we are using right now. You can use any versions you want, but we are not sure if others versions work exact same as these two. 
