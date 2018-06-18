@@ -39,15 +39,18 @@ public class Confirm {
     HttpServletRequest request;
 
     /**
+     * Confirms the purchase request for the user
      *
-     * @param loginIdentifier
-     * @param requestId
-     * @return
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidKeyException
-     * @throws IOException
-     * @throws ExecutionException
-     * @throws InterruptedException
+     * @param loginIdentifier The identifier which identifies the user
+     * @param requestId       The id of the purchase request
+     * @return {"Success": "The request is confirmed."}
+     * {"Fail": "The request was canceled by the buyer."}
+     * {"Fail": "The user has been signed out."}
+     * @throws NoSuchAlgorithmException if the JVM does not support elliptic curve keys
+     * @throws InvalidKeyException      if the signed key is invalid
+     * @throws IOException              if the key file cannot be found
+     * @throws ExecutionException       if the computation threw an exception
+     * @throws InterruptedException     if the current thread was interrupted while waiting
      */
     @Path("/confirm")
     @POST

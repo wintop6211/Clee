@@ -15,8 +15,18 @@ import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
+/**
+ * The class contains services for managing school logos
+ */
 @Path("/user")
 public class Logo {
+    /**
+     * The service is for getting the school logo for the user.
+     *
+     * @param loginIdentifier The identifier which identifies the user
+     * @return The school logo image raw data
+     * @throws IOException if the school image cannot be found
+     */
     @Path("/get/school/image")
     @GET
     @Produces("image/jpeg")

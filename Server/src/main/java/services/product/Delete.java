@@ -19,8 +19,23 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.File;
 
+/**
+ * The class contains web services for deleting items from the database
+ */
 @Path("/product")
 public class Delete {
+    /**
+     * Delete one image for the product
+     *
+     * @param loginIdentifier The identifier which identifies the user
+     * @param itemId          The id of the product
+     * @param imageIndex      The index of the image
+     * @return The JSON object response
+     * {"Success": "The image is deleted."}
+     * {"Fail": "The image does not exist."}
+     * {"Fail": "The product does not exist."}
+     * {"Fail": "The user has been signed out."}
+     */
     @Path("/delete/image")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -60,6 +75,16 @@ public class Delete {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Deletes one product from the database.
+     *
+     * @param loginIdentifier The identifier which identifies the user
+     * @param itemId          The id of the item
+     * @return The JSON object response
+     * {"Success": "The item has been deleted."}
+     * {"Fail": "The user is not the seller of the product."}
+     * {"Fail": "The user has been signed out."}
+     */
     @Path("/delete")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -88,7 +113,7 @@ public class Delete {
                         jsonObject.put("Fail", "The user is not the seller of the product.");
                     }
                 } else {
-                    jsonObject.put("Fail", "The product has been removed.");
+                    jsonObject.put("Success", "The item has been deleted.");
                 }
             } else {
                 jsonObject = JSONResponseGenerator.formSignedOutJSON();

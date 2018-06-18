@@ -14,8 +14,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * The class contains web services for managing categories
+ */
 @Path("/category")
 public class CategoryServices {
+    /**
+     * Get all categories stored in the database
+     *
+     * @return The JSON object response
+     * {"Success": ["book", "electric", "game"]}
+     */
     @Path("/get/all")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -27,13 +36,11 @@ public class CategoryServices {
             List categories = session.createQuery("FROM Category").list();
             JSONArray jsonArray = new JSONArray();
             for (Object object : categories) {
-                JSONObject tempJsonObj = new JSONObject();
                 Category category = (Category) object;
                 String name = category.getName();
-                tempJsonObj.put("category", name);
-                jsonArray.put(tempJsonObj);
+                jsonArray.put(name);
             }
-            jsonObject.put("categories", jsonArray);
+            jsonObject.put("Success", jsonArray);
             transaction.commit();
         }
         return Response.ok(jsonObject.toString()).build();

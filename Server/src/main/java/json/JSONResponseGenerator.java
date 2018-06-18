@@ -101,6 +101,20 @@ public class JSONResponseGenerator {
         return itemJSON;
     }
 
+    /**
+     * Forms user information in JSON format.
+     * @param session The session for interacting with the database
+     * @param user The user object
+     * @return The JSON format information
+     * For example:
+     * {
+     *     "id": 4,
+     *     "name": "Harry Liang",
+     *     "email": "thisisemail@gmail.com",
+     *     "gender": 0 (this is a number, and how to handle this number is determined on the client side),
+     *     "phone": "4141234567"
+     * }
+     */
     public static JSONObject formUserBasicInfoJSON(Session session, User user) {
         JSONObject userJSON = new JSONObject();
         userJSON.put("id", user.getIdUser());
@@ -131,6 +145,25 @@ public class JSONResponseGenerator {
         return userJSON;
     }
 
+    /**
+     * Forms request information in JSON format.
+     * @param session The session for interacting with the database
+     * @param request The purchasing request object
+     * @return The JSON format information
+     * For example:
+     * {
+     *     "id": 5,
+     *     "price": 200,
+     *     "note": "Please send me an email if you want to schedule a time",
+     *     "buyer": {
+     *          "id": 4,
+     *          "name": "Harry Liang",
+     *          "email": "thisisemail@gmail.com",
+     *          "gender": 0 (this is a number, and how to handle this number is determined on the client side),
+     *          "phone": "4141234567"
+     *     }
+     * }
+     */
     public static JSONObject formRequestJSON(Session session, PendingRequest request) {
         User buyer = request.getUserByIdBuyer();
         JSONObject buyerJSON = JSONResponseGenerator.formUserBasicInfoJSON(session, buyer);

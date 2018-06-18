@@ -46,10 +46,10 @@ public class Post {
      * @param price           The price of the product
      * @param condition       The condition of the product
      * @param category        The category of the product
-     * @return The response of the service.
-     * "Success", "The information has been uploaded." will be returned if the item info is created in the database
-     * "Fail", "The user has not been verified." will be returned if the use is not verified
-     * "Fail", "The user has been signed out." will be returned if the user is signed out (cookie is deleted)
+     * @return The JSON response object
+     * {"Success": "The information has been uploaded."} will be returned if the item info is created in the database
+     * {"Fail": "The user has not been verified."} will be returned if the use is not verified
+     * {"Fail": "The user has been signed out."} will be returned if the user is signed out (cookie is deleted)
      */
     @Path("/post")
     @POST
@@ -109,10 +109,11 @@ public class Post {
      * @param itemId          The id of the item
      * @param imageIndex      The index of the image
      * @param imageStream     The image data
-     * @return "Success", "The image has been uploaded." if the item image is stored
-     * "Fail", "The product does not exist." if the item does not exist
-     * "Fail", "Please upload item basic info first." if the product information is not uploaded yet
-     * "Fail", "The user has been signed out." will be returned if the user is signed out (cookie is deleted)
+     * @return The JSON response object
+     * {"Success": "The image has been uploaded."} if the item image is stored
+     * {"Fail": "The product does not exist."} if the item does not exist
+     * {"Fail": "Please upload item basic info first."} if the product information is not uploaded yet
+     * {"Fail": "The user has been signed out."} will be returned if the user is signed out (cookie is deleted)
      * @throws IOException If the image is unable to write to the drive, this exception will be thrown
      */
     @Path("/post/image")

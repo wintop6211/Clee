@@ -33,12 +33,36 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * The class contains web services for sending purchase requests
+ */
 @Path("/product/request")
 public class Request {
 
     @Context
     HttpServletRequest request;
 
+    /**
+     * Sends the purhcase request for one item
+     *
+     * @param loginIdentifier The identifier which identifies the user
+     * @param offerPrice      The price of the offer
+     * @param note            The note of the purchase request
+     * @param itemId          The id of the item
+     * @return The JSON response object
+     * {"Success": "The product is pending for you."}
+     * {"Fail": "You have sent the purchase request for the item."}
+     * {"Fail": "You cannot purchase your own product."}
+     * {"Fail": "The product has been sold."}
+     * {"Fail": "The product has been removed by the seller."}
+     * {"Fail": "The user has not been verified."}
+     * {"Fail": "The user has been signed out."}
+     * @throws InvalidKeyException      if the signed key is invalid
+     * @throws NoSuchAlgorithmException if the JVM does not support elliptic curve keys
+     * @throws IOException              if the key file cannot be found
+     * @throws ExecutionException       if the computation threw an exception
+     * @throws InterruptedException     if the current thread was interrupted while waiting
+     */
     @Path("/send")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -109,6 +133,13 @@ public class Request {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Gets the number of requests for the current item
+     *
+     * @param itemId The id of the item
+     * @return The JSON response object
+     * For example: {"Success": 4}
+     */
     @Path("/num/{itemId}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
