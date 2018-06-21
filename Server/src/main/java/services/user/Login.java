@@ -6,7 +6,6 @@ import main.java.entities.managements.UserManagement;
 import main.java.json.JSONResponseGenerator;
 import main.java.status.manager.LoginStatusManager;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.json.JSONObject;
@@ -23,12 +22,22 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * The class contains web services for login users
+ */
 @Path("/user")
 public class Login {
 
     @Context
     HttpServletResponse response;
 
+    /**
+     * Checks if the user has logged in
+     * @param loginIdentifier The identifier which identifies the user
+     * @return The JSON response object
+     * {"Success": "True"}
+     * {"Success": "False"}
+     */
     @Path("/login/check")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,12 +61,20 @@ public class Login {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Login the user
+     * @param emailAddress The email address
+     * @param password The password
+     * @return The JSON response object
+     * {"Success": "The user has been authenticated."}
+     * {"Fail": "The username and password are not correct."}
+     */
     @Path("/login")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response login(@FormParam("emailAddress") String emailAddress,
                           @FormParam("password") String password) {
-        password = DigestUtils.sha256Hex(password);
+        password = DigestUtils.sha256Hex(password); // Hash the password
         JSONObject jsonObject;
         try (final Session session = SessionProvider.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -84,6 +101,13 @@ public class Login {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Logs out the user
+     * @param loginIdentifier The identifier which identifies the user
+     * @return The JSON response object
+     * {"Success": "You are signed out."}
+     * {"Fail": "The user has been signed out."}
+     */
     @Path("/logout")
     @POST
     public Response logout(@CookieParam("loginIdentifier") String loginIdentifier) {
@@ -99,7 +123,7 @@ public class Login {
                 user = userManagement.get(loginIdentifier);
                 user.setLoginIdentifier(null);
                 userManagement.set(user);
-                jsonObject.put("Success", "The user has been signed out.");
+                jsonObject.put("Success", "You are signed out.");
             } else {
                 jsonObject = JSONResponseGenerator.formSignedOutJSON();
             }

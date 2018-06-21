@@ -23,12 +23,21 @@ import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * The class contains services for managing devices information in the database
+ */
 @Path("/user/device")
 public class Device {
 
     @Context
     HttpServletRequest request;
 
+    /**
+     * Uploads the device to the database
+     * @param deviceID The id of the mobile device
+     * @return The JSON response object
+     * {"Success": "The device has been uploaded."}
+     */
     @Path("/upload")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -51,6 +60,14 @@ public class Device {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Binds the device with the user
+     * @param loginIdentifier The identifier which identifies the user
+     * @param deviceID The id of the device
+     * @return The JSON response object
+     * {"Success": "The device has been bind with the user."}
+     * {"Fail": "The user has not logged in yet."}
+     */
     @Path("/bind")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -79,16 +96,30 @@ public class Device {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Set up the connection with APN
+     *
+     * @return The JSON response object
+     * {"Success": "The connection is set up."}
+     * @throws InvalidKeyException      if the signed key is invalid
+     * @throws NoSuchAlgorithmException if the JVM does not support elliptic curve keys
+     * @throws IOException              if the key file cannot be found
+     */
     @Path("/connectAPN")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response connectAPN() throws InvalidKeyException, NoSuchAlgorithmException, IOException {
         JSONObject jsonObject = new JSONObject();
-        setUpAPNConnection();
+        APNConnector.getAPNConnectorFromSession(request);
         jsonObject.put("Success", "The connection is set up.");
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Close the APN connection
+     * @return The JSON response object
+     * @throws InterruptedException if the current thread was interrupted while waiting
+     */
     @Path("/disconnectAPN")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -99,13 +130,10 @@ public class Device {
         return Response.ok(jsonObject.toString()).build();
     }
 
-    private void setUpAPNConnection() throws InvalidKeyException, NoSuchAlgorithmException, IOException {
-        HttpSession session = request.getSession();
-        session.setMaxInactiveInterval(3600 * 24); // one day
-        APNConnector connector = new APNConnector();
-        session.setAttribute("APNConnection", connector);
-    }
-
+    /**
+     * The helper method for disconnection the APN connection
+     * @throws InterruptedException if the current thread was interrupted while waiting
+     */
     private void disconnectAPNConnection() throws InterruptedException {
         HttpSession session = request.getSession(false);
         if (session != null) {

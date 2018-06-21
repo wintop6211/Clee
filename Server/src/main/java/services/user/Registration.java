@@ -25,12 +25,30 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * The class contains web services for registering the user
+ */
 @Path("/user")
 public class Registration {
 
     @Context
     HttpServletResponse response;
 
+    /**
+     * Registers the new user
+     *
+     * @param name           The name of the user
+     * @param emailAddress   The email address of the user
+     * @param password       The password of the user
+     * @param gender         The gender of the user. Be careful, the variable type is int
+     * @param phone          The phone number of the user
+     * @param profilePicData The profile picture raw data
+     * @param schoolName     The name of the school
+     * @return The JSON response
+     * {"Success": "Waiting for account activation."}
+     * {"Fail": "The user has existed."}
+     * @throws IOException if the profile image data cannot be written to the hard drive
+     */
     @Path("/new")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -56,7 +74,7 @@ public class Registration {
             if (!schoolManagement.isExist(school)) {
                 schoolManagement.add(school);
                 schoolId = school.getIdSchool();
-                school.setLogo(PathManager.getImagesDirectory("pics/schoolLogos/" + schoolId+ ".png"));
+                school.setLogo(PathManager.getImagesDirectory("pics/schoolLogos/" + schoolId + ".png"));
                 schoolManagement.set(school);
             } else {
                 schoolId = schoolManagement.get(schoolName).getIdSchool();

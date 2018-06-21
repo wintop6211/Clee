@@ -96,6 +96,7 @@ public class APNConnector {
      * @throws InterruptedException if the current thread was interrupted while waiting
      */
     public void closeConnection() throws InterruptedException {
+
         Future<Void> closeFuture = client.close();
         closeFuture.await();
     }
@@ -105,7 +106,7 @@ public class APNConnector {
      *
      * @param request The object which contains the request information
      * @return The APN connector object
-     * @throws InvalidKeyException      The signed key is invalid
+     * @throws InvalidKeyException      if the signed key is invalid
      * @throws NoSuchAlgorithmException if the JVM does not support elliptic curve keys
      * @throws IOException              if the key file cannot be found
      */

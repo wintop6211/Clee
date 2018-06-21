@@ -18,8 +18,20 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * The class contains web services for rating users
+ */
 @Path("/user")
 public class Rate {
+    /**
+     * Rates the user when he/she acts as the seller
+     * @param loginIdentifier The identifier which identifies the user
+     * @param sellerId The id of the seller
+     * @param rate The rate which will be given to the user
+     * @return The JSON response
+     * {"Success": "The rate has been posted."}
+     * {"Fail": "The user has been signed out."}
+     */
     @Path("/rate/seller")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -51,6 +63,11 @@ public class Rate {
         return Response.ok(jsonObject).build();
     }
 
+    /**
+     * TODO: implement the service
+     * Rates the user when he/she acts as the buyer
+     * @return The JSON response
+     */
     @Path("/rate/buyer")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)

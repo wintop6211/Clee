@@ -31,6 +31,9 @@ import java.util.List;
 
 import static main.java.services.helpers.WebPageGetter.getWebPage;
 
+/**
+ * The class contains web services for retrieving back user's password
+ */
 @Path("/user/password")
 public class ForgotPassword {
 
@@ -39,6 +42,14 @@ public class ForgotPassword {
     @Context
     HttpServletResponse response;
 
+    /**
+     * Sends the forgot password email which contains the link for resetting the password
+     * @param emailAddress The email address of the user
+     * @return The JSON response object
+     * {"Success": "The email has been sent."}
+     * {"Fail": "The user does not exist."}
+     * @throws MessagingException The error which will be thrown when the email cannot be delivered
+     */
     @Path("/forgot")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -64,6 +75,12 @@ public class ForgotPassword {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Retrieves the resetting password HTML page
+     * @param loginIdentifier The identifier which temporarily identifies the user
+     * @return The HTML web page
+     * @throws IOException if the HTML page file cannot be found
+     */
     @Path("/change/{loginIdentifier}")
     @GET
     @Produces(MediaType.TEXT_HTML)
@@ -89,6 +106,13 @@ public class ForgotPassword {
         return inputStream;
     }
 
+    /**
+     * Resets the user record in the database. Also, stores the result cookie on the client side
+     * @param loginIdentifier The identifier which identifies the user
+     * @param password The new password for the user
+     * @return The JSON object response
+     * {"link": "<the link to for getting the result web page>"}
+     */
     @Path("/change")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -119,6 +143,12 @@ public class ForgotPassword {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Display the result page for the user.
+     * @param changedPassword The result of resetting the password for the user
+     * @return The response web page
+     * @throws IOException if the web page cannot be found
+     */
     @Path("/change/finish")
     @GET
     @Produces(MediaType.TEXT_HTML)
@@ -141,6 +171,10 @@ public class ForgotPassword {
         return inputStream;
     }
 
+    /**
+     * Creates the cookie for temporarily identifying the user
+     * @param loginIdentifier The identifier which identifies the user
+     */
     private void createChangePasswordCookie(String loginIdentifier) {
         Cookie cookie = new Cookie("loginIdentifier", loginIdentifier);
         cookie.setPath(PathManager.getChangePasswordCookiePath("services/UserServices/changePassword"));

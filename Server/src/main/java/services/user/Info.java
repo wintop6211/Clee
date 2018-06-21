@@ -19,8 +19,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * The class contains web services for retrieving the user information from the database
+ */
 @Path("/user")
 public class Info {
+    /**
+     * Gets the user information by using the login identifier
+     * @param loginIdentifier The identifier which identifies the user
+     * @return The JSON response object
+     * For example:
+     *
+     */
     @Path("/get")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -29,6 +39,12 @@ public class Info {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Gets the user information by using user's id
+     * @param loginIdentifier The identifier which identifies the user
+     * @param id The id of the user whom you are looking for
+     * @return The JSON response object
+     */
     @Path("/get/{targetId}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -38,6 +54,13 @@ public class Info {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Checks if the email has existed in the database
+     * @param emailAddress The email address which needs to be checked
+     * @return The JSON response object
+     * {"Success": "True"}
+     * {"Success": "False"}
+     */
     @Path("/email/check")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -61,6 +84,13 @@ public class Info {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Checks if the phone has existed in the database
+     * @param phone The phone number which needs to be checked
+     * @return The JSON response object
+     * {"Success": "True"}
+     * {"Success": "False"}
+     */
     @Path("/phone/check")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -84,6 +114,22 @@ public class Info {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * Gets the user information
+     * @param loginIdentifier The identifier which identifies the user
+     * @param userId The id of the user
+     * @return The JSON response object
+     * {
+     *      "Success": {
+     *          "id": 4,
+     *          "name": "Harry Liang",
+     *          "email": "thisisemail@gmail.com",
+     *          "gender": 0 (this is a number, and how to handle this number is determined on the client side),
+     *          "phone": "4141234567"
+     *      }
+     * }
+     * {"Fail": "The user has been signed out."}
+     */
     private JSONObject getUserInfo(String loginIdentifier, int userId) {
         JSONObject jsonObject = new JSONObject();
         try (final Session session = SessionProvider.getSession()) {

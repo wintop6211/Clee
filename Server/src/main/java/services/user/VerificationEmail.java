@@ -25,12 +25,21 @@ import java.util.List;
 
 import static main.java.services.helpers.WebPageGetter.getWebPage;
 
+/**
+ * The class contains web services for verifying user's email address
+ */
 @Path("/user")
 public class VerificationEmail {
 
     @Context
     ServletContext context;
 
+    /**
+     * Verifies the user
+     * @param loginIdentifier The identifier which identifies the user
+     * @return The response web page
+     * @throws IOException if the web page cannot be found
+     */
     @Path("/verify/{loginIdentifier}")
     @GET
     @Produces(MediaType.TEXT_HTML)
@@ -55,6 +64,14 @@ public class VerificationEmail {
         return fileInputStream;
     }
 
+    /**
+     * Sends the verification email to user's email inbox
+     * @param loginIdentifier The identifier which identifies the user
+     * @return The JSON response
+     * {"Success": "The email has been sent."}
+     * {"Fail": "The user has been signed out."}
+     * @throws MessagingException if the email cannot be delivered
+     */
     @Path("/verify/send")
     @GET
     @Produces(MediaType.APPLICATION_JSON)

@@ -23,8 +23,17 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * The class contains web services for managing user images
+ */
 @Path("/user/image")
 public class ProfileImage {
+    /**
+     * Gets the profile picture for the user
+     * @param loginIdentifier The identifier which identifies the user
+     * @return The profile image data
+     * @throws IOException if the profile image cannot be found
+     */
     @Path("/get")
     @GET
     @Produces("image/jpeg")
@@ -33,6 +42,13 @@ public class ProfileImage {
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
 
+    /**
+     * Gets the profile picture by using user id
+     * @param loginIdentifier The identifier which identifies the user
+     * @param userId The id of the user whom you want to search for
+     * @return The profile image data
+     * @throws IOException if the profile image cannot be found
+     */
     @Path("/get/{userId}")
     @GET
     @Produces("image/png")
@@ -42,15 +58,31 @@ public class ProfileImage {
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
 
+    /**
+     * Gets the profile picture by one single URL
+     * @param loginIdentifier The identifier which identifies the user
+     * @param userId The id of the user whom you want to search for
+     * @return The profile image data
+     * @throws IOException if the profile image cannot be found
+     */
     @Path("/get/{loginIdentifier}/{userId}")
     @GET
     @Produces("image/jpeg")
-    public Response getProfilePicByEmail(@PathParam("loginIdentifier") String loginIdentifier,
+    public Response getProfilePicByURL(@PathParam("loginIdentifier") String loginIdentifier,
                                          @PathParam("userId") int userId) throws IOException {
         byte[] imageData = loadUserProfileImage(loginIdentifier, userId);
         return Response.ok(new ByteArrayInputStream(imageData)).build();
     }
 
+    /**
+     * Uploads the profile image to the server
+     * @param loginIdentifier The identifier which identifies the user
+     * @param profilePicData The profile image data
+     * @return The JSON response
+     * {"Success": "The profile image has been set."}
+     * {"Fail": "The user has been signed out."}
+     * @throws IOException if the image data cannot be written to the hard drive
+     */
     @Path("/upload")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -77,6 +109,13 @@ public class ProfileImage {
         return Response.ok(jsonObject.toString()).build();
     }
 
+    /**
+     * The helper method for loading the user profile image
+     * @param loginIdentifier The identifier which identifies the user
+     * @param userId The id of the user
+     * @return The profile image data
+     * @throws IOException if the image cannot be read from the hard drive
+     */
     private byte[] loadUserProfileImage(String loginIdentifier, int userId) throws IOException {
         byte[] imageData = new byte[0];
         try (final Session session = SessionProvider.getSession()) {

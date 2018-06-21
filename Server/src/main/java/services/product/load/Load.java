@@ -65,7 +65,7 @@ public class Load {
                         "from Product p where p.name like '%" + keyWords + "%' and " +
                         "p.schoolIdSchool in (select u.schoolIdSchool " +
                         "from User u where u.idUser=" + userId + ") order by p.idProduct desc");
-                List products = getItemQueryResults(query, ItemOffsetRecorder.SEARCH_ITEM_OFFSET);
+                List products = getItemQueryResults(query, ItemOffsetRecorder.SEARCH_ITEM_OFFSET_K);
                 putItemJSONToResponseJSON(session, products, jsonObject);
             } else {
                 jsonObject = JSONResponseGenerator.formSignedOutJSON();
@@ -100,7 +100,7 @@ public class Load {
             if (userManagement.isExist(user)) {
                 user = userManagement.get(loginIdentifier);
                 Query query = session.createQuery("from Product where sold=0 and schoolIdSchool=" + user.getSchoolIdSchool() + " order by date desc");
-                List items = getItemQueryResults(query, ItemOffsetRecorder.ALL_ITEM_OFFSET);
+                List items = getItemQueryResults(query, ItemOffsetRecorder.ALL_ITEM_OFFSET_K);
                 putItemJSONToResponseJSON(session, items, jsonObject);
             } else {
                 jsonObject = JSONResponseGenerator.formSignedOutJSON();
@@ -176,7 +176,7 @@ public class Load {
                 user = userManagement.get(loginIdentifier);
                 int idUser = user.getIdUser();
                 Query query = session.createQuery("from Product where idBuyer=" + idUser + " order by date desc");
-                List items = getItemQueryResults(query, ItemOffsetRecorder.BOUGHT_ITEM_OFFSET);
+                List items = getItemQueryResults(query, ItemOffsetRecorder.BOUGHT_ITEM_OFFSET_K);
                 putItemJSONToResponseJSON(session, items, jsonObject);
             } else {
                 jsonObject = JSONResponseGenerator.formSignedOutJSON();
@@ -212,7 +212,7 @@ public class Load {
                 user = userManagement.get(loginIdentifier);
                 int userId = user.getIdUser();
                 Query query = session.createQuery("from Product where idSeller=" + userId + " and sold=0 order by date desc");
-                List items = getItemQueryResults(query, ItemOffsetRecorder.SELLING_ITEM_OFFSET);
+                List items = getItemQueryResults(query, ItemOffsetRecorder.SELLING_ITEM_OFFSET_K);
                 putItemJSONToResponseJSON(session, items, jsonObject);
             } else {
                 jsonObject = JSONResponseGenerator.formSignedOutJSON();
@@ -249,7 +249,7 @@ public class Load {
                 int userId = user.getIdUser();
                 Query query = session.createQuery("select p from Product p, PendingRequest r " +
                         "where p.id=r.idProduct and r.idBuyer=" + userId);
-                List items = getItemQueryResults(query, ItemOffsetRecorder.REQUESTED_ITEM_OFFSET);
+                List items = getItemQueryResults(query, ItemOffsetRecorder.REQUESTED_ITEM_OFFSET_K);
                 putItemJSONToResponseJSON(session, items, jsonObject);
             } else {
                 jsonObject = JSONResponseGenerator.formSignedOutJSON();
@@ -287,7 +287,7 @@ public class Load {
                 user = userManagement.get(loginIdentifier);
                 Query query = session.createQuery("from Product where sold=0 and idSeller=" +
                         user.getIdUser() + " order by date desc");
-                List items = getItemQueryResults(query, ItemOffsetRecorder.SELLING_ITEM_OFFSET);
+                List items = getItemQueryResults(query, ItemOffsetRecorder.SELLING_ITEM_OFFSET_K);
                 if (items.size() > 0) {
                     Product product = (Product) items.get(0);
                     image = ImageManagement.loadItemCoverImage(product);
@@ -326,7 +326,7 @@ public class Load {
                 user = userManagement.get(loginIdentifier);
                 int idUser = user.getIdUser();
                 Query query = session.createQuery("from Product where idBuyer=" + idUser + " order by date desc");
-                List products = getItemQueryResults(query, ItemOffsetRecorder.BOUGHT_ITEM_OFFSET);
+                List products = getItemQueryResults(query, ItemOffsetRecorder.BOUGHT_ITEM_OFFSET_K);
                 if (products.size() > 0) {
                     Product product = (Product) products.get(0);
                     image = ImageManagement.loadItemCoverImage(product);
@@ -365,7 +365,7 @@ public class Load {
                 user = userManagement.get(loginIdentifier);
                 int idUser = user.getIdUser();
                 Query query = session.createQuery("select p from Product p, PendingRequest r where p.id=r.idProduct and r.idBuyer=" + idUser);
-                List items = getItemQueryResults(query, ItemOffsetRecorder.REQUESTED_ITEM_OFFSET);
+                List items = getItemQueryResults(query, ItemOffsetRecorder.REQUESTED_ITEM_OFFSET_K);
                 if (items.size() > 0) {
                     Product product = (Product) items.get(0);
                     image = ImageManagement.loadItemCoverImage(product);

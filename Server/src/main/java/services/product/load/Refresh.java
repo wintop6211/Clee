@@ -31,7 +31,7 @@ public class Refresh {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoading() {
-        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.ALL_ITEM_OFFSET);
+        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.ALL_ITEM_OFFSET_K);
         return Response.ok(jsonObject.toString()).build();
     }
 
@@ -58,7 +58,7 @@ public class Refresh {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoadSearchingItems() {
-        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.SEARCH_ITEM_OFFSET);
+        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.SEARCH_ITEM_OFFSET_K);
         return Response.ok(jsonObject.toString()).build();
     }
 
@@ -71,7 +71,7 @@ public class Refresh {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoadingSellingItems() {
-        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.SELLING_ITEM_OFFSET);
+        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.SELLING_ITEM_OFFSET_K);
         return Response.ok(jsonObject.toString()).build();
     }
 
@@ -84,7 +84,7 @@ public class Refresh {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoadingBoughtItems() {
-        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.BOUGHT_ITEM_OFFSET);
+        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.BOUGHT_ITEM_OFFSET_K);
         return Response.ok(jsonObject.toString()).build();
     }
 
@@ -97,7 +97,7 @@ public class Refresh {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response refreshLoadingRequestedItems() {
-        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.REQUESTED_ITEM_OFFSET);
+        JSONObject jsonObject = resetItemOffset(ItemOffsetRecorder.REQUESTED_ITEM_OFFSET_K);
         return Response.ok(jsonObject.toString()).build();
     }
 
