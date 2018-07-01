@@ -75,7 +75,7 @@ extension ItemDetailViewController {
     }
     
     @IBAction func report(_ sender: UIButton) {
-        self.present(UIAlertController.Factory.getInformController(message: "Report have been sent, we will review it as soon as we can.", handler: {_ in }), animated: true, completion: nil)
+        self.present(UIAlertController.Factory.getInformController(message: "Report have been sent, we will review it as soon as we can.", handler: nil), animated: true, completion: nil)
     }
 }
 

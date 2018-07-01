@@ -60,7 +60,7 @@ extension PostItemViewController {
     
     @IBAction func next(_ sender: UIButton) {
         if images.count < 3 {
-            self.present(UIAlertController.Factory.getInformController(message: "Need at least 3 pictures.", handler: {_ in}), animated: true, completion: nil)
+            self.present(UIAlertController.Factory.getInformController(message: "Need at least 3 pictures.", handler: nil), animated: true, completion: nil)
         } else {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = mainStoryboard.instantiateViewController(withIdentifier: "PostItemDetailView") as! PostItemDetailViewController
@@ -72,7 +72,7 @@ extension PostItemViewController {
     
     @IBAction func capture(_ sender: UIButton) {
         if images.count == 5 {
-            self.present(UIAlertController.Factory.getInformController(message: "Can only upload up to 5 pictures.", handler: {_ in }), animated: true, completion: nil)
+            self.present(UIAlertController.Factory.getInformController(message: "Can only upload up to 5 pictures.", handler: nil), animated: true, completion: nil)
         } else {
             let settings = AVCapturePhotoSettings()
             let previewPixelType = settings.__availablePreviewPhotoPixelFormatTypes.first!
