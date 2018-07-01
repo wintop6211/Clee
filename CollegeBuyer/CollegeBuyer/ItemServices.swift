@@ -453,8 +453,4 @@ extension ItemServices {
         
         return Item(id: id, name: name, condition: condition, images: [], price: price, description: description, sellerId: sellerId, sellerName: sellerName, sellerSchool: sellerSchool, sellerProfilePic: sellerProfilePic, sellerEmail: sellerEmail, offers: offers)
     }
-    
-    fileprivate static func parseRequestInfo() {
-        
-    }
 }

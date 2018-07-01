@@ -18,7 +18,7 @@ class UserServices {
     static func getProfilePicture(userId: Int) -> UIImage {
         let semaphore = DispatchSemaphore(value: 0)
         var profilePic : UIImage?
-        let service = "/UserServices/getProfilePic/\(userId)"
+        let service = "/user/image/get/\(userId)"
 
         Server.GETService(service: service, completionHandler: {
             (data: Data?, response: URLResponse?, error: Error?) -> Void in

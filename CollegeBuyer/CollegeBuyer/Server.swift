@@ -15,9 +15,10 @@ enum ServerError: Error {
 }
 
 class Server {
-    static let ip = "174.138.45.173"
+    static let ip = "localhost"
     static let port = "8080"
-    static let root = "CollegeBuyerServer-1.0-SNAPSHOT"
+    // Do not use this root if web services are local
+//    static let root = "CollegeBuyerServer-1.0-SNAPSHOT"
     
     static func getSFFormatHandler(successHandler: @escaping (AnyObject) -> Void, failHandler: @escaping (AnyObject) -> Void, serverInternalErrorHandler: @escaping (ServerError) -> Void, networkErrorHandler: @escaping (Error) -> Void) -> (Data?, URLResponse?, Error?) -> Void {
         return {
@@ -46,7 +47,7 @@ class Server {
 
     static func GETService(service: String, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
-        let url = URL(string: "http://\(Server.ip):\(Server.port)/\(Server.root)/services\(service)")
+        let url = URL(string: "http://\(Server.ip):\(Server.port)/services\(service)")
         
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
@@ -63,7 +64,7 @@ class Server {
     }
     
     static func POSTService(service: String, params: [String : String], completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let url = URL(string: "http://\(Server.ip):\(Server.port)/\(Server.root)/services\(service)")
+        let url = URL(string: "http://\(Server.ip):\(Server.port)/services\(service)")
         
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -83,7 +84,7 @@ class Server {
     }
     
     static func MultipartPOSTService(service: String, params: [String : String], data: Data, name: String, mimeType: String, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        let url = URL(string: "http://\(Server.ip):\(Server.port)/\(Server.root)/services\(service)")
+        let url = URL(string: "http://\(Server.ip):\(Server.port)/services\(service)")
         
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"

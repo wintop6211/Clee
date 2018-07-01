@@ -90,7 +90,7 @@ extension LoginViewController {
                     }
                 } else {
                     DispatchQueue.main.async {
-                        self.present(UIAlertController.Factory.getInformController(message: "Email or password is incorrect"), animated: true, completion: resetLoginButtonState)
+                        self.present(UIAlertController.Factory.getInformController(message: "Email or password is incorrect", handler: {_ in }), animated: true, completion: resetLoginButtonState)
                     }
                 }
             } else { resetLoginButtonState() }
