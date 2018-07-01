@@ -31,9 +31,9 @@ class ItemServices {
             var isTimeOut = true
 
             if resolutionType == .highRes {
-                url = "/ProductServices/getItemImage/false/\(itemId)/\(imageIndex)"
+                url = "/product/get/image/false/\(itemId)/\(imageIndex)"
             } else if resolutionType == .lowRes {
-                url = "/ProductServices/getItemImage/true/\(itemId)/\(imageIndex)"
+                url = "/product/get/image/true/\(itemId)/\(imageIndex)"
             }
             
             Server.GETService(service: url, completionHandler: {(data: Data?, response: URLResponse?, error: Error?) -> Void in
@@ -66,7 +66,7 @@ class ItemServices {
         var itemInfo: Item?
         var noMoreItem = false
 
-        Server.GETService(service: "/ProductServices/loadItem", successHandler: {
+        Server.GETService(service: "/product/load", successHandler: {
             (successResponse: AnyObject) in
                 
             itemInfo = parseContactableItemInfo(data: successResponse)
@@ -100,7 +100,7 @@ class ItemServices {
         var itemInfo: Item?
         var noMoreItem = false
         
-        Server.GETService(service: "/ProductServices/loadItemByCategory/\(category)", successHandler: {
+        Server.GETService(service: "/product/load/\(category)", successHandler: {
             (successResponse: AnyObject) in
                 
             itemInfo = parseContactableItemInfo(data: successResponse)
@@ -133,7 +133,7 @@ class ItemServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.GETService(service: "/ProductServices/refreshLoading", successHandler: {
+        Server.GETService(service: "/product/refresh/load", successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -169,7 +169,7 @@ class ItemServices {
         var itemInfo: Item?
         var noMoreItem = false
         
-        Server.GETService(service: "/ProductServices/loadSellingItem", successHandler: {
+        Server.GETService(service: "/product/load/selling", successHandler: {
             (successResponse: AnyObject) in
                 
             itemInfo = parseContactableItemInfo(data: successResponse)
@@ -202,7 +202,7 @@ class ItemServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.GETService(service: "/ProductServices/refreshLoadingSellingItems", successHandler: {
+        Server.GETService(service: "/product/refresh/load/selling", successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -237,7 +237,7 @@ class ItemServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.POSTService(service: "/ProductServices/confirmPurchaseRequest", params: ["requestId" : String(describing: offerId)], successHandler: {
+        Server.POSTService(service: "/product/request/confirm", params: ["requestId" : String(describing: offerId)], successHandler: {
             (successResponse: AnyObject) in
 
             isTimeOut = false
@@ -272,7 +272,7 @@ class ItemServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.POSTService(service: "/ProductServices/confirmPurchaseRequest", params: ["itemId" : String(describing: itemId), "offerPrice" : String(describing: offerPrice), "note" : note], successHandler: {
+        Server.POSTService(service: "/product/request/send", params: ["itemId" : String(describing: itemId), "offerPrice" : String(describing: offerPrice), "note" : note], successHandler: {
             (successResponse: AnyObject) in
 
             isTimeOut = false
@@ -307,7 +307,7 @@ class ItemServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.POSTService(service: "/ProductServices/postItem", params: ["name" : name, "price" : "\(price)", "description": description, "condition" : "\(condition.rawValue)", "category" : "\(category.rawValue)"], successHandler: {
+        Server.POSTService(service: "/product/post", params: ["name" : name, "price" : "\(price)", "description": description, "condition" : "\(condition.rawValue)", "category" : "\(category.rawValue)"], successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -356,7 +356,7 @@ class ItemServices {
                 params["imageIndex"] = "\(pictureIndex)"
                 pictureIndex += 1
             
-            Server.MultipartPOSTService(service: "/ProductServices/postItemImage", params: params, data: UIImageJPEGRepresentation(picture, 1.0)!, name: "itemImage", mimeType: "jpeg/image", successHandler: {
+            Server.MultipartPOSTService(service: "/product/post/image", params: params, data: UIImageJPEGRepresentation(picture, 1.0)!, name: "itemImage", mimeType: "jpeg/image", successHandler: {
                 (failResponse: AnyObject) in
                 
                 isTimeOut = false
@@ -452,5 +452,9 @@ extension ItemServices {
         let sellerProfilePic = UserServices.getProfilePicture(userId: sellerId)
         
         return Item(id: id, name: name, condition: condition, images: [], price: price, description: description, sellerId: sellerId, sellerName: sellerName, sellerSchool: sellerSchool, sellerProfilePic: sellerProfilePic, sellerEmail: sellerEmail, offers: offers)
+    }
+    
+    fileprivate static func parseRequestInfo() {
+        
     }
 }
