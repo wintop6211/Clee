@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
         addDoneButtonToKeyboard()
     }
     override func didReceiveMemoryWarning() {
