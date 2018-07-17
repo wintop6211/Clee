@@ -34,7 +34,7 @@ class BasicInfoRegistrationViewController: UIViewController, UINavigationControl
     // ViewController life cycle related methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
         registerForKeyboardNotifications()
         addDoneButtonToKeyboard()
         radioButtonController = SSRadioButtonsController(buttons: maleButton, femaleButton)
