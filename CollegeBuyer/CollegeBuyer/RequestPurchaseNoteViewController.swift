@@ -52,7 +52,7 @@ class RequestPurchaseNoteViewController: UIViewController {
             
             let displaySuccessAlert = {
                 DispatchQueue.main.async {
-                    self.present(UIAlertController.Factory.getInformController(message: "Offer Been Sent"), animated: true, completion: resetInstructionLabel)
+                    self.present(UIAlertController.Factory.getInformController(message: "Offer Been Sent", handler: {_ in }), animated: true, completion: resetInstructionLabel)
                 }
             }
             

@@ -48,7 +48,7 @@ class PostItemDescriptionViewController: UIViewController {
             
             let displaySuccessAlert = {
                 DispatchQueue.main.async {
-                    self.present(UIAlertController.Factory.getInformController(message: "Item Posted"), animated: true, completion: resetInstructionLabel)
+                    self.present(UIAlertController.Factory.getInformController(message: "Item Posted", handler: nil), animated: true, completion: resetInstructionLabel)
                 }
             }
             

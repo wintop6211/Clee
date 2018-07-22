@@ -114,6 +114,6 @@ public class UserManagement {
         user.setPhone(phone);
         user.setSchoolIdSchool(schoolId);
         user.setPassword(password);
-        user.setVerified(0);
+        user.setVerified(1);
     }
 }

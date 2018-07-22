@@ -18,7 +18,7 @@ class UserServices {
     static func getProfilePicture(userId: Int) -> UIImage {
         let semaphore = DispatchSemaphore(value: 0)
         var profilePic : UIImage?
-        let service = "/UserServices/getProfilePic/\(userId)"
+        let service = "/user/image/get/\(userId)"
 
         Server.GETService(service: service, completionHandler: {
             (data: Data?, response: URLResponse?, error: Error?) -> Void in
@@ -41,7 +41,7 @@ class UserServices {
         var isLoginCompleted = false
         var isTimeOut = true
         
-        Server.POSTService(service: "/UserServices/login", params: ["emailAddress" : emailAddress, "password" : password], successHandler: {
+        Server.POSTService(service: "/user/login", params: ["emailAddress" : emailAddress, "password" : password], successHandler: {
             (successResponse: AnyObject) in
             
             isLoginCompleted = true
@@ -88,7 +88,7 @@ class UserServices {
         
         let profilePicData = UIImageJPEGRepresentation(profilePic, 1)!
         
-        Server.MultipartPOSTService(service: "/UserServices/registerNewUser", params: params, data: profilePicData, name: "profilePicture", mimeType: "image/jpeg", successHandler: {
+        Server.MultipartPOSTService(service: "/user/new", params: params, data: profilePicData, name: "profilePicture", mimeType: "image/jpeg", successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -124,7 +124,7 @@ class UserServices {
         var isEmailExisted = false
         var isTimeOut = true
         
-        Server.POSTService(service: "/UserServices/isEmailExisted", params: ["emailAddress" : emailAddress], successHandler: {
+        Server.POSTService(service: "/user/email/check", params: ["emailAddress" : emailAddress], successHandler: {
             (successResponse: AnyObject) in
             
             let response = successResponse as! String
@@ -170,7 +170,7 @@ class UserServices {
         var isPhoneNumberExisted = false
         var isTimeOut = true
         
-        Server.POSTService(service: "/UserServices/isPhoneExisted", params: ["phone" : phoneNumber], successHandler: {
+        Server.POSTService(service: "/user/phone/check", params: ["phone" : phoneNumber], successHandler: {
             (successResponse: AnyObject) in
             
             let response = successResponse as! String
@@ -215,7 +215,7 @@ class UserServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.POSTService(service: "/UserServices/change/gender", params: ["gender" : "\(gender.rawValue)"], successHandler: {
+        Server.POSTService(service: "/user/change/gender", params: ["gender" : "\(gender.rawValue)"], successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -250,7 +250,7 @@ class UserServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.POSTService(service: "/UserServices/change/phone", params: ["phone" : phoneNumber], successHandler: {
+        Server.POSTService(service: "/user/change/phone", params: ["phone" : phoneNumber], successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -287,7 +287,7 @@ class UserServices {
         
         let profilePictureData = UIImagePNGRepresentation(profilePicture)!
         
-        Server.MultipartPOSTService(service: "/UserServices/uploadProfileImage", params: [ : ], data: profilePictureData, name: "profilePicture", mimeType: "image/jpeg", successHandler: {
+        Server.MultipartPOSTService(service: "/user/image/upload", params: [ : ], data: profilePictureData, name: "profilePicture", mimeType: "image/jpeg", successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -322,7 +322,7 @@ class UserServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.POSTService(service: "/UserServices/change/name", params: ["name" : name], successHandler: {
+        Server.POSTService(service: "/user/change/name", params: ["name" : name], successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -357,7 +357,7 @@ class UserServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        Server.POSTService(service: "/UserServices/forgotPassword", params: ["emailAddress" : emailAddress], successHandler: {
+        Server.POSTService(service: "/user/password/forgot", params: ["emailAddress" : emailAddress], successHandler: {
             (successResponse: AnyObject) in
             
             isTimeOut = false
@@ -391,7 +391,7 @@ class UserServices {
     static func getSchoolLogo() -> UIImage {
         let semaphore = DispatchSemaphore(value: 0)
         var schoolLogo : UIImage?
-        Server.GETService(service: "/UserServices/getSchoolLogo", completionHandler: {
+        Server.GETService(service: "/user/get/school/image", completionHandler: {
             (data: Data?, response: URLResponse?, error: Error?) -> Void in
                 
             schoolLogo = UIImage(data: data!)

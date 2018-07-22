@@ -53,6 +53,7 @@
 		42E7E9071F2410EE006A4048 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E7E9061F2410EE006A4048 /* SystemConfiguration.framework */; };
 		42E7E9091F2410FA006A4048 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E7E9081F2410FA006A4048 /* SafariServices.framework */; };
 		A565BF31E28309CB0CB8F2B9 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A565B4ABECA3F9A48E59DC8D /* TabViewController.swift */; };
+		DC27A29A20F2BF530088021D /* KeyboardDisappearExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27A29920F2BF530088021D /* KeyboardDisappearExtension.swift */; };
 		DCA6CD151EEBC21000C2966A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD141EEBC21000C2966A /* AppDelegate.swift */; };
 		DCA6CD1A1EEBC21000C2966A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA6CD181EEBC21000C2966A /* Main.storyboard */; };
 		DCA6CD1C1EEBC21000C2966A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA6CD1B1EEBC21000C2966A /* Assets.xcassets */; };
@@ -141,6 +142,7 @@
 		8393A72295C0E5B5F846C6EC /* Pods-CollegeBuyerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeBuyerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeBuyerUITests/Pods-CollegeBuyerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A565B4ABECA3F9A48E59DC8D /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		CAAD745EA2369C62B4ECCD05 /* Pods-CollegeBuyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeBuyerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeBuyerUITests/Pods-CollegeBuyerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC27A29920F2BF530088021D /* KeyboardDisappearExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDisappearExtension.swift; sourceTree = "<group>"; };
 		DCA6CD111EEBC21000C2966A /* CollegeBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA6CD141EEBC21000C2966A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA6CD191EEBC21000C2966A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				18ED7DB820654F3200E211AB /* StringExtensions.swift */,
 				1892BC9B2072E2D900283A9D /* UIAlertControllerExtensions.swift */,
 				18ED7DBA20654F7D00E211AB /* UIImageExtensions.swift */,
+				DC27A29920F2BF530088021D /* KeyboardDisappearExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				420DB3681F4F96E6006CC6B1 /* RoundCornerView.swift in Sources */,
 				DCA6CD151EEBC21000C2966A /* AppDelegate.swift in Sources */,
 				18ED7DC12065ACDC00E211AB /* Resources.swift in Sources */,
+				DC27A29A20F2BF530088021D /* KeyboardDisappearExtension.swift in Sources */,
 				F48B17961F49FB2200262E50 /* CameraButton.swift in Sources */,
 				1841A6F81F9FBC790090AF62 /* RoundCornerImageView.swift in Sources */,
 				18ED7DB920654F3200E211AB /* StringExtensions.swift in Sources */,

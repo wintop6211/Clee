@@ -46,7 +46,6 @@ public class LoginStatusManager {
         // create the session cookie
         Cookie cookie = new Cookie("loginIdentifier", uuid);
         cookie.setPath("/");
-        cookie.setSecure(true);
         cookie.setMaxAge(3600);
         return cookie;
     }

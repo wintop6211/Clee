@@ -34,7 +34,7 @@ class BasicInfoRegistrationViewController: UIViewController, UINavigationControl
     // ViewController life cycle related methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
         registerForKeyboardNotifications()
         addDoneButtonToKeyboard()
         radioButtonController = SSRadioButtonsController(buttons: maleButton, femaleButton)
@@ -106,7 +106,7 @@ extension BasicInfoRegistrationViewController {
                 
                 let displaySuccessAlert = {
                     DispatchQueue.main.async {
-                        self.present(UIAlertController.Factory.getInformController(message: "Signed up! Check your mailbox and activate your account."), animated: true, completion: resetSignupButtonState)
+                        self.present(UIAlertController.Factory.getInformController(message: "Signed up! Check your mailbox and activate your account.", handler: {_ in self.dismiss(animated: true, completion: nil)}), animated: true, completion: resetSignupButtonState)
                     }
                 }
                 

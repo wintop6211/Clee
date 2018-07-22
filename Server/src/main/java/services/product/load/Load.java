@@ -1,6 +1,7 @@
 package main.java.services.product.load;
 
 import main.java.configuration.SessionProvider;
+import main.java.entities.PendingRequest;
 import main.java.entities.Product;
 import main.java.entities.User;
 import main.java.entities.managements.ImageManagement;
@@ -10,6 +11,7 @@ import main.java.status.manager.ItemOffsetRecorder;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +25,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -416,9 +419,11 @@ public class Load {
      *             "phone": "414-123-4567",
      *             "sellerRating": "2.5", (-1 will be returned if not enough reviews)
      *             "buyerRating": "2.5", (-1 will be returned if not enough reviews)
-     *             "verified": 1 (0 will be returend if the user is not verified. Otherwise, 1 will be returned)
+     *             "verified": 1, (0 will be returend if the user is not verified. Otherwise, 1 will be returned)
      *             "school": "Milwaukee School of Engineering"
-     *         }
+     *         },
+     *         "offers": [offer1, offer2, offer3] (check the doc for JSONResponseGenerator.formRequestJSON to know more
+     *                     information about the format of each offer respons format)
      *     }
      * }
      */
@@ -426,6 +431,14 @@ public class Load {
         if (items.size() > 0) {
             Product product = (Product) items.get(0);
             JSONObject itemJSON = JSONResponseGenerator.formBasicItemInfoJSON(session, product);
+            // put request information
+            Collection<PendingRequest> requests = product.getPendingRequestsByIdProduct();
+            JSONArray offersJSON = new JSONArray();
+            for (PendingRequest request : requests) {
+                JSONObject requestJSON = JSONResponseGenerator.formRequestJSON(session, request);
+                offersJSON.put(requestJSON);
+            }
+            itemJSON.put("offers", offersJSON);
             responseJSON.put("Success", itemJSON);
         } else {
             responseJSON.put("Fail", "No more items.");

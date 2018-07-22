@@ -17,10 +17,10 @@ extension UIAlertController {
             
             return alertController
         }
-        
-        static func getInformController(message: String) ->  UIAlertController {
+
+        static func getInformController(message: String, handler: ((UIAlertAction) -> Void)?) ->  UIAlertController {
             let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: handler))
             
             return alertController
         }

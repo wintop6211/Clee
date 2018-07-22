@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
         addDoneButtonToKeyboard()
     }
     override func didReceiveMemoryWarning() {
@@ -64,7 +64,14 @@ extension LoginViewController {
                 do {
                     var isErrorHappened = false
                     
-                    isLoggedIn = try UserServices.login(emailAddress: self.emailAddressTextField.text!, password: self.passwordTextField.text!, serverInternalErrorHandler: {
+                    var email: String = ""
+                    var password: String = ""
+                    DispatchQueue.main.sync {
+                        email = self.emailAddressTextField.text!
+                        password = self.passwordTextField.text!
+                    }
+                    
+                    isLoggedIn = try UserServices.login(emailAddress: email, password: password, serverInternalErrorHandler: {
                         _ in
                         
                         displayServerInternalErrorAlert()
@@ -90,7 +97,7 @@ extension LoginViewController {
                     }
                 } else {
                     DispatchQueue.main.async {
-                        self.present(UIAlertController.Factory.getInformController(message: "Email or password is incorrect"), animated: true, completion: resetLoginButtonState)
+                        self.present(UIAlertController.Factory.getInformController(message: "Email or password is incorrect", handler: nil), animated: true, completion: resetLoginButtonState)
                     }
                 }
             } else { resetLoginButtonState() }
