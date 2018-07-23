@@ -51,3 +51,11 @@ Please click **Add as Maven Project**
 ##### Run the server
 ![enter image description here](https://lh3.googleusercontent.com/hIhSyGhdSnE5bp6UvTQnBouKfPJvi8r-1ZZyBJrAh0GubMH64GvX3_qCk-w2iWS2Td0mkoWLbGvU)<br>Select **Tomcat 8.5.16** or **other names**, and click **green arrow** on the right side of the box. The server should be started easily.
 ###### Note: Lack of permission can lead to unsuccessful starting the server. Please make sure Tomcat folders have enough permissions.
+
+### Notification services and Email services comments
+#### APN
+The notification service used for iOS devices is called APN. Apple's official website has the very good explanation on how APN works. The library used in this project is called **pushy**, and it is also the open source project on Github. The link is here: https://github.com/relayrides/pushy. **pushy** library has encapsulated most work for us, so developers do not need to worry about the APN protocal format when the notification is needed to be sent. Moreover, one class called **APNConnector** in the project has been created for sending purchase notifications. If some other kinds of notifications need to be included, feel free to extend this class to have more functionalities.
+#### Email
+The program itself is expected to send verifiaction email to the user. When the user creates the account, he/she should always verify his/her account through email because we expect users are only students. The current project has verfication web services implemented. The class **EmailController** is for sending emails. Same as above, if you need to expand it to have more functionalities, feel free to do that. The current program flow does not have this process included. When the user creates the account, he/her is set to `verified=True`.
+
+
