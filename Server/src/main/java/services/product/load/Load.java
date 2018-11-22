@@ -15,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.CookieParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -35,7 +36,7 @@ import java.util.List;
 public class Load {
 
     @Context
-    HttpServletRequest request;
+    private HttpServletRequest request;
 
     /**
      * The service for searching items whose name contains the keyword. Only one item will be returned if it is
@@ -390,10 +391,13 @@ public class Load {
      * @return The list of items
      */
     private List getItemQueryResults(Query query, String offsetIdentifier) {
-        int itemOffset = ItemOffsetRecorder.getItemOffset(request, offsetIdentifier);
-        query.setMaxResults(ItemOffsetRecorder.MAX_ITEM_ALLOWED);
-        query.setFirstResult(itemOffset);
-        ItemOffsetRecorder.updateItemOffset(request, offsetIdentifier);
+        HttpSession session = request.getSession();
+        synchronized (session.getId().intern()) {
+            int itemOffset = ItemOffsetRecorder.getItemOffset(session, offsetIdentifier);
+            query.setMaxResults(ItemOffsetRecorder.MAX_ITEM_ALLOWED);
+            query.setFirstResult(itemOffset);
+            ItemOffsetRecorder.updateItemOffset(session, offsetIdentifier);
+        }
         return query.list();
     }
 

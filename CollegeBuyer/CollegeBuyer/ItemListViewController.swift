@@ -36,7 +36,42 @@ class ItemListViewController : UIViewController {
     @IBOutlet weak var itemListScrollView: UIScrollView!
     @IBOutlet weak var schoolLogoImageView: UIImageView!
     
-    var items: [Item] = []
+    class Items {
+        
+        private var items: [Item] = []
+        private let serialQueue: DispatchQueue = DispatchQueue(label: "writtingQueue")
+
+        func append(_ item: Item) {
+            serialQueue.sync {
+                items.append(item)
+            }
+        }
+        
+        func getItr() -> IndexingIterator<[Item]>? {
+            var returnItr: IndexingIterator<[Item]>? = nil
+            serialQueue.sync {
+                returnItr = items.makeIterator()
+            }
+            return returnItr
+        }
+        
+        func removeAll() {
+            serialQueue.sync {
+                items.removeAll()
+            }
+        }
+        
+        func count() -> Int {
+            var count = 0
+            serialQueue.sync {
+                count = items.count
+            }
+            return count
+        }
+    }
+    
+    var items = Items()
+    
     var refreshBouncer: BouncerState = .empty
     var loadMoreBouncer: BouncerState = .empty
     var radioButtonController: SSRadioButtonsController!
@@ -51,12 +86,13 @@ class ItemListViewController : UIViewController {
         radioButtonController.delegate = self
         radioButtonController.pressed(categoryAllButton)
         
-//        initializeMJRefresher()
+        refresh(finishHandler: {_ in})
+        
+        initializeMJRefresher()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         itemCardHeight = itemListStackView.bounds.width + 59
-        refresh()
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,26 +116,30 @@ extension ItemListViewController {
 extension ItemListViewController {
     func headerRefresh() {
         if radioButtonController.selectedButton()!.titleLabel!.text! == "All" {
-            refresh()
+            refresh {
+                DispatchQueue.main.async {
+                    self.itemListScrollView.mj_header.endRefreshing()
+                }
+            }
         } else {
             var category = radioButtonController.selectedButton()!.titleLabel!.text!
             category = category.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
             refresh(category: category)
         }
-        
-        self.itemListScrollView.mj_header.endRefreshing()
     }
     
     func footerRefresher() {
         if radioButtonController.selectedButton()!.titleLabel!.text! == "All" {
-            loadMore()
+            loadMore {
+                DispatchQueue.main.async {
+                    self.itemListScrollView.mj_footer.endRefreshing()
+                }
+            }
         } else {
             var category = radioButtonController.selectedButton()!.titleLabel!.text!
             category = category.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
             loadMore(category: category)
         }
-        
-        self.itemListScrollView.mj_footer.endRefreshing()
     }
 }
 
@@ -122,13 +162,14 @@ extension ItemListViewController {
         itemListScrollView.mj_footer = refreshFooter
     }
     
-    func refresh() {
+    func refresh(finishHandler: @escaping () -> ()) {
+        // The asyc here is for making sure the UI is not freezed
         DispatchQueue.global(qos: .userInitiated).async(execute: {
             if self.refreshBouncer == .empty {
                 self.refreshBouncer = .full
-                
+                // Refresh the session for storing the loading index
+                var isErrorHappened = false
                 do {
-                    var isErrorHappened = false
                     _ = try ItemServices.refreshLoading(serverInternalErrorHandler: {
                         _ in
                         
@@ -138,57 +179,90 @@ extension ItemListViewController {
 
                         isErrorHappened = true
                     })
-                    
-                    if isErrorHappened { return }
                 } catch {
                     self.present(UIAlertController.Factory.getErrorMessageAlertController(message: "Time Out"), animated: true, completion: nil)
+                    isErrorHappened = true;
+                }
+                
+                // Terminate the action if some errors happen
+                if isErrorHappened {
+                    finishHandler()
                     return
                 }
                 
+                // Starts updating the UI and the item list
+                
+                // First, clear the item list on UI
                 DispatchQueue.main.sync(execute: {
                     self.clearItemList()
                 })
+                
+                // Remove all items from the item information array
                 self.items.removeAll()
                 
-                let dispatchSemaphore = DispatchSemaphore(value: 1)
-                
-                for _ in 0..<5 {
-                    DispatchQueue.global(qos: .userInitiated).async {
-                        do {
-                            let item = try ItemServices.loadItemInfo()!
-                            
-                            dispatchSemaphore.wait()
+                // Load item info from the server
+                // Parse the information and display the information on UI
+                let semaphore = DispatchSemaphore(value: 0)
+                var tmpCounter = 0
+                let itemNum = 5
+                for _ in 0..<itemNum {
+                    // Send the request, and handle each item independently
+                    ItemServices.loadItemInfo(itemHandler: { (_ item: Item) in
+                        // Move the update UI action to the main thread
+                        DispatchQueue.main.sync(execute: {
                             self.items.append(item)
-                            DispatchQueue.main.sync(execute: {
-                                self.displayItem(item: self.items.last!)
-                            })
-                            dispatchSemaphore.signal()
-                        } catch { return }
-                    }
+                            self.displayItem(item: item)
+                            tmpCounter += 1
+                            if (tmpCounter == itemNum) {
+                                // If all item has been received
+                                // Release the lock
+                                semaphore.signal()
+                            }
+                        })
+                    }, noItemHandler: {
+                        _ in
+                        semaphore.signal()
+                    }, errorHandler: {
+                        _ in
+                        semaphore.signal()
+                    })
                 }
                 
+                // Keep waiting untile the item batch has been received
+                semaphore.wait()
+                finishHandler()
                 self.refreshBouncer = .empty
             }
         })
     }
     
-    func loadMore() {
-//        DispatchQueue.global(qos: .userInitiated).async(execute: {
-//            if self.loadMoreLock == 0 {
-//                self.loadMoreLock = 1
-//
-//                for _ in 0..<5 {
-//                    if let itemInfo = ItemServices.loadItemInfo() {
-//                        self.itemInfos.append(itemInfo)
-//                        DispatchQueue.main.sync(execute: {
-//                            self.displayItem(itemInfo: itemInfo)
-//                        })
-//                    } else { break }
-//                }
-//
-//                self.loadMoreLock = 0
-//            }
-//        })
+    func loadMore(finishHandler: @escaping () -> ()) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let semaphore = DispatchSemaphore(value: 0)
+            var tmpCounter = 0
+            let itemNum = 5
+            for _ in 0..<itemNum {
+                ItemServices.loadItemInfo(itemHandler: { (_ item: Item) in
+                    DispatchQueue.main.async(execute: {
+                        self.items.append(item)
+                        self.displayItem(item: item)
+                        tmpCounter += 1
+                        if (tmpCounter == itemNum) {
+                            semaphore.signal()
+                        }
+                    })
+                }, noItemHandler: {
+                    _ in
+                    semaphore.signal()
+                }, errorHandler: {
+                    _ in
+                    semaphore.signal()
+                })
+            }
+            
+            semaphore.wait()
+            finishHandler()
+        }
     }
     
     func refresh(category: String) {
@@ -290,12 +364,13 @@ extension ItemListViewController {
         itemCard.itemNameLabel.text = item.name
         itemCard.conditionLabel.text = "\(conditionToString(condition: item.condition))"
         itemCard.priceLabel.text = "$\(item.price)"
-//        loadSellerProfilePicture(for: itemCard, item: item)
+        itemCard.viewLabel.text = "\(item.views) views"
+        loadSellerProfilePicture(for: itemCard, item: item)
         itemCard.addConstraint(itemCard.heightAnchor.constraint(equalToConstant: CGFloat(itemCardHeight)))
         loadingItemPictures(for: itemCard, item: item)
         itemListStackViewHeight.constant += itemCardHeight
         itemCard.addGestureRecognizer(tapGestureRecognizer)
-        if items.count > 1 {
+        if items.count() > 1 {
             let separationLine = UIView()
             separationLine.addConstraint(separationLine.heightAnchor.constraint(equalToConstant: 0.5))
             separationLine.backgroundColor = UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
@@ -311,7 +386,9 @@ extension ItemListViewController: SSRadioButtonControllerDelegate {
     @objc func didSelectButton(selectedButton: UIButton?) {
         if selectedButton != nil {
             if selectedButton!.titleLabel!.text! == "All" {
-                refresh()
+                refresh {
+                    self.itemListScrollView.mj_header.endRefreshing()
+                }
             } else {
                 var categoryTitle =  selectedButton!.titleLabel!.text!
                 categoryTitle = categoryTitle.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)

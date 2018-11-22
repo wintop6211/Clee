@@ -18,28 +18,27 @@ public class ItemOffsetRecorder {
 
     /**
      * Gets the loading offset by using the offset identifier
-     * @param request The object which contains request information
+     * @param httpSession The object which contains session information
      * @param identifier The offset identifier
      * @return The offset for loading items
      */
-    public static Integer getItemOffset(HttpServletRequest request, String identifier) {
-        HttpSession httpSession = request.getSession();
+    public static Integer getItemOffset(HttpSession httpSession, String identifier) {
         Integer offset = (Integer) httpSession.getAttribute(identifier);
         if (offset == null) {
             offset = 0;
             httpSession.setAttribute(identifier, offset);
             httpSession.setMaxInactiveInterval(INACTIVE_TIME);
         }
+        System.out.println("ItemOffset:" + offset);
         return offset;
     }
 
     /**
      * Updates the item offset by using the offset identifier
-     * @param request The object which contains request information
+     * @param httpSession The object which contains session information
      * @param identifier The offset identifier
      */
-    public static void updateItemOffset(HttpServletRequest request, String identifier) {
-        HttpSession httpSession = request.getSession();
+    public static void updateItemOffset(HttpSession httpSession, String identifier) {
         Integer offset = (Integer) httpSession.getAttribute(identifier);
         if (offset == null) {
             offset = 0;
