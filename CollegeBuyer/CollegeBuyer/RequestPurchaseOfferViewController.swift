@@ -27,7 +27,7 @@ class RequestPurchaseOfferViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if self.offerPriceTextField.text!.isEmpty {
-            self.offerPriceTextField.text = "$\(originPrice)"
+            self.offerPriceTextField.text = "$\(String(describing: originPrice))"
         }
     }
     

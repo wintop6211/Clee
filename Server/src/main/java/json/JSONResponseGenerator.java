@@ -96,6 +96,7 @@ public class JSONResponseGenerator {
         itemJSON.put("condition", product.getCondition());
         itemJSON.put("status", product.getSold());
         itemJSON.put("description", product.getDescription());
+        itemJSON.put("views", product.getView());
         User seller = product.getUserByIdSeller();
         itemJSON.put("seller", JSONResponseGenerator.formUserBasicInfoJSON(session, seller));
         return itemJSON;

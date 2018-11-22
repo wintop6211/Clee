@@ -26,8 +26,9 @@ class Item {
     var sellerProfilePic: UIImage
     var sellerEmail: String?
     var offers: [Offer]?
+    var views: Int
 
-    init(id: Int, name: String, condition: Condition, images: [UIImage], price: Float, description: String, sellerId: Int, sellerName: String, sellerSchool: String, sellerProfilePic: UIImage, sellerEmail: String?, offers: [Offer]?) {
+    init(id: Int, name: String, condition: Condition, images: [UIImage], price: Float, description: String, sellerId: Int, sellerName: String, sellerSchool: String, sellerProfilePic: UIImage, sellerEmail: String?, offers: [Offer]?, views: Int) {
         self.id = id
         self.name = name
         self.condition = condition
@@ -41,5 +42,6 @@ class Item {
         self.sellerProfilePic = sellerProfilePic
         self.sellerEmail = sellerEmail
         self.offers = offers
+        self.views = views;
     }
 }

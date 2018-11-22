@@ -23,6 +23,8 @@ import java.util.concurrent.ExecutionException;
 public class APNConnector {
 
     private ApnsClient client;
+    private static String TEAM_ID = "";
+    private static String KEY_ID = "";
 
     /**
      * Creates the APN client object
@@ -35,7 +37,7 @@ public class APNConnector {
         this.client = new ApnsClientBuilder()
                 .setSigningKey(ApnsSigningKey.loadFromPkcs8File(
                         new File(PathManager.getAPNKeyAddress()),
-                        "6Y6N7WNU3G", "T85K849GX8")).setApnsServer(ApnsClientBuilder.DEVELOPMENT_APNS_HOST
+                        TEAM_ID, KEY_ID)).setApnsServer(ApnsClientBuilder.DEVELOPMENT_APNS_HOST
                 )
                 .build();
     }

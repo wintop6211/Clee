@@ -16,6 +16,7 @@ class ItemCard: UIView {
     @IBOutlet weak var conditionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var viewLabel: UILabel!
     
     var detailButtonHandler: (() -> ())?
     

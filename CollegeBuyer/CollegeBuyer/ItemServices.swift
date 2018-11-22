@@ -60,39 +60,22 @@ class ItemServices {
         
         return itemImages
     }
-
-    static func loadItemInfo() throws -> Item? {
-        let semaphore = DispatchSemaphore(value: 0)
-        var itemInfo: Item?
-        var noMoreItem = false
-
+    
+    static func loadItemInfo(itemHandler: @escaping (_ item: Item) -> (), noItemHandler: @escaping () -> (), errorHandler: @escaping () -> ()) {
         Server.GETService(service: "/product/load", successHandler: {
             (successResponse: AnyObject) in
-                
-            itemInfo = parseContactableItemInfo(data: successResponse)
-            semaphore.signal()
+            let itemInfo = parseContactableItemInfo(data: successResponse)
+            itemHandler(itemInfo)
         }, failHandler: {
             (failResponse: AnyObject) in
-            
-            noMoreItem = true
-            semaphore.signal()
+            noItemHandler()
         }, serverInternalErrorHandler: {
             (error: ServerError) in
-            
-            semaphore.signal()
+            errorHandler()
         }, networkErrorHandler: {
             (error: Error) in
-            
-            semaphore.signal()
+            errorHandler()
         })
-        
-        _ = semaphore.wait(timeout: .distantFuture)
-        
-        if noMoreItem {
-            throw ItemServicesError.noMoreItem
-        }
-        
-        return itemInfo
     }
 
     static func loadItemInfoByCategory(category: String) throws -> Item? {
@@ -400,6 +383,7 @@ extension ItemServices {
         let condition = Condition(rawValue: itemInfo["condition"] as! Int)!
         let price = Float(itemInfo["price"] as! NSNumber)
         let description = itemInfo["description"] as! String
+        let views = itemInfo["views"] as! Int
         
         let sellerInfo = itemInfo["seller"] as! [String : AnyObject]
         
@@ -410,8 +394,7 @@ extension ItemServices {
         
         let sellerProfilePic = UserServices.getProfilePicture(userId: sellerId)
         
-        
-        return Item(id: id, name: name, condition: condition, images: [], price: price, description: description, sellerId: sellerId, sellerName: sellerName, sellerSchool: sellerSchool, sellerProfilePic: sellerProfilePic, sellerEmail: sellerEmail, offers: nil)
+        return Item(id: id, name: name, condition: condition, images: [], price: price, description: description, sellerId: sellerId, sellerName: sellerName, sellerSchool: sellerSchool, sellerProfilePic: sellerProfilePic, sellerEmail: sellerEmail, offers: nil, views: views)
     }
     
     fileprivate static func parseOfferedItemInfo(data: AnyObject) -> Item {
@@ -422,6 +405,7 @@ extension ItemServices {
         let condition = Condition(rawValue: itemInfo["condition"] as! Int)!
         let price = itemInfo["price"] as! Float
         let description = itemInfo["description"] as! String
+        let views = itemInfo["views"] as! Int
         
         let sellerInfo = itemInfo["seller"] as! [String : AnyObject]
         
@@ -451,6 +435,6 @@ extension ItemServices {
         
         let sellerProfilePic = UserServices.getProfilePicture(userId: sellerId)
         
-        return Item(id: id, name: name, condition: condition, images: [], price: price, description: description, sellerId: sellerId, sellerName: sellerName, sellerSchool: sellerSchool, sellerProfilePic: sellerProfilePic, sellerEmail: sellerEmail, offers: offers)
+        return Item(id: id, name: name, condition: condition, images: [], price: price, description: description, sellerId: sellerId, sellerName: sellerName, sellerSchool: sellerSchool, sellerProfilePic: sellerProfilePic, sellerEmail: sellerEmail, offers: offers, views: views)
     }
 }

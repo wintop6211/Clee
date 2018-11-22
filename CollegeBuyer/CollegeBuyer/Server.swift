@@ -24,7 +24,7 @@ class Server {
         return {
             (data: Data?, response: URLResponse?, error: Error?) -> Void in
             guard data != nil else {
-                serverInternalErrorHandler(ServerError.otherError(data!))
+                serverInternalErrorHandler(ServerError.otherError(data))
                 return
             }
             
