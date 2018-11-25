@@ -1,0 +1,6 @@
+framework module Pods_CleeUITests {
+  umbrella header "Pods-CleeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
