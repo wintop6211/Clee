@@ -86,7 +86,7 @@ class ItemListViewController : UIViewController {
         radioButtonController.delegate = self
         radioButtonController.pressed(categoryAllButton)
         
-        refresh(finishHandler: {_ in})
+        refresh(finishHandler: {})
         
         initializeMJRefresher()
     }
@@ -102,7 +102,7 @@ class ItemListViewController : UIViewController {
 
 // IBActions
 extension ItemListViewController {
-    func itemTapped(sender: TapGestureRecognizerWithItem) {
+    @objc func itemTapped(sender: TapGestureRecognizerWithItem) {
         // Get next view controller depend on screen size
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ItemDetailView") as! ItemDetailViewController
@@ -114,7 +114,7 @@ extension ItemListViewController {
 
 // Handlers
 extension ItemListViewController {
-    func headerRefresh() {
+    @objc func headerRefresh() {
         if radioButtonController.selectedButton()!.titleLabel!.text! == "All" {
             refresh {
                 DispatchQueue.main.async {
@@ -128,7 +128,7 @@ extension ItemListViewController {
         }
     }
     
-    func footerRefresher() {
+    @objc func footerRefresher() {
         if radioButtonController.selectedButton()!.titleLabel!.text! == "All" {
             loadMore {
                 DispatchQueue.main.async {
@@ -220,10 +220,10 @@ extension ItemListViewController {
                             }
                         })
                     }, noItemHandler: {
-                        _ in
+                        
                         semaphore.signal()
                     }, errorHandler: {
-                        _ in
+                        
                         semaphore.signal()
                     })
                 }
@@ -252,10 +252,10 @@ extension ItemListViewController {
                         }
                     })
                 }, noItemHandler: {
-                    _ in
+                    
                     semaphore.signal()
                 }, errorHandler: {
-                    _ in
+                    
                     semaphore.signal()
                 })
             }

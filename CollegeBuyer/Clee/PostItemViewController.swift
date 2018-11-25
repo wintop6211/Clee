@@ -100,25 +100,25 @@ extension PostItemViewController {
 extension PostItemViewController {
     func setUpCameraView() {
         let captureSession = AVCaptureSession()
-        let captureDevice = AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .back)
+        let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video)), position: .back)
         do {
-            let input = try AVCaptureDeviceInput(device: captureDevice)
+            let input = try AVCaptureDeviceInput(device: captureDevice!)
             if captureSession.canAddInput(input) {
                 captureSession.addInput(input)
                 
                 captureOutput = AVCapturePhotoOutput()
-                if captureSession.canAddOutput(captureOutput) {
-                    captureSession.addOutput(captureOutput)
+                if captureSession.canAddOutput(captureOutput!) {
+                    captureSession.addOutput(captureOutput!)
                     
                     captureSession.startRunning()
                     
-                    (captureOutput!.connections[0] as! AVCaptureConnection).videoOrientation =
+                    (captureOutput!.connections[0] ).videoOrientation =
                         AVCaptureVideoOrientation.portrait
                     
                     let previewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                     
-                    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-                    previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+                    previewLayer.videoGravity = AVLayerVideoGravity(rawValue: convertFromAVLayerVideoGravity(AVLayerVideoGravity.resizeAspectFill))
+                    previewLayer.connection!.videoOrientation = AVCaptureVideoOrientation.portrait
                     
                     cameraView.layer.addSublayer(previewLayer)
                     
@@ -148,7 +148,7 @@ extension PostItemViewController {
 }
 
 extension PostItemViewController: AVCapturePhotoCaptureDelegate {
-    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+    func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
         
         // get captured image
         // Make sure we get some photo sample buffer
@@ -188,4 +188,14 @@ extension PostItemViewController: AVCapturePhotoCaptureDelegate {
             }
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVMediaType(_ input: AVMediaType) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVLayerVideoGravity(_ input: AVLayerVideoGravity) -> String {
+	return input.rawValue
 }

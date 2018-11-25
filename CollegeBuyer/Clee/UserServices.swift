@@ -86,7 +86,7 @@ class UserServices {
                       "phone" : phoneNumber,
                       "schoolName" : schoolName]
         
-        let profilePicData = UIImageJPEGRepresentation(profilePic, 1)!
+        let profilePicData = profilePic.jpegData(compressionQuality: 1)!
         
         Server.MultipartPOSTService(service: "/user/new", params: params, data: profilePicData, name: "profilePicture", mimeType: "image/jpeg", successHandler: {
             (successResponse: AnyObject) in
@@ -285,7 +285,7 @@ class UserServices {
         let semaphore = DispatchSemaphore(value: 0)
         var isTimeOut = true
         
-        let profilePictureData = UIImagePNGRepresentation(profilePicture)!
+        let profilePictureData = profilePicture.pngData()!
         
         Server.MultipartPOSTService(service: "/user/image/upload", params: [ : ], data: profilePictureData, name: "profilePicture", mimeType: "image/jpeg", successHandler: {
             (successResponse: AnyObject) in

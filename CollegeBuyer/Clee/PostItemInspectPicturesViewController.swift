@@ -51,7 +51,7 @@ class PostItemInspectPicturesViewController: UIViewController {
     
     // Handlers
     
-    func viewDragged(sender: UIPanGestureRecognizer) {
+    @objc func viewDragged(sender: UIPanGestureRecognizer) {
         if (sender.translation(in: self.view).y > CGFloat(closingGestureSensitivity)) {
             self.dismiss(animated: true, completion: nil)
         }

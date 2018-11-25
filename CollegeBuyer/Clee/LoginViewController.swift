@@ -107,7 +107,7 @@ extension LoginViewController {
 
 // Handlers
 extension LoginViewController {
-    func keyboardDoneClicked() {
+    @objc func keyboardDoneClicked() {
         view.endEditing(true)
     }
 }

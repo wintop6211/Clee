@@ -58,8 +58,8 @@
 		DCA6CD1A1EEBC21000C2966A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA6CD181EEBC21000C2966A /* Main.storyboard */; };
 		DCA6CD1C1EEBC21000C2966A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA6CD1B1EEBC21000C2966A /* Assets.xcassets */; };
 		DCA6CD1F1EEBC21000C2966A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA6CD1D1EEBC21000C2966A /* LaunchScreen.storyboard */; };
-		DCA6CD2A1EEBC21000C2966A /* CollegeBuyerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD291EEBC21000C2966A /* CollegeBuyerTests.swift */; };
-		DCA6CD351EEBC21000C2966A /* CollegeBuyerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD341EEBC21000C2966A /* CollegeBuyerUITests.swift */; };
+		DCA6CD2A1EEBC21000C2966A /* CleeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD291EEBC21000C2966A /* CleeTests.swift */; };
+		DCA6CD351EEBC21000C2966A /* CleeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD341EEBC21000C2966A /* CleeUITests.swift */; };
 		DCA6CD5D1EEBC27A00C2966A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD4A1EEBC27A00C2966A /* LoginViewController.swift */; };
 		F450B9791F5E1BC00038505B /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B9781F5E1BC00038505B /* MarqueeLabel.swift */; };
 		F460C1DE1FF1EBE800571EDB /* RequestNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460C1DD1FF1EBE800571EDB /* RequestNavigationController.swift */; };
@@ -94,12 +94,12 @@
 		1841A6F71F9FBC790090AF62 /* RoundCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerImageView.swift; sourceTree = "<group>"; };
 		1854D01D1FDCED620085A107 /* RequestPurchaseOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPurchaseOfferViewController.swift; sourceTree = "<group>"; };
 		1854D01F1FDCED770085A107 /* RequestPurchaseNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPurchaseNoteViewController.swift; sourceTree = "<group>"; };
-		1859627E202159C900685033 /* CollegeBuyer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CollegeBuyer-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		1859627E202159C900685033 /* Clee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Clee-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		1869BAAE2000544500C8B569 /* TapGestureRecognizerWithItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureRecognizerWithItem.swift; sourceTree = "<group>"; };
 		1892BC9B2072E2D900283A9D /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		189C324C20782A5600D675D4 /* ItemCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCard.xib; sourceTree = "<group>"; };
 		189C324E20782A5E00D675D4 /* ItemCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCard.swift; sourceTree = "<group>"; };
-		18A2D97B1FC62DFD00C3938B /* CollegeBuyer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CollegeBuyer.entitlements; sourceTree = "<group>"; };
+		18A2D97B1FC62DFD00C3938B /* Clee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clee.entitlements; sourceTree = "<group>"; };
 		18A4C39C20155ABB0079432A /* RegistrationUserAggrementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUserAggrementViewController.swift; sourceTree = "<group>"; };
 		18BB45F32054E12900672317 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		18D31E881FA2C676007D8607 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
@@ -143,17 +143,17 @@
 		A565B4ABECA3F9A48E59DC8D /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		CAAD745EA2369C62B4ECCD05 /* Pods-CollegeBuyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeBuyerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeBuyerUITests/Pods-CollegeBuyerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DC27A29920F2BF530088021D /* KeyboardDisappearExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDisappearExtension.swift; sourceTree = "<group>"; };
-		DCA6CD111EEBC21000C2966A /* CollegeBuyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollegeBuyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCA6CD111EEBC21000C2966A /* Clee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA6CD141EEBC21000C2966A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA6CD191EEBC21000C2966A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCA6CD1B1EEBC21000C2966A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCA6CD1E1EEBC21000C2966A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCA6CD201EEBC21000C2966A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCA6CD251EEBC21000C2966A /* CollegeBuyerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollegeBuyerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCA6CD291EEBC21000C2966A /* CollegeBuyerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeBuyerTests.swift; sourceTree = "<group>"; };
+		DCA6CD251EEBC21000C2966A /* CleeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCA6CD291EEBC21000C2966A /* CleeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleeTests.swift; sourceTree = "<group>"; };
 		DCA6CD2B1EEBC21000C2966A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCA6CD301EEBC21000C2966A /* CollegeBuyerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollegeBuyerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCA6CD341EEBC21000C2966A /* CollegeBuyerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeBuyerUITests.swift; sourceTree = "<group>"; };
+		DCA6CD301EEBC21000C2966A /* CleeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCA6CD341EEBC21000C2966A /* CleeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleeUITests.swift; sourceTree = "<group>"; };
 		DCA6CD361EEBC21000C2966A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA6CD4A1EEBC27A00C2966A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E3EC6E5782CF9A7197C88B53 /* Pods_CollegeBuyerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegeBuyerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,9 +355,9 @@
 			isa = PBXGroup;
 			children = (
 				18BB45F32054E12900672317 /* README.md */,
-				DCA6CD131EEBC21000C2966A /* CollegeBuyer */,
-				DCA6CD281EEBC21000C2966A /* CollegeBuyerTests */,
-				DCA6CD331EEBC21000C2966A /* CollegeBuyerUITests */,
+				DCA6CD131EEBC21000C2966A /* Clee */,
+				DCA6CD281EEBC21000C2966A /* CleeTests */,
+				DCA6CD331EEBC21000C2966A /* CleeUITests */,
 				DCA6CD121EEBC21000C2966A /* Products */,
 				355A97B8E895703EBD328F3F /* Frameworks */,
 				BF9ECB0ED9DAC6A3773E88AE /* Pods */,
@@ -367,56 +367,56 @@
 		DCA6CD121EEBC21000C2966A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DCA6CD111EEBC21000C2966A /* CollegeBuyer.app */,
-				DCA6CD251EEBC21000C2966A /* CollegeBuyerTests.xctest */,
-				DCA6CD301EEBC21000C2966A /* CollegeBuyerUITests.xctest */,
+				DCA6CD111EEBC21000C2966A /* Clee.app */,
+				DCA6CD251EEBC21000C2966A /* CleeTests.xctest */,
+				DCA6CD301EEBC21000C2966A /* CleeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DCA6CD131EEBC21000C2966A /* CollegeBuyer */ = {
+		DCA6CD131EEBC21000C2966A /* Clee */ = {
 			isa = PBXGroup;
 			children = (
 				185C3DA120771016004B4B4F /* Utilities */,
 				18128773201B9090003E5655 /* Fonts */,
 				182C35061FF8439400D93EAE /* Models */,
 				42E7E90E1F25386B006A4048 /* Controllers */,
-				18A2D97B1FC62DFD00C3938B /* CollegeBuyer.entitlements */,
+				18A2D97B1FC62DFD00C3938B /* Clee.entitlements */,
 				42E7E90D1F253833006A4048 /* UI */,
 				DCA6CD141EEBC21000C2966A /* AppDelegate.swift */,
-				1859627E202159C900685033 /* CollegeBuyer-Bridging-Header.h */,
+				1859627E202159C900685033 /* Clee-Bridging-Header.h */,
 				DCA6CD181EEBC21000C2966A /* Main.storyboard */,
 				DCA6CD1B1EEBC21000C2966A /* Assets.xcassets */,
 				DCA6CD1D1EEBC21000C2966A /* LaunchScreen.storyboard */,
 				DCA6CD201EEBC21000C2966A /* Info.plist */,
 			);
-			path = CollegeBuyer;
+			path = Clee;
 			sourceTree = "<group>";
 		};
-		DCA6CD281EEBC21000C2966A /* CollegeBuyerTests */ = {
+		DCA6CD281EEBC21000C2966A /* CleeTests */ = {
 			isa = PBXGroup;
 			children = (
-				DCA6CD291EEBC21000C2966A /* CollegeBuyerTests.swift */,
+				DCA6CD291EEBC21000C2966A /* CleeTests.swift */,
 				DCA6CD2B1EEBC21000C2966A /* Info.plist */,
 			);
-			path = CollegeBuyerTests;
+			path = CleeTests;
 			sourceTree = "<group>";
 		};
-		DCA6CD331EEBC21000C2966A /* CollegeBuyerUITests */ = {
+		DCA6CD331EEBC21000C2966A /* CleeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DCA6CD341EEBC21000C2966A /* CollegeBuyerUITests.swift */,
+				DCA6CD341EEBC21000C2966A /* CleeUITests.swift */,
 				DCA6CD361EEBC21000C2966A /* Info.plist */,
 			);
-			path = CollegeBuyerUITests;
+			path = CleeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DCA6CD101EEBC21000C2966A /* CollegeBuyer */ = {
+		DCA6CD101EEBC21000C2966A /* Clee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCA6CD391EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CollegeBuyer" */;
+			buildConfigurationList = DCA6CD391EEBC21000C2966A /* Build configuration list for PBXNativeTarget "Clee" */;
 			buildPhases = (
 				5551EE9C673D1081D19B0C70 /* [CP] Check Pods Manifest.lock */,
 				DCA6CD0D1EEBC21000C2966A /* Sources */,
@@ -429,14 +429,14 @@
 			);
 			dependencies = (
 			);
-			name = CollegeBuyer;
+			name = Clee;
 			productName = CollegeBuyer;
-			productReference = DCA6CD111EEBC21000C2966A /* CollegeBuyer.app */;
+			productReference = DCA6CD111EEBC21000C2966A /* Clee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DCA6CD241EEBC21000C2966A /* CollegeBuyerTests */ = {
+		DCA6CD241EEBC21000C2966A /* CleeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCA6CD3C1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CollegeBuyerTests" */;
+			buildConfigurationList = DCA6CD3C1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CleeTests" */;
 			buildPhases = (
 				6CBDC2348EDBF03AD648A412 /* [CP] Check Pods Manifest.lock */,
 				DCA6CD211EEBC21000C2966A /* Sources */,
@@ -450,14 +450,14 @@
 			dependencies = (
 				DCA6CD271EEBC21000C2966A /* PBXTargetDependency */,
 			);
-			name = CollegeBuyerTests;
+			name = CleeTests;
 			productName = CollegeBuyerTests;
-			productReference = DCA6CD251EEBC21000C2966A /* CollegeBuyerTests.xctest */;
+			productReference = DCA6CD251EEBC21000C2966A /* CleeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DCA6CD2F1EEBC21000C2966A /* CollegeBuyerUITests */ = {
+		DCA6CD2F1EEBC21000C2966A /* CleeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCA6CD3F1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CollegeBuyerUITests" */;
+			buildConfigurationList = DCA6CD3F1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CleeUITests" */;
 			buildPhases = (
 				A5E9CED18064CEDE3A41177D /* [CP] Check Pods Manifest.lock */,
 				DCA6CD2C1EEBC21000C2966A /* Sources */,
@@ -471,9 +471,9 @@
 			dependencies = (
 				DCA6CD321EEBC21000C2966A /* PBXTargetDependency */,
 			);
-			name = CollegeBuyerUITests;
+			name = CleeUITests;
 			productName = CollegeBuyerUITests;
-			productReference = DCA6CD301EEBC21000C2966A /* CollegeBuyerUITests.xctest */;
+			productReference = DCA6CD301EEBC21000C2966A /* CleeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -488,28 +488,29 @@
 				TargetAttributes = {
 					DCA6CD101EEBC21000C2966A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 6Y6N7WNU3G;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
 					DCA6CD241EEBC21000C2966A = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DCA6CD101EEBC21000C2966A;
 					};
 					DCA6CD2F1EEBC21000C2966A = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DCA6CD101EEBC21000C2966A;
 					};
 				};
 			};
-			buildConfigurationList = DCA6CD0C1EEBC21000C2966A /* Build configuration list for PBXProject "CollegeBuyer" */;
+			buildConfigurationList = DCA6CD0C1EEBC21000C2966A /* Build configuration list for PBXProject "Clee" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -522,9 +523,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DCA6CD101EEBC21000C2966A /* CollegeBuyer */,
-				DCA6CD241EEBC21000C2966A /* CollegeBuyerTests */,
-				DCA6CD2F1EEBC21000C2966A /* CollegeBuyerUITests */,
+				DCA6CD101EEBC21000C2966A /* Clee */,
+				DCA6CD241EEBC21000C2966A /* CleeTests */,
+				DCA6CD2F1EEBC21000C2966A /* CleeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -762,7 +763,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA6CD2A1EEBC21000C2966A /* CollegeBuyerTests.swift in Sources */,
+				DCA6CD2A1EEBC21000C2966A /* CleeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,7 +771,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA6CD351EEBC21000C2966A /* CollegeBuyerUITests.swift in Sources */,
+				DCA6CD351EEBC21000C2966A /* CleeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,12 +780,12 @@
 /* Begin PBXTargetDependency section */
 		DCA6CD271EEBC21000C2966A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DCA6CD101EEBC21000C2966A /* CollegeBuyer */;
+			target = DCA6CD101EEBC21000C2966A /* Clee */;
 			targetProxy = DCA6CD261EEBC21000C2966A /* PBXContainerItemProxy */;
 		};
 		DCA6CD321EEBC21000C2966A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DCA6CD101EEBC21000C2966A /* CollegeBuyer */;
+			target = DCA6CD101EEBC21000C2966A /* Clee */;
 			targetProxy = DCA6CD311EEBC21000C2966A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -910,18 +911,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = CollegeBuyer/CollegeBuyer.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6Y6N7WNU3G;
-				INFOPLIST_FILE = CollegeBuyer/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Clee/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ColleNet.CollegeBuyer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ColleNet.Clee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "CollegeBuyer-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Clee-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -932,17 +933,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = CollegeBuyer/CollegeBuyer.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6Y6N7WNU3G;
-				INFOPLIST_FILE = CollegeBuyer/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/Clee/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ColleNet.CollegeBuyer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ColleNet.Clee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "CollegeBuyer-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "Clee-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -953,12 +954,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = CollegeBuyerTests/Info.plist;
+				INFOPLIST_FILE = CleeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CollegeBuyer.CollegeBuyerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = Clee.CleeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CollegeBuyer.app/CollegeBuyer";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clee.app/Clee";
 			};
 			name = Debug;
 		};
@@ -968,12 +970,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = CollegeBuyerTests/Info.plist;
+				INFOPLIST_FILE = CleeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CollegeBuyer.CollegeBuyerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = Clee.CleeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CollegeBuyer.app/CollegeBuyer";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clee.app/Clee";
 			};
 			name = Release;
 		};
@@ -982,11 +985,12 @@
 			baseConfigurationReference = 8393A72295C0E5B5F846C6EC /* Pods-CollegeBuyerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = CollegeBuyerUITests/Info.plist;
+				INFOPLIST_FILE = CleeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CollegeBuyer.CollegeBuyerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = Clee.CleeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = CollegeBuyer;
 			};
 			name = Debug;
@@ -996,11 +1000,12 @@
 			baseConfigurationReference = CAAD745EA2369C62B4ECCD05 /* Pods-CollegeBuyerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = CollegeBuyerUITests/Info.plist;
+				INFOPLIST_FILE = CleeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CollegeBuyer.CollegeBuyerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = Clee.CleeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = CollegeBuyer;
 			};
 			name = Release;
@@ -1008,7 +1013,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DCA6CD0C1EEBC21000C2966A /* Build configuration list for PBXProject "CollegeBuyer" */ = {
+		DCA6CD0C1EEBC21000C2966A /* Build configuration list for PBXProject "Clee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCA6CD371EEBC21000C2966A /* Debug */,
@@ -1017,7 +1022,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DCA6CD391EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CollegeBuyer" */ = {
+		DCA6CD391EEBC21000C2966A /* Build configuration list for PBXNativeTarget "Clee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCA6CD3A1EEBC21000C2966A /* Debug */,
@@ -1026,7 +1031,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DCA6CD3C1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CollegeBuyerTests" */ = {
+		DCA6CD3C1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CleeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCA6CD3D1EEBC21000C2966A /* Debug */,
@@ -1035,7 +1040,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DCA6CD3F1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CollegeBuyerUITests" */ = {
+		DCA6CD3F1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CleeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCA6CD401EEBC21000C2966A /* Debug */,

@@ -80,7 +80,7 @@ extension ItemDetailViewController {
 }
 
 extension ItemDetailViewController {
-    func imageTapped(sender: UITapGestureRecognizer) {
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "ItemDetailInspectPictureView") as! ItemDetailInspectPictureViewController
         

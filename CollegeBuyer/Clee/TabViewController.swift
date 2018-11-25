@@ -41,10 +41,10 @@ class TabViewController: UIViewController {
         }
         
         let viewController = viewControllers[lastSelectedTagIndex]!
-        addChildViewController(viewController)
+        addChild(viewController)
         viewController.view.frame = contentView.bounds
         contentView.addSubview(viewController.view)
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,9 +67,9 @@ class TabViewController: UIViewController {
         }
         
         let previousVC = viewControllers[lastSelectedTagIndex]!
-        previousVC.willMove(toParentViewController: nil)
+        previousVC.willMove(toParent: nil)
         previousVC.view.removeFromSuperview()
-        previousVC.removeFromParentViewController()
+        previousVC.removeFromParent()
         
         lastSelectedTagIndex = sender.tag
         sender.isSelected = true
@@ -80,9 +80,9 @@ class TabViewController: UIViewController {
             }
         }
         
-        addChildViewController(viewController)
+        addChild(viewController)
         viewController.view.frame = contentView.bounds
         contentView.addSubview(viewController.view)
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
     }
 }

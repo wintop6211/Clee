@@ -339,7 +339,7 @@ class ItemServices {
                 params["imageIndex"] = "\(pictureIndex)"
                 pictureIndex += 1
             
-            Server.MultipartPOSTService(service: "/product/post/image", params: params, data: UIImageJPEGRepresentation(picture, 1.0)!, name: "itemImage", mimeType: "jpeg/image", successHandler: {
+            Server.MultipartPOSTService(service: "/product/post/image", params: params, data: picture.jpegData(compressionQuality: 1.0)!, name: "itemImage", mimeType: "jpeg/image", successHandler: {
                 (failResponse: AnyObject) in
                 
                 isTimeOut = false

@@ -39,7 +39,7 @@ class SSRadioButtonsController : NSObject
     init(buttons: UIButton...) {
         super.init()
         for aButton in buttons {
-            aButton.addTarget(self, action: #selector(SSRadioButtonsController.pressed(_:)), for: UIControlEvents.touchUpInside)
+            aButton.addTarget(self, action: #selector(SSRadioButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
         }
         self.buttonsArray = buttons
     }
@@ -52,7 +52,7 @@ class SSRadioButtonsController : NSObject
      */
     func addButton(_ aButton: UIButton) {
         buttonsArray.append(aButton)
-        aButton.addTarget(self, action: #selector(SSRadioButtonsController.pressed(_:)), for: UIControlEvents.touchUpInside)
+        aButton.addTarget(self, action: #selector(SSRadioButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
     }
     /**
      Remove a UIButton from controller.
@@ -66,7 +66,7 @@ class SSRadioButtonsController : NSObject
         }
         if iteratingButton != nil {
             buttonsArray.remove(at: buttonsArray.index(of: iteratingButton!)!)
-            iteratingButton!.removeTarget(self, action: #selector(SSRadioButtonsController.pressed(_:)), for: UIControlEvents.touchUpInside)
+            iteratingButton!.removeTarget(self, action: #selector(SSRadioButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
             iteratingButton!.isSelected = false
         }
     }
@@ -77,12 +77,12 @@ class SSRadioButtonsController : NSObject
      */
     func setButtonsArray(_ aButtonsArray: [UIButton]) {
         for aButton in aButtonsArray {
-            aButton.addTarget(self, action: #selector(SSRadioButtonsController.pressed(_:)), for: UIControlEvents.touchUpInside)
+            aButton.addTarget(self, action: #selector(SSRadioButtonsController.pressed(_:)), for: UIControl.Event.touchUpInside)
         }
         buttonsArray = aButtonsArray
     }
     
-    func pressed(_ sender: UIButton) {
+    @objc func pressed(_ sender: UIButton) {
         
         if(!canPressed){
             return
