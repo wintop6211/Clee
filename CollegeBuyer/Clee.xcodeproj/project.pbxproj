@@ -24,8 +24,6 @@
 		18ED7DBB20654F7D00E211AB /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED7DBA20654F7D00E211AB /* UIImageExtensions.swift */; };
 		18ED7DC12065ACDC00E211AB /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED7DC02065ACDC00E211AB /* Resources.swift */; };
 		18FBBCB6201D25FA00C9D307 /* ItemDetailInspectPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBBCB5201D25FA00C9D307 /* ItemDetailInspectPictureViewController.swift */; };
-		1AF56727F14EA8AF519F96F9 /* Pods_CollegeBuyerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 599D4B68FB563AD1A6F36BD1 /* Pods_CollegeBuyerTests.framework */; };
-		207329D235741E3ECD8B7F28 /* Pods_CollegeBuyerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3EC6E5782CF9A7197C88B53 /* Pods_CollegeBuyerUITests.framework */; };
 		265A81B075F4AC56094EB954 /* PostItemInspectPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265A870C9BB53D4B4F54D950 /* PostItemInspectPicturesViewController.swift */; };
 		265A828E63A5934FD53E4566 /* PostItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265A84371F5108A32DEA3D77 /* PostItemDetailViewController.swift */; };
 		265A841CFDB8C19B2F16759D /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265A8065F2FC9625A56A789C /* UserServices.swift */; };
@@ -54,12 +52,12 @@
 		42E7E9091F2410FA006A4048 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E7E9081F2410FA006A4048 /* SafariServices.framework */; };
 		A565BF31E28309CB0CB8F2B9 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A565B4ABECA3F9A48E59DC8D /* TabViewController.swift */; };
 		DC27A29A20F2BF530088021D /* KeyboardDisappearExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27A29920F2BF530088021D /* KeyboardDisappearExtension.swift */; };
+		DC7433C221AA28280076C45C /* CleeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7433C121AA28280076C45C /* CleeUITests.swift */; };
+		DC7433DE21AA286C0076C45C /* CleeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7433DD21AA286C0076C45C /* CleeTests.swift */; };
 		DCA6CD151EEBC21000C2966A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD141EEBC21000C2966A /* AppDelegate.swift */; };
 		DCA6CD1A1EEBC21000C2966A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA6CD181EEBC21000C2966A /* Main.storyboard */; };
 		DCA6CD1C1EEBC21000C2966A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA6CD1B1EEBC21000C2966A /* Assets.xcassets */; };
 		DCA6CD1F1EEBC21000C2966A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA6CD1D1EEBC21000C2966A /* LaunchScreen.storyboard */; };
-		DCA6CD2A1EEBC21000C2966A /* CleeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD291EEBC21000C2966A /* CleeTests.swift */; };
-		DCA6CD351EEBC21000C2966A /* CleeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD341EEBC21000C2966A /* CleeUITests.swift */; };
 		DCA6CD5D1EEBC27A00C2966A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CD4A1EEBC27A00C2966A /* LoginViewController.swift */; };
 		F450B9791F5E1BC00038505B /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450B9781F5E1BC00038505B /* MarqueeLabel.swift */; };
 		F460C1DE1FF1EBE800571EDB /* RequestNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460C1DD1FF1EBE800571EDB /* RequestNavigationController.swift */; };
@@ -70,19 +68,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DCA6CD261EEBC21000C2966A /* PBXContainerItemProxy */ = {
+		DC7433C421AA28280076C45C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DCA6CD091EEBC21000C2966A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DCA6CD101EEBC21000C2966A;
-			remoteInfo = CollegeBuyer;
+			remoteInfo = Clee;
 		};
-		DCA6CD311EEBC21000C2966A /* PBXContainerItemProxy */ = {
+		DC7433E021AA286C0076C45C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DCA6CD091EEBC21000C2966A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DCA6CD101EEBC21000C2966A;
-			remoteInfo = CollegeBuyer;
+			remoteInfo = Clee;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -143,18 +141,18 @@
 		A565B4ABECA3F9A48E59DC8D /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		CAAD745EA2369C62B4ECCD05 /* Pods-CollegeBuyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollegeBuyerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollegeBuyerUITests/Pods-CollegeBuyerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DC27A29920F2BF530088021D /* KeyboardDisappearExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDisappearExtension.swift; sourceTree = "<group>"; };
+		DC7433BF21AA28280076C45C /* CleeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7433C121AA28280076C45C /* CleeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleeUITests.swift; sourceTree = "<group>"; };
+		DC7433C321AA28280076C45C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC7433DB21AA286C0076C45C /* CleeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7433DD21AA286C0076C45C /* CleeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleeTests.swift; sourceTree = "<group>"; };
+		DC7433DF21AA286C0076C45C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA6CD111EEBC21000C2966A /* Clee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA6CD141EEBC21000C2966A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA6CD191EEBC21000C2966A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCA6CD1B1EEBC21000C2966A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCA6CD1E1EEBC21000C2966A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCA6CD201EEBC21000C2966A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCA6CD251EEBC21000C2966A /* CleeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCA6CD291EEBC21000C2966A /* CleeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleeTests.swift; sourceTree = "<group>"; };
-		DCA6CD2B1EEBC21000C2966A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCA6CD301EEBC21000C2966A /* CleeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCA6CD341EEBC21000C2966A /* CleeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleeUITests.swift; sourceTree = "<group>"; };
-		DCA6CD361EEBC21000C2966A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA6CD4A1EEBC27A00C2966A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E3EC6E5782CF9A7197C88B53 /* Pods_CollegeBuyerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollegeBuyerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F450B9781F5E1BC00038505B /* MarqueeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
@@ -166,6 +164,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DC7433BC21AA28280076C45C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7433D821AA286C0076C45C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCA6CD0E1EEBC21000C2966A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,22 +191,6 @@
 				42E7E8FB1F2410AF006A4048 /* AudioToolbox.framework in Frameworks */,
 				42E7E8F91F2410A2006A4048 /* Accelerate.framework in Frameworks */,
 				2BC23BEC05806F189D8ED383 /* Pods_CollegeBuyer.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DCA6CD221EEBC21000C2966A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1AF56727F14EA8AF519F96F9 /* Pods_CollegeBuyerTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DCA6CD2D1EEBC21000C2966A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				207329D235741E3ECD8B7F28 /* Pods_CollegeBuyerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,13 +347,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DC7433C021AA28280076C45C /* CleeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DC7433C121AA28280076C45C /* CleeUITests.swift */,
+				DC7433C321AA28280076C45C /* Info.plist */,
+			);
+			path = CleeUITests;
+			sourceTree = "<group>";
+		};
+		DC7433DC21AA286C0076C45C /* CleeTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC7433DD21AA286C0076C45C /* CleeTests.swift */,
+				DC7433DF21AA286C0076C45C /* Info.plist */,
+			);
+			path = CleeTests;
+			sourceTree = "<group>";
+		};
 		DCA6CD081EEBC21000C2966A = {
 			isa = PBXGroup;
 			children = (
 				18BB45F32054E12900672317 /* README.md */,
 				DCA6CD131EEBC21000C2966A /* Clee */,
-				DCA6CD281EEBC21000C2966A /* CleeTests */,
-				DCA6CD331EEBC21000C2966A /* CleeUITests */,
+				DC7433C021AA28280076C45C /* CleeUITests */,
+				DC7433DC21AA286C0076C45C /* CleeTests */,
 				DCA6CD121EEBC21000C2966A /* Products */,
 				355A97B8E895703EBD328F3F /* Frameworks */,
 				BF9ECB0ED9DAC6A3773E88AE /* Pods */,
@@ -368,8 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				DCA6CD111EEBC21000C2966A /* Clee.app */,
-				DCA6CD251EEBC21000C2966A /* CleeTests.xctest */,
-				DCA6CD301EEBC21000C2966A /* CleeUITests.xctest */,
+				DC7433BF21AA28280076C45C /* CleeUITests.xctest */,
+				DC7433DB21AA286C0076C45C /* CleeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -393,27 +407,45 @@
 			path = Clee;
 			sourceTree = "<group>";
 		};
-		DCA6CD281EEBC21000C2966A /* CleeTests */ = {
-			isa = PBXGroup;
-			children = (
-				DCA6CD291EEBC21000C2966A /* CleeTests.swift */,
-				DCA6CD2B1EEBC21000C2966A /* Info.plist */,
-			);
-			path = CleeTests;
-			sourceTree = "<group>";
-		};
-		DCA6CD331EEBC21000C2966A /* CleeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DCA6CD341EEBC21000C2966A /* CleeUITests.swift */,
-				DCA6CD361EEBC21000C2966A /* Info.plist */,
-			);
-			path = CleeUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DC7433BE21AA28280076C45C /* CleeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC7433C621AA28280076C45C /* Build configuration list for PBXNativeTarget "CleeUITests" */;
+			buildPhases = (
+				DC7433BB21AA28280076C45C /* Sources */,
+				DC7433BC21AA28280076C45C /* Frameworks */,
+				DC7433BD21AA28280076C45C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC7433C521AA28280076C45C /* PBXTargetDependency */,
+			);
+			name = CleeUITests;
+			productName = CleeUITests;
+			productReference = DC7433BF21AA28280076C45C /* CleeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		DC7433DA21AA286C0076C45C /* CleeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC7433E221AA286C0076C45C /* Build configuration list for PBXNativeTarget "CleeTests" */;
+			buildPhases = (
+				DC7433D721AA286C0076C45C /* Sources */,
+				DC7433D821AA286C0076C45C /* Frameworks */,
+				DC7433D921AA286C0076C45C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC7433E121AA286C0076C45C /* PBXTargetDependency */,
+			);
+			name = CleeTests;
+			productName = CleeTests;
+			productReference = DC7433DB21AA286C0076C45C /* CleeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DCA6CD101EEBC21000C2966A /* Clee */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCA6CD391EEBC21000C2966A /* Build configuration list for PBXNativeTarget "Clee" */;
@@ -434,58 +466,26 @@
 			productReference = DCA6CD111EEBC21000C2966A /* Clee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DCA6CD241EEBC21000C2966A /* CleeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DCA6CD3C1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CleeTests" */;
-			buildPhases = (
-				6CBDC2348EDBF03AD648A412 /* [CP] Check Pods Manifest.lock */,
-				DCA6CD211EEBC21000C2966A /* Sources */,
-				DCA6CD221EEBC21000C2966A /* Frameworks */,
-				DCA6CD231EEBC21000C2966A /* Resources */,
-				EC044774CE9B0065CE8111C8 /* [CP] Embed Pods Frameworks */,
-				9D249E1DDC9EF5461981F27D /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DCA6CD271EEBC21000C2966A /* PBXTargetDependency */,
-			);
-			name = CleeTests;
-			productName = CollegeBuyerTests;
-			productReference = DCA6CD251EEBC21000C2966A /* CleeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		DCA6CD2F1EEBC21000C2966A /* CleeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DCA6CD3F1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CleeUITests" */;
-			buildPhases = (
-				A5E9CED18064CEDE3A41177D /* [CP] Check Pods Manifest.lock */,
-				DCA6CD2C1EEBC21000C2966A /* Sources */,
-				DCA6CD2D1EEBC21000C2966A /* Frameworks */,
-				DCA6CD2E1EEBC21000C2966A /* Resources */,
-				0935C9BCEFD4D05587A4D85A /* [CP] Embed Pods Frameworks */,
-				F003A532AACF2149DCF200F2 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DCA6CD321EEBC21000C2966A /* PBXTargetDependency */,
-			);
-			name = CleeUITests;
-			productName = CollegeBuyerUITests;
-			productReference = DCA6CD301EEBC21000C2966A /* CleeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		DCA6CD091EEBC21000C2966A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CollegeBuyer;
 				TargetAttributes = {
+					DC7433BE21AA28280076C45C = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DCA6CD101EEBC21000C2966A;
+					};
+					DC7433DA21AA286C0076C45C = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DCA6CD101EEBC21000C2966A;
+					};
 					DCA6CD101EEBC21000C2966A = {
 						CreatedOnToolsVersion = 8.3.3;
 						LastSwiftMigration = 1010;
@@ -495,18 +495,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					DCA6CD241EEBC21000C2966A = {
-						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
-						TestTargetID = DCA6CD101EEBC21000C2966A;
-					};
-					DCA6CD2F1EEBC21000C2966A = {
-						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
-						TestTargetID = DCA6CD101EEBC21000C2966A;
 					};
 				};
 			};
@@ -524,13 +512,27 @@
 			projectRoot = "";
 			targets = (
 				DCA6CD101EEBC21000C2966A /* Clee */,
-				DCA6CD241EEBC21000C2966A /* CleeTests */,
-				DCA6CD2F1EEBC21000C2966A /* CleeUITests */,
+				DC7433BE21AA28280076C45C /* CleeUITests */,
+				DC7433DA21AA286C0076C45C /* CleeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DC7433BD21AA28280076C45C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7433D921AA286C0076C45C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCA6CD0F1EEBC21000C2966A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,38 +544,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DCA6CD231EEBC21000C2966A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DCA6CD2E1EEBC21000C2966A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0935C9BCEFD4D05587A4D85A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeBuyerUITests/Pods-CollegeBuyerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5551EE9C673D1081D19B0C70 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -607,24 +580,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeBuyer/Pods-CollegeBuyer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6CBDC2348EDBF03AD648A412 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CollegeBuyerTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		734B60003920C41EFC78800F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,72 +598,25 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeBuyer/Pods-CollegeBuyer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9D249E1DDC9EF5461981F27D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeBuyerTests/Pods-CollegeBuyerTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A5E9CED18064CEDE3A41177D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CollegeBuyerUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC044774CE9B0065CE8111C8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeBuyerTests/Pods-CollegeBuyerTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F003A532AACF2149DCF200F2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CollegeBuyerUITests/Pods-CollegeBuyerUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DC7433BB21AA28280076C45C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7433C221AA28280076C45C /* CleeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7433D721AA286C0076C45C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7433DE21AA286C0076C45C /* CleeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCA6CD0D1EEBC21000C2966A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -759,34 +667,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DCA6CD211EEBC21000C2966A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DCA6CD2A1EEBC21000C2966A /* CleeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DCA6CD2C1EEBC21000C2966A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DCA6CD351EEBC21000C2966A /* CleeUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DCA6CD271EEBC21000C2966A /* PBXTargetDependency */ = {
+		DC7433C521AA28280076C45C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DCA6CD101EEBC21000C2966A /* Clee */;
-			targetProxy = DCA6CD261EEBC21000C2966A /* PBXContainerItemProxy */;
+			targetProxy = DC7433C421AA28280076C45C /* PBXContainerItemProxy */;
 		};
-		DCA6CD321EEBC21000C2966A /* PBXTargetDependency */ = {
+		DC7433E121AA286C0076C45C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DCA6CD101EEBC21000C2966A /* Clee */;
-			targetProxy = DCA6CD311EEBC21000C2966A /* PBXContainerItemProxy */;
+			targetProxy = DC7433E021AA286C0076C45C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -810,6 +702,126 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DC7433C721AA28280076C45C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CleeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Personal.CleeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Clee;
+			};
+			name = Debug;
+		};
+		DC7433C821AA28280076C45C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CleeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Personal.CleeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Clee;
+			};
+			name = Release;
+		};
+		DC7433E321AA286C0076C45C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CleeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Personal.CleeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clee.app/Clee";
+			};
+			name = Debug;
+		};
+		DC7433E421AA286C0076C45C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CleeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Personal.CleeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clee.app/Clee";
+			};
+			name = Release;
+		};
 		DCA6CD371EEBC21000C2966A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -948,71 +960,27 @@
 			};
 			name = Release;
 		};
-		DCA6CD3D1EEBC21000C2966A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BB25E1E2FCBD5B7BC99A340 /* Pods-CollegeBuyerTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = CleeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Clee.CleeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clee.app/Clee";
-			};
-			name = Debug;
-		};
-		DCA6CD3E1EEBC21000C2966A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3490A6B6EB70F80754EBAECA /* Pods-CollegeBuyerTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = CleeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Clee.CleeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clee.app/Clee";
-			};
-			name = Release;
-		};
-		DCA6CD401EEBC21000C2966A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8393A72295C0E5B5F846C6EC /* Pods-CollegeBuyerUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = CleeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Clee.CleeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = CollegeBuyer;
-			};
-			name = Debug;
-		};
-		DCA6CD411EEBC21000C2966A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CAAD745EA2369C62B4ECCD05 /* Pods-CollegeBuyerUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = CleeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Clee.CleeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = CollegeBuyer;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DC7433C621AA28280076C45C /* Build configuration list for PBXNativeTarget "CleeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7433C721AA28280076C45C /* Debug */,
+				DC7433C821AA28280076C45C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC7433E221AA286C0076C45C /* Build configuration list for PBXNativeTarget "CleeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7433E321AA286C0076C45C /* Debug */,
+				DC7433E421AA286C0076C45C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DCA6CD0C1EEBC21000C2966A /* Build configuration list for PBXProject "Clee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1027,24 +995,6 @@
 			buildConfigurations = (
 				DCA6CD3A1EEBC21000C2966A /* Debug */,
 				DCA6CD3B1EEBC21000C2966A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DCA6CD3C1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CleeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DCA6CD3D1EEBC21000C2966A /* Debug */,
-				DCA6CD3E1EEBC21000C2966A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DCA6CD3F1EEBC21000C2966A /* Build configuration list for PBXNativeTarget "CleeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DCA6CD401EEBC21000C2966A /* Debug */,
-				DCA6CD411EEBC21000C2966A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
